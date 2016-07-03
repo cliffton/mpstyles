@@ -1,0 +1,212 @@
+<div ng-controller = "homeCtrl">
+
+<header class="container-fluid">
+		<div class="menu-wrapper" ng-class="{'visibility':toggleMenuFlag}">
+			<span class="close-menu visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-arrow-left"></i></span>
+			<h3 class="visible-xs">Menu</h3>
+			<span class="visible-xs shippingInfoSmall">{{::shipping.text}}<small>{{::shipping.info}}</small></span>
+			<div class="pull-right">
+				<span class="shippingInfo"> <i class="fa fa-truck theme-color" aria-hidden="true"></i> {{::shipping.text}}<small>{{::shipping.info}}</small></span>
+			</div>
+			<ul class="nav-list text-center effect">
+				<li ng-class="{active: $index == selected}" ng-click="select($index)" ng-repeat="tab in headerTabs"><a ng-class="{'highlighted-text': tab.name == 'Offer Zone'}" 
+				href="#/{{::tab.link}}">{{::tab.name}}</a></li>
+			</ul>
+			
+			<div class="visible-xs mt-info">
+				<ul>
+					<li ng-repeat="info in infoTabs"><a href="#/{{::info.link}}">{{::info.name}}</a></li>
+				</ul>
+			</div>
+		</div>	
+</header>
+
+<section class="container-fluid">
+	<div class="nav-header">
+			<a class="instagram-connect pull-left" href="https://www.instagram.com/explore/tags/manpriya/" class="pull-left">
+				<img src="bower_components/content/img/instagram.png" alt="instagram connect">
+			</a>
+			<a class="nav-icon-outline pull-right visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-list fa-2x"></i></a>
+			<a class="nav-icon-outline pull-right" href="#/home"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="cartCount"></span></a>
+			<a href="#login" class="loginText pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> {{::login.label}}</a>
+			<a href="#home" class="nav-brand">MANPRIYA <span>STYLES</span></a>
+		</div>
+</section>
+
+<section class="container-fluid productlist">
+			<div class="row top-buffer">
+				<div class="col-sm-3">
+					<a href="#/product-description">
+						<img src="bower_components/content/img/image9.jpg" class="img-responsive" alt="item">
+					</a>
+					<span class="product-price"> 
+						<img class="buyNow" src="bower_components/content/img/button_buy_now.png">
+						<span>&#8377; 260.00</span>
+						<span class="pull-right"><small>4 likes</small><i class="fa fa-heart-o"></i></span>
+					</span>
+				</div>
+				<div class="col-sm-3">
+					<a href="#/product-description">
+						<img src="bower_components/content/img/image02.jpg" class="img-responsive" alt="item">
+					</a>
+					<span class="product-price"> 
+						<img class="buyNow" src="bower_components/content/img/button_buy_now.png">
+						<span>&#8377; 270.00</span>
+						<span class="pull-right"><small>0 likes</small><i class="fa fa-heart-o"></i></span>
+					</span>
+				</div>
+				<div class="col-sm-3">
+					<a href="#/product-description">
+						<img src="bower_components/content/img/image03.jpg" class="img-responsive" alt="item">
+					</a>
+					<span class="product-price"> 
+						<img class="buyNow" src="bower_components/content/img/button_buy_now.png">
+						<span>&#8377; 24.00</span>
+						<span class=" pull-right"><small>23 likes</small><i class="fa fa-heart-o"></i></span>
+					</span>
+				</div>
+				<div class="col-sm-3">
+					<a href="#/product-description">
+						<img src="bower_components/content/img/image14.jpg" class="img-responsive" alt="item">
+					</a>
+					<span class="product-price"> 
+						<img class="buyNow" src="bower_components/content/img/button_buy_now.png">
+						<span>&#8377; 74.00</span>
+						<span class=" pull-right"><small>156 likes</small><i class="fa fa-heart-o"></i></span>
+					</span>
+				</div>
+			</div>
+			<div class="row top-buffer">
+				<div class="col-sm-3">
+						<a href="#/product-description">
+							<img src="bower_components/content/img/image17.jpg" class="img-responsive" alt="item">
+						</a>
+							<span class="product-price"> 
+								<img class="buyNow" src="bower_components/content/img/button_buy_now.png">
+								<span class="">&#8377; 365.00</span>
+								<span class=" pull-right"><small>92 likes</small><i class="fa fa-heart-o"></i></span>
+							</span>
+				</div>
+				<div class="col-sm-3">
+					<a href="#/product-description">
+						<img src="bower_components/content/img/image18.jpg" class="img-responsive" alt="item">
+					</a>
+					<span class="product-price"> 
+						<img class="buyNow" src="bower_components/content/img/button_buy_now.png">
+						<span>&#8377; 984.00</span>
+						<span class=" pull-right"><small>32 likes</small><i class="fa fa-heart-o"></i></span>
+					</span>
+				</div>
+				<div class="col-sm-6">
+						<a href="#/product-description">
+							<img src="bower_components/content/img/image6.jpg" class="img-responsive" alt="item">
+						</a>
+							<div class="productlist-label">
+								<span class="sale-label">Sale</span>
+							</div>
+							<span class="product-price"> 
+								<img class="buyNow" src="bower_components/content/img/button_combo_offer.png">
+								<span>&#8377; 980.00</span>
+								<span class="original-price">
+										<span class="">&#8377; 1200.00</span>
+								</span>
+								<span class=" pull-right"><small>3 likes</small><i class="fa fa-heart-o"></i></span>
+							</span>
+												
+				</div>
+			</div>
+			<div class="row top-buffer">
+				<div class="col-sm-6">
+						<a href="#/product-description">
+							<img src="bower_components/content/img/image7.jpg" class="img-responsive" alt="item">
+						</a>
+							<div class="productlist-label">
+								<span class="sold-out-label">Sold Out</span>
+							</div>
+							<span class="product-price"> 
+								<img class="buyNow" src="bower_components/content/img/button_combo_offer.png">
+								<span>&#8377; 980.00</span>
+								<span class="original-price">
+										<span class="">&#8377; 1200.00</span>
+								</span>
+								<span class=" pull-right"><small>20 likes</small><i class="fa fa-heart-o"></i></span>
+							</span>
+				</div>
+				<div class="col-sm-3">
+					<a href="#/product-description">
+						<img src="bower_components/content/img/image4.jpg" class="img-responsive" alt="item">
+					</a>
+					<span class="product-price"> 
+						<img class="buyNow" src="bower_components/content/img/button_buy_now.png">
+						<span>&#8377; 984.00</span>
+						<span class=" pull-right"><small>72 likes</small><i class="fa fa-heart-o "></i></span>
+					</span>
+				</div>
+				<div class="col-sm-3">
+						<a href="#/product-description">
+							<img src="bower_components/content/img/image8.jpg" class="img-responsive" alt="item">
+						</a>
+						<span class="product-price"> 
+							<img class="buyNow" src="bower_components/content/img/button_combo_offer.png">
+							<span>&#8377; 98.00</span>
+							<span class=" pull-right"><small>90 likes</small><i class="fa fa-heart-o"></i></span>
+						</span>						
+				</div>
+			</div>
+			<div class="row top-buffer" id="more-items">
+				<div class="col-sm-3">
+					<a href="#/product-description">
+						<img src="bower_components/content/img/image15.jpg" class="img-responsive" alt="item">
+					</a>
+					<span class="product-price"> 
+						<img class="buyNow" src="bower_components/content/img/button_buy_now.png">
+						<span>&#8377; 85.00</span>
+						<span class=" pull-right"><small>8 likes</small><i class="fa fa-heart-o"></i></span>
+					</span>
+				</div>
+				<div class="col-sm-3">
+					<a href="#/product-description">
+						<img src="bower_components/content/img/image1.png" class="img-responsive" alt="item">
+					</a>
+					<span class="product-price"> 
+						<img class="buyNow" src="bower_components/content/img/button_buy_now.png">
+						<span>&#8377; 720.00</span>
+						<span class=" pull-right"><small>60 likes</small><i class="fa fa-heart-o"></i></span>
+					</span>
+				</div>
+				<div class="col-sm-6">
+					<a href="#/product-description">
+						<img src="bower_components/content/img/image10.jpg" class="img-responsive" alt="item">
+					</a>
+					<span class="product-price"> 
+							<img class="buyNow" src="bower_components/content/img/button_combo_offer.png">
+							<span>&#8377; 690.00</span>
+							<span class="original-price">
+									<span class="">&#8377; 1100.00</span>
+							</span>
+							<span class=" pull-right"><small>45 likes</small><i class="fa fa-heart-o"></i></span>
+					</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 text-center show-more">
+					<a href="#/home" class="btn btn-outline" id="showmore">Show more</a>
+				</div>	
+			</div>	
+		</section>
+
+<footer class="footer">
+	<div class="container-fluid">
+		<div class="pull-left copyright">
+			<ul class="nav-list effect">
+				<li ng-repeat="footerInfo in infoTabs"><a href="#/{{::footerInfo.link}}">{{::footerInfo.name}} | </a></li>
+			</ul>	
+		</div>
+		
+		<div class="pull-right copyright">
+		<p> <b>{{::brandName}}</b> © 2016. Developed by <a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank">Neville D'souza</a></p>
+		</div>
+	</div>
+</footer>
+
+</div>
