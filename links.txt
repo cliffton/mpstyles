@@ -1,0 +1,2 @@
+https://github.com/angular/angular-seed
+https://github.com/angular/angular-seed/blob/master/README.md
