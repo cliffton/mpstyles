@@ -520,17 +520,37 @@ a.nav-icon-outline:hover {
 }
 
 .login-page{
-	width: 100%;
+    width: 100%;
     height: 100%;
-    position: relative;
 }
 
 .login-page .signup-content{
-	padding:20px;
+    position: fixed;
+    top: 15%;
+    left: 40%;
+    padding: 5px 20px 10px 20px;
+    border: 1px solid #f1efef;
+    box-shadow: 5px 5px 3px #b7b6b6;
+}
+.login-page .signup-text{
+    color: #f998bc;
+    font-size:20px;
+    letter-spacing:1px
+}
+
+.login-page .homeText {
+    font-weight: 300;
+    font-size: 15px;
+    color: #b3b1b2;
 }
 
 .login-page .login-content{
-	padding:20px;
+position: fixed;
+top: 25%;
+left: 35%;
+padding: 10px 10px 0px 10px;
+border: 1px solid #f1efef;
+box-shadow: 5px 5px 3px #b7b6b6;
 }
 
 .login-page .form-control {
@@ -565,7 +585,7 @@ a.nav-icon-outline:hover {
     color: #fff;
 	font-size: 20px;
     text-decoration: none;
-	float:left;
+	float:right;
 }
 
 .login-page .loginBtn {
@@ -577,6 +597,7 @@ a.nav-icon-outline:hover {
     box-shadow: none;
     margin-left: 15px;
     color: #fff;
+    margin-bottom: 30px;
 }
 
 .login-page a.member{
