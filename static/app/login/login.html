@@ -1,28 +1,29 @@
 <div class="login-page">
 	<div class="login-content">
-		<form>
+		<div ng-if="isInvalid" class="alert alert-danger"><strong>Error!</strong> {{errorMessage}}</div>
+		<i ng-if="dataLoading" class="fa-li fa fa-spinner fa-spin fa-2x"></i>
+		<form name="form" ng-submit="login()" role="form">
 				<div class="pull-left">
 					<div class="form-group">
-						<input type="text" class="form-control input-lg" id="" placeholder="EMAIL">
+						<input type="text" class="form-control input-lg" placeholder="EMAIL" ng-model="email" required>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control input-lg" id="" placeholder="PASSWORD">
+						<input type="password" class="form-control input-lg" placeholder="PASSWORD" ng-model="password" required>
 					</div>
 
 					<div class="form-group">
 						<label class="checkbox1" for="Option">
 						<input id="Option" type="checkbox" class="">
 						<span></span>
-						</label>remember me
-						<span class="pass"> forgot password?</span>
-						<a class="member" href="#/register"> Not a Member ? Register with us </a>
+						</label>{{::rememberNote}}
+						<span class="pass">{{::forgotPasswordNote}}</span>
+						<a class="member" href="#/register">{{::notMemberNote}}</a>
 					</div>
 				</div>
-
 				<div class="pull-left">
 					<button type="submit" class="loginBtn"><i class="fa fa-chevron-right fa-3x" aria-hidden="true"></i></button>
 					<div>
-						<a href="#/home" class="pull-right homeText">HOME <i class="fa fa-level-up fa-2x" aria-hidden="true"></i></a>
+						<a href="#/home" class="pull-right homeText">{{::home}} <i class="fa fa-level-up fa-2x" aria-hidden="true"></i></a>
 					</div>
 				</div>
 		</form>

@@ -556,8 +556,7 @@ box-shadow: 5px 5px 3px #b7b6b6;
 .login-page .form-control {
 	background: #ffffff;
     box-shadow: none;
-    color: #fff;
-    font-weight: 600;
+    color: #908F8F;
 	border-radius: 0;
 }
 
@@ -598,6 +597,11 @@ box-shadow: 5px 5px 3px #b7b6b6;
     margin-left: 15px;
     color: #fff;
     margin-bottom: 30px;
+}
+
+.login-page .fa-spinner{
+    top: 60px;
+    left: 120px;
 }
 
 .login-page a.member{
