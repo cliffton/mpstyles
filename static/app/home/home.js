@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('myApp.home', [])
+angular.module('myApp.home', ['myApp.services.authentication'])
 
-.controller('homeCtrl', function($scope) {
+.controller('homeCtrl', function($scope, $routeParams, AuthenticationService) {
 
 	// header section
 	var tabsData =  [{name:"Accessories", id:1, link:"home"},
@@ -12,16 +12,26 @@ angular.module('myApp.home', [])
 	{name:"Offer Zone", id:5, link:"home"}
 	];
 
+    $scope.loggedInUser = angular.isDefined($routeParams.userId) || false;
+
 	$scope.headerTabs = tabsData;
+
+	$scope.userInfo = "Hello Neville !!";
   
 	$scope.login = {
 		label: "LOGIN / SIGN UP"
 	};
+
+	$scope.logout = function(){
+	    // logging out and clearing cookie
+	    AuthenticationService.clearCredentials();
+	    alert('You have logout successfully!');
+	};
 	
-	$scope.cartCount = 3;
+	$scope.cartCount = 0;
 	$scope.selected = 0;
 
-	$scope.select= function(index) {
+	$scope.select = function(index) {
 		$scope.selected = index; 
 	};
 
@@ -44,6 +54,5 @@ angular.module('myApp.home', [])
 	$scope.infoTabs = infoTabs;
 	
 	$scope.brandName = "MANPRIYA STYLES";
-	
 
 });

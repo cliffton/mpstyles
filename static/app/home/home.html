@@ -5,8 +5,8 @@
 			<span class="close-menu visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-arrow-left"></i></span>
 			<h3 class="visible-xs">Menu</h3>
 			<span class="visible-xs shippingInfoSmall">{{::shipping.text}}<small>{{::shipping.info}}</small></span>
-			<div class="pull-right">
-				<span class="shippingInfo"> <i class="fa fa-truck theme-color" aria-hidden="true"></i> {{::shipping.text}}<small>{{::shipping.info}}</small></span>
+			<div class="shippingInfo pull-right">
+				<span><i class="fa fa-truck theme-color" aria-hidden="true"></i> {{::shipping.text}}<small>{{::shipping.info}}</small></span>
 			</div>
 			<ul class="nav-list text-center effect">
 				<li ng-class="{active: $index == selected}" ng-click="select($index)" ng-repeat="tab in headerTabs"><a ng-class="{'highlighted-text': tab.name == 'Offer Zone'}" 
@@ -27,8 +27,9 @@
 				<img src="content/img/instagram.png" alt="instagram connect">
 			</a>
 			<a class="nav-icon-outline pull-right visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-list fa-2x"></i></a>
-			<a class="nav-icon-outline pull-right" href="#/home"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="cartCount"></span></a>
-			<a href="#login" class="loginText pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> {{::login.label}}</a>
+			<a class="nav-icon-outline pull-right" href="#secure/1/cart"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="cartCount"></span></a>
+			<a href="#login" ng-if="!loggedInUser" class="loginText pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> {{::login.label}}</a>
+			<a href="#home" ng-if="loggedInUser" class="loginText pull-right" ng-click="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i></i> {{userInfo}}</a>
 			<a href="#home" class="nav-brand">MANPRIYA <span>STYLES</span></a>
 		</div>
 </section>
@@ -36,7 +37,7 @@
 <section class="container-fluid productlist">
 			<div class="row top-buffer">
 				<div class="col-sm-3">
-					<a href="#/product-description">
+					<a href="#secure/1/product-description">
 						<img src="content/img/image9.jpg" class="img-responsive" alt="item">
 					</a>
 					<span class="product-price"> 
@@ -46,7 +47,7 @@
 					</span>
 				</div>
 				<div class="col-sm-3">
-					<a href="#/product-description">
+					<a href="#secure/1/product-description">
 						<img src="content/img/image02.jpg" class="img-responsive" alt="item">
 					</a>
 					<span class="product-price"> 
@@ -56,7 +57,7 @@
 					</span>
 				</div>
 				<div class="col-sm-3">
-					<a href="#/product-description">
+					<a href="#secure/1/product-description">
 						<img src="content/img/image03.jpg" class="img-responsive" alt="item">
 					</a>
 					<span class="product-price"> 
@@ -66,7 +67,7 @@
 					</span>
 				</div>
 				<div class="col-sm-3">
-					<a href="#/product-description">
+					<a href="#secure/1/product-description">
 						<img src="content/img/image14.jpg" class="img-responsive" alt="item">
 					</a>
 					<span class="product-price"> 
@@ -78,7 +79,7 @@
 			</div>
 			<div class="row top-buffer">
 				<div class="col-sm-3">
-						<a href="#/product-description">
+						<a href="#secure/1/product-description">
 							<img src="content/img/image17.jpg" class="img-responsive" alt="item">
 						</a>
 							<span class="product-price"> 
@@ -88,7 +89,7 @@
 							</span>
 				</div>
 				<div class="col-sm-3">
-					<a href="#/product-description">
+					<a href="#secure/1/product-description">
 						<img src="content/img/image18.jpg" class="img-responsive" alt="item">
 					</a>
 					<span class="product-price"> 
@@ -98,7 +99,7 @@
 					</span>
 				</div>
 				<div class="col-sm-6">
-						<a href="#/product-description">
+						<a href="#secure/1/product-description">
 							<img src="content/img/image6.jpg" class="img-responsive" alt="item">
 						</a>
 							<div class="productlist-label">
@@ -117,7 +118,7 @@
 			</div>
 			<div class="row top-buffer">
 				<div class="col-sm-6">
-						<a href="#/product-description">
+						<a href="#secure/1/product-description">
 							<img src="content/img/image7.jpg" class="img-responsive" alt="item">
 						</a>
 							<div class="productlist-label">
@@ -133,7 +134,7 @@
 							</span>
 				</div>
 				<div class="col-sm-3">
-					<a href="#/product-description">
+					<a href="#secure/1/product-description">
 						<img src="content/img/image4.jpg" class="img-responsive" alt="item">
 					</a>
 					<span class="product-price"> 
@@ -143,7 +144,7 @@
 					</span>
 				</div>
 				<div class="col-sm-3">
-						<a href="#/product-description">
+						<a href="#secure/1/product-description">
 							<img src="content/img/image8.jpg" class="img-responsive" alt="item">
 						</a>
 						<span class="product-price"> 
@@ -155,7 +156,7 @@
 			</div>
 			<div class="row top-buffer" id="more-items">
 				<div class="col-sm-3">
-					<a href="#/product-description">
+					<a href="#secure/1/product-description">
 						<img src="content/img/image15.jpg" class="img-responsive" alt="item">
 					</a>
 					<span class="product-price"> 
@@ -165,7 +166,7 @@
 					</span>
 				</div>
 				<div class="col-sm-3">
-					<a href="#/product-description">
+					<a href="#secure/1/product-description">
 						<img src="content/img/image1.png" class="img-responsive" alt="item">
 					</a>
 					<span class="product-price"> 
@@ -175,7 +176,7 @@
 					</span>
 				</div>
 				<div class="col-sm-6">
-					<a href="#/product-description">
+					<a href="#secure/1/product-description">
 						<img src="content/img/image10.jpg" class="img-responsive" alt="item">
 					</a>
 					<span class="product-price"> 

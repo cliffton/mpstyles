@@ -13,6 +13,7 @@ angular.module('myApp', [
   'myApp.deliveryReturns',
   'myApp.faqs',
   'myApp.productDescription',
+  'myApp.cart',
   'myApp.version'
 ])
 .config(['$routeProvider', function($routeProvider) {
@@ -28,6 +29,14 @@ angular.module('myApp', [
       when('/home', {
         templateUrl: 'home/home.html',
         controller: 'homeCtrl'
+      }).
+      when('/home/:userId', {
+        templateUrl: 'home/home.html',
+        controller: 'homeCtrl'
+      }).
+      when('/secure/:userId/cart', {
+          templateUrl: 'cart/cart.html',
+          controller: 'cartCtrl'
       }).
 	  when('/about-us', {
         templateUrl: 'aboutUs/aboutUs.html',
@@ -49,11 +58,27 @@ angular.module('myApp', [
         templateUrl: 'faqs/faqs.html',
         controller: 'faqsCtrl'
       }).
-	  when('/product-description', {
+	  when('/secure/:productId/product-description', {
         templateUrl: 'productDescription/productDescription.html',
         controller: 'productDescriptionCtrl'
-      }).
-	  otherwise({                      
-            template: 'Page not found'   
-      });
-}]);
+      })
+	  .otherwise({ redirectTo: '/home' });
+}])
+.run(['$rootScope', '$location', '$cookieStore', '$http',
+    function ($rootScope, $location, $cookieStore, $http) {
+        // keep user logged in after page refresh
+        $rootScope.globals = $cookieStore.get('globals') || {};
+        if ($rootScope.globals.currentUser) {
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+        }
+
+        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+            // redirect to login page if user is not logged in and trying to access cart or product description page
+               var isSecured = next.indexOf('/secure') !== -1;
+            if (!$rootScope.globals.currentUser && isSecured) {
+                /* save the user's location to take him back to the same page after he has logged-in */
+                $rootScope.savedLocation = $location.url();
+                $location.path('/login');
+            }
+        });
+    }]);
