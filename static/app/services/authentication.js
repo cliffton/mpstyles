@@ -8,9 +8,32 @@ angular.module('myApp.services.authentication', [])
             /* Dummy authentication for testing, uses $timeout to simulate api call
              ----------------------------------------------*/
             $timeout(function(){
-                var response = { success: email === 'test' && password === 'test' };
+                var response = { success: email === 'test@gmail.com' && password === 'test' };
                 if(!response.success) {
                     response.message = 'Email or Password entered is incorrect';
+                }
+                callback(response);
+            }, 1000);
+
+
+            /* Use this for real authentication
+             ----------------------------------------------*/
+            //$http.post('/api/authenticate', { email: email, password: password })
+            //    .success(function (response) {
+            //        callback(response);
+            //    });
+
+        };
+
+        service.signUp = function (register, callback) {
+
+            /* Dummy authentication for testing, uses $timeout to simulate api call
+             ----------------------------------------------*/
+            $timeout(function(){
+                var response = { success: register.name === 'neville' && register.email === 'test@gmail.com' && register.password === 'abc123'
+                && register.city === 'mumbai' && register.mobile ==='9892761957'};
+                if(!response.success) {
+                    response.message = 'Try again later';
                 }
                 callback(response);
             }, 1000);

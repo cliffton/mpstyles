@@ -30,7 +30,7 @@ angular.module('myApp', [
         templateUrl: 'home/home.html',
         controller: 'homeCtrl'
       }).
-      when('/home/:userId', {
+      when('secure/home/:userId', {
         templateUrl: 'home/home.html',
         controller: 'homeCtrl'
       }).
