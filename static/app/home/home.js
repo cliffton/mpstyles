@@ -27,6 +27,8 @@ angular.module('myApp.home', ['myApp.services.authentication'])
 	    AuthenticationService.clearCredentials();
 	    alert('You have logout successfully!');
 	};
+
+	$scope.limitedStock = "Limited Stock";
 	
 	$scope.cartCount = 0;
 	$scope.selected = 0;

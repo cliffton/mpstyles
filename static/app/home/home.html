@@ -38,10 +38,10 @@
 			<div class="row top-buffer">
 				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products">
 					<a href="#/secure/{{product.id}}/product-description">
-						<img src="{{product.sourcePath}}" class="img-responsive" alt="item">
+						<img ng-src="{{product.sourcePath}}" class="img-responsive" alt="item">
 					</a>
 					<div class="productlist-label" ng-if="product.isLimited">
-						<span class="sold-out-label">Limited Stock</span>
+						<span class="sold-out-label">{{::limitedStock}}</span>
 					</div>
 					<span class="product-price"> 
 						<img class="buyNow" src="content/img/button_buy_now.png">
@@ -53,10 +53,10 @@
 			<div class="row top-buffer">
 				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product1.isCombo]" ng-repeat="product1 in products1">
 					<a href="#/secure/{{product1.id}}/product-description">
-						<img src="{{product1.sourcePath}}" class="img-responsive" alt="item">
+						<img ng-src="{{product1.sourcePath}}" class="img-responsive" alt="item">
 					</a>
 					<div class="productlist-label" ng-if="product1.isLimited">
-						<span class="sold-out-label">Limited Stock</span>
+						<span class="sold-out-label">{{::limitedStock}}</span>
 					</div>
 					<span class="product-price">
 						<img class="buyNow" src="content/img/button_buy_now.png">
@@ -68,10 +68,10 @@
 			<div class="row top-buffer">
 				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product2.isCombo]" ng-repeat="product2 in products2">
 					<a href="#/secure/{{product2.id}}/product-description">
-						<img src="{{product2.sourcePath}}" class="img-responsive" alt="item">
+						<img ng-src="{{product2.sourcePath}}" class="img-responsive" alt="item">
 					</a>
 					<div class="productlist-label" ng-if="product2.isLimited">
-						<span class="sold-out-label">Limited Stock</span>
+						<span class="sold-out-label">{{::limitedStock}}</span>
 					</div>
 					<span class="product-price">
 						<img class="buyNow" src="content/img/button_buy_now.png">

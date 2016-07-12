@@ -911,10 +911,10 @@ color: #D4195E
 .sale-label,
 .sold-out-label {
     color: #D4195E;
-    font-weight: 400;
+    font-weight: 300;
     text-transform: uppercase;
-    padding: 3px 9px;
-    border: 1px solid #efc3d3;;
+    padding: 2px 5px;
+    border: 1px solid #efc3d3;
     background-color: #FFF;
     opacity: 0.9;
 }
