@@ -36,165 +36,56 @@
 
 <section class="container-fluid productlist">
 			<div class="row top-buffer">
-				<div class="col-sm-3">
-					<a href="#secure/1/product-description">
-						<img src="content/img/image9.jpg" class="img-responsive" alt="item">
+				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products">
+					<a href="#/secure/{{product.id}}/product-description">
+						<img ng-src="{{product.sourcePath}}" class="img-responsive" alt="item">
 					</a>
+					<div class="productlist-label" ng-if="product.isLimited">
+						<span class="sold-out-label">{{::limitedStock}}</span>
+					</div>
 					<span class="product-price"> 
 						<img class="buyNow" src="content/img/button_buy_now.png">
-						<span>&#8377; 260.00</span>
-						<span class="pull-right"><small>4 likes</small><i class="fa fa-heart-o"></i></span>
-					</span>
-				</div>
-				<div class="col-sm-3">
-					<a href="#secure/1/product-description">
-						<img src="content/img/image02.jpg" class="img-responsive" alt="item">
-					</a>
-					<span class="product-price"> 
-						<img class="buyNow" src="content/img/button_buy_now.png">
-						<span>&#8377; 270.00</span>
-						<span class="pull-right"><small>0 likes</small><i class="fa fa-heart-o"></i></span>
-					</span>
-				</div>
-				<div class="col-sm-3">
-					<a href="#secure/1/product-description">
-						<img src="content/img/image03.jpg" class="img-responsive" alt="item">
-					</a>
-					<span class="product-price"> 
-						<img class="buyNow" src="content/img/button_buy_now.png">
-						<span>&#8377; 24.00</span>
-						<span class=" pull-right"><small>23 likes</small><i class="fa fa-heart-o"></i></span>
-					</span>
-				</div>
-				<div class="col-sm-3">
-					<a href="#secure/1/product-description">
-						<img src="content/img/image14.jpg" class="img-responsive" alt="item">
-					</a>
-					<span class="product-price"> 
-						<img class="buyNow" src="content/img/button_buy_now.png">
-						<span>&#8377; 74.00</span>
-						<span class=" pull-right"><small>156 likes</small><i class="fa fa-heart-o"></i></span>
+						<span>&#8377; {{product.price}}</span>
+						<span class="pull-right"><small>{{product.likes}} likes</small><i class="fa fa-heart-o"></i></span>
 					</span>
 				</div>
 			</div>
 			<div class="row top-buffer">
-				<div class="col-sm-3">
-						<a href="#secure/1/product-description">
-							<img src="content/img/image17.jpg" class="img-responsive" alt="item">
-						</a>
-							<span class="product-price"> 
-								<img class="buyNow" src="content/img/button_buy_now.png">
-								<span class="">&#8377; 365.00</span>
-								<span class=" pull-right"><small>92 likes</small><i class="fa fa-heart-o"></i></span>
-							</span>
-				</div>
-				<div class="col-sm-3">
-					<a href="#secure/1/product-description">
-						<img src="content/img/image18.jpg" class="img-responsive" alt="item">
+				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product1.isCombo]" ng-repeat="product1 in products1">
+					<a href="#/secure/{{product1.id}}/product-description">
+						<img ng-src="{{product1.sourcePath}}" class="img-responsive" alt="item">
 					</a>
-					<span class="product-price"> 
+					<div class="productlist-label" ng-if="product1.isLimited">
+						<span class="sold-out-label">{{::limitedStock}}</span>
+					</div>
+					<span class="product-price">
 						<img class="buyNow" src="content/img/button_buy_now.png">
-						<span>&#8377; 984.00</span>
-						<span class=" pull-right"><small>32 likes</small><i class="fa fa-heart-o"></i></span>
+						<span>&#8377; {{product1.price}}</span>
+						<span class="pull-right"><small>{{product1.likes}} likes</small><i class="fa fa-heart-o"></i></span>
 					</span>
-				</div>
-				<div class="col-sm-6">
-						<a href="#secure/1/product-description">
-							<img src="content/img/image6.jpg" class="img-responsive" alt="item">
-						</a>
-							<div class="productlist-label">
-								<span class="sale-label">Sale</span>
-							</div>
-							<span class="product-price"> 
-								<img class="buyNow" src="content/img/button_combo_offer.png">
-								<span>&#8377; 980.00</span>
-								<span class="original-price">
-										<span class="">&#8377; 1200.00</span>
-								</span>
-								<span class=" pull-right"><small>3 likes</small><i class="fa fa-heart-o"></i></span>
-							</span>
-												
 				</div>
 			</div>
 			<div class="row top-buffer">
-				<div class="col-sm-6">
-						<a href="#secure/1/product-description">
-							<img src="content/img/image7.jpg" class="img-responsive" alt="item">
-						</a>
-							<div class="productlist-label">
-								<span class="sold-out-label">Sold Out</span>
-							</div>
-							<span class="product-price"> 
-								<img class="buyNow" src="content/img/button_combo_offer.png">
-								<span>&#8377; 980.00</span>
-								<span class="original-price">
-										<span class="">&#8377; 1200.00</span>
-								</span>
-								<span class=" pull-right"><small>20 likes</small><i class="fa fa-heart-o"></i></span>
-							</span>
-				</div>
-				<div class="col-sm-3">
-					<a href="#secure/1/product-description">
-						<img src="content/img/image4.jpg" class="img-responsive" alt="item">
+				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product2.isCombo]" ng-repeat="product2 in products2">
+					<a href="#/secure/{{product2.id}}/product-description">
+						<img ng-src="{{product2.sourcePath}}" class="img-responsive" alt="item">
 					</a>
-					<span class="product-price"> 
+					<div class="productlist-label" ng-if="product2.isLimited">
+						<span class="sold-out-label">{{::limitedStock}}</span>
+					</div>
+					<span class="product-price">
 						<img class="buyNow" src="content/img/button_buy_now.png">
-						<span>&#8377; 984.00</span>
-						<span class=" pull-right"><small>72 likes</small><i class="fa fa-heart-o "></i></span>
-					</span>
-				</div>
-				<div class="col-sm-3">
-						<a href="#secure/1/product-description">
-							<img src="content/img/image8.jpg" class="img-responsive" alt="item">
-						</a>
-						<span class="product-price"> 
-							<img class="buyNow" src="content/img/button_combo_offer.png">
-							<span>&#8377; 98.00</span>
-							<span class=" pull-right"><small>90 likes</small><i class="fa fa-heart-o"></i></span>
-						</span>						
-				</div>
-			</div>
-			<div class="row top-buffer" id="more-items">
-				<div class="col-sm-3">
-					<a href="#secure/1/product-description">
-						<img src="content/img/image15.jpg" class="img-responsive" alt="item">
-					</a>
-					<span class="product-price"> 
-						<img class="buyNow" src="content/img/button_buy_now.png">
-						<span>&#8377; 85.00</span>
-						<span class=" pull-right"><small>8 likes</small><i class="fa fa-heart-o"></i></span>
-					</span>
-				</div>
-				<div class="col-sm-3">
-					<a href="#secure/1/product-description">
-						<img src="content/img/image1.png" class="img-responsive" alt="item">
-					</a>
-					<span class="product-price"> 
-						<img class="buyNow" src="content/img/button_buy_now.png">
-						<span>&#8377; 720.00</span>
-						<span class=" pull-right"><small>60 likes</small><i class="fa fa-heart-o"></i></span>
-					</span>
-				</div>
-				<div class="col-sm-6">
-					<a href="#secure/1/product-description">
-						<img src="content/img/image10.jpg" class="img-responsive" alt="item">
-					</a>
-					<span class="product-price"> 
-							<img class="buyNow" src="content/img/button_combo_offer.png">
-							<span>&#8377; 690.00</span>
-							<span class="original-price">
-									<span class="">&#8377; 1100.00</span>
-							</span>
-							<span class=" pull-right"><small>45 likes</small><i class="fa fa-heart-o"></i></span>
+						<span>&#8377; {{product2.price}}</span>
+						<span class="pull-right"><small>{{product2.likes}} likes</small><i class="fa fa-heart-o"></i></span>
 					</span>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-12 text-center show-more">
-					<a href="#/home" class="btn btn-outline" id="showmore">Show more</a>
+					<a href="#/home" class="btn btn-outline">Show more</a>
 				</div>	
-			</div>	
-		</section>
+			</div>
+</section>
 
 <footer class="footer">
 	<div class="container-fluid">

@@ -27,6 +27,8 @@ angular.module('myApp.home', ['myApp.services.authentication'])
 	    AuthenticationService.clearCredentials();
 	    alert('You have logout successfully!');
 	};
+
+	$scope.limitedStock = "Limited Stock";
 	
 	$scope.cartCount = 0;
 	$scope.selected = 0;
@@ -55,4 +57,80 @@ angular.module('myApp.home', ['myApp.services.authentication'])
 	
 	$scope.brandName = "MANPRIYA STYLES";
 
+	$scope.products =  [{
+        id: 1,
+        likes: 14,
+        price: 250,
+        sourcePath: "content/img/image9.jpg",
+        isCombo: 0,
+        isLimited: false
+      },
+      {  id: 2,
+         likes: 5,
+         price: 385,
+         sourcePath: "content/img/image02.jpg",
+         isCombo: 0,
+         isLimited: true
+      },
+      {  id: 3,
+         likes: 3,
+         price: 70,
+         sourcePath: "content/img/image03.jpg",
+         isCombo: 0,
+         isLimited: false
+      },
+      {
+        id: 4,
+        likes: 4,
+        price: 290,
+        sourcePath: "content/img/image14.jpg",
+        isCombo: 0,
+        isLimited: false
+      }];
+
+      $scope.products1 = [{
+          id: 5,
+          likes: 10,
+          price: 120,
+          sourcePath: "content/img/image17.jpg",
+          isCombo: 0,
+          isLimited: true
+       },
+       {  id: 6,
+          likes: 14,
+          price: 250,
+          sourcePath: "content/img/image18.jpg",
+          isCombo: 0,
+          isLimited: false
+       },
+       {  id: 7,
+          likes: 32,
+          price: 980,
+          sourcePath: "content/img/image6.jpg",
+          isCombo: 1,
+          isLimited: false
+       }];
+
+       $scope.products2 = [{
+         id: 5,
+         likes: 10,
+         price: 120,
+         sourcePath: "content/img/image7.jpg",
+         isCombo: 1,
+         isLimited: false
+      },
+      {  id: 6,
+         likes: 14,
+         price: 250,
+         sourcePath: "content/img/image4.jpg",
+         isCombo: 0,
+         isLimited: true
+      },
+      {  id: 7,
+         likes: 32,
+         price: 980,
+         sourcePath: "content/img/image8.jpg",
+         isCombo: 0,
+         isLimited: false
+      }];
 });
