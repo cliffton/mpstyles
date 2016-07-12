@@ -637,7 +637,7 @@ padding: 2px;
 
 .shippingInfoSmall{
     margin: 2px;
-    padding: 3px;
+    padding: 0px;
     color: white;
 }
 
@@ -914,7 +914,9 @@ color: #D4195E
     font-weight: 400;
     text-transform: uppercase;
     padding: 3px 9px;
-    border: 2px solid #D4195E
+    border: 1px solid #efc3d3;;
+    background-color: #FFF;
+    opacity: 0.9;
 }
 .sale-label {
     color: #D4195E;
