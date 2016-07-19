@@ -367,7 +367,7 @@ input[type=checkbox]:checked+span:before {
 }
 .effect li a {
     position: relative;
-    color: #585858;
+    color: #000;
     font-weight: 400;
     line-height: 20px;
     display: inline-block;
@@ -923,7 +923,15 @@ color: #D4195E
     border-color: #D4195E
 }
 .show-more {
-    margin-top: 30px
+    margin: 15px 0px 40px;
+}
+.show-more span{
+    cursor:pointer;
+    border: 1px solid #c7c7c7;
+    padding: 3px;
+}
+.buyNow:hover{
+    cursor:pointer;
 }
 .product-colors {
     padding: 0;

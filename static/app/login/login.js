@@ -19,7 +19,7 @@ $scope.login = function () {
     AuthenticationService.login($scope.email, $scope.password, function(response) {
         if(response.success) {
             AuthenticationService.setCredentials($scope.email, $scope.password);
-            $location.path('secure/home/1');
+            $location.path('secure/1/home');
         } else {
             $scope.errorMessage = response.message;
             $scope.dataLoading = false;

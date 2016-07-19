@@ -35,8 +35,8 @@
 </section>
 
 <section class="container-fluid productlist">
-			<div class="row top-buffer">
-				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products">
+			<div class="row top-buffer" ng-repeat="products in productList">
+				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products.product">
 					<a href="#/secure/{{product.id}}/product-description">
 						<img ng-src="{{product.sourcePath}}" class="img-responsive" alt="item">
 					</a>
@@ -50,39 +50,9 @@
 					</span>
 				</div>
 			</div>
-			<div class="row top-buffer">
-				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product1.isCombo]" ng-repeat="product1 in products1">
-					<a href="#/secure/{{product1.id}}/product-description">
-						<img ng-src="{{product1.sourcePath}}" class="img-responsive" alt="item">
-					</a>
-					<div class="productlist-label" ng-if="product1.isLimited">
-						<span class="sold-out-label">{{::limitedStock}}</span>
-					</div>
-					<span class="product-price">
-						<img class="buyNow" src="content/img/button_buy_now.png">
-						<span>&#8377; {{product1.price}}</span>
-						<span class="pull-right"><small>{{product1.likes}} likes</small><i class="fa fa-heart-o"></i></span>
-					</span>
-				</div>
-			</div>
-			<div class="row top-buffer">
-				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product2.isCombo]" ng-repeat="product2 in products2">
-					<a href="#/secure/{{product2.id}}/product-description">
-						<img ng-src="{{product2.sourcePath}}" class="img-responsive" alt="item">
-					</a>
-					<div class="productlist-label" ng-if="product2.isLimited">
-						<span class="sold-out-label">{{::limitedStock}}</span>
-					</div>
-					<span class="product-price">
-						<img class="buyNow" src="content/img/button_buy_now.png">
-						<span>&#8377; {{product2.price}}</span>
-						<span class="pull-right"><small>{{product2.likes}} likes</small><i class="fa fa-heart-o"></i></span>
-					</span>
-				</div>
-			</div>
 			<div class="row">
-				<div class="col-sm-12 text-center show-more">
-					<a href="#/home" class="btn btn-outline">Show more</a>
+				<div class="text-center show-more">
+					<span>{{::seeMore}} <i class="fa fa-caret-square-o-down" aria-hidden="true"></i></span>
 				</div>	
 			</div>
 </section>
