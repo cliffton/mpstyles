@@ -881,12 +881,19 @@ color: #D4195E
 .productlist .product-price {
     background-color: #fff;
     display: inline-block;
-    font-size: 12px;
-    padding: 1px;
     text-transform: none;
     letter-spacing: 2px;
-    font-style: normal;
     width: 100%;
+}
+.productlist .product-price span {
+    vertical-align:middle;
+}
+.productlist .product-price span.pull-right{
+    margin-top: 3px;
+    font-size: 13px;
+ }
+.productlist .product-price span.pull-right .liked{
+    color:red;
 }
 .productlist .product-price .original-price {
     text-decoration: line-through;

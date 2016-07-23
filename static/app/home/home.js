@@ -60,49 +60,62 @@ angular.module('myApp.home', ['myApp.services.authentication'])
 	
 	$scope.brandName = "MANPRIYA STYLES";
 
+	$scope.liked = function liked(product){
+	    var isLiked = product.isLiked;
+        isLiked ? product.likes++ : product.likes--;
+        product.isliked = !isLiked;
+	};
+
 	$scope.productList = [
 	    {product: [{
-                                 id: 1,
-                                 likes: 14,
-                                 price: 250,
-                                 sourcePath: "content/img/image9.jpg",
-                                 isCombo: 0,
-                                 isLimited: false
-                               },{  id: 2,
-                                  likes: 5,
-                                  price: 385,
-                                  sourcePath: "content/img/image02.jpg",
-                                  isCombo: 0,
-                                  isLimited: true
-                               },{  id: 3,
-                                  likes: 3,
-                                  price: 70,
-                                  sourcePath: "content/img/image03.jpg",
-                                  isCombo: 0,
-                                  isLimited: false
-                               },{
-                                 id: 4,
-                                 likes: 4,
-                                 price: 290,
-                                 sourcePath: "content/img/image14.jpg",
-                                 isCombo: 0,
-                                 isLimited: false
-                         		}], section: 1},
+             id: 1,
+             likes: 14,
+             isLiked: false,
+             price: 250,
+             sourcePath: "content/img/image9.jpg",
+             isCombo: 0,
+             isLimited: false
+           },{  id: 2,
+              likes: 5,
+              isLiked: true,
+              price: 385,
+              sourcePath: "content/img/image02.jpg",
+              isCombo: 0,
+              isLimited: true
+           },{  id: 3,
+              likes: 3,
+              isLiked: false,
+              price: 70,
+              sourcePath: "content/img/image03.jpg",
+              isCombo: 0,
+              isLimited: false
+           },{
+             id: 4,
+             likes: 4,
+             isLiked: false,
+             price: 290,
+             sourcePath: "content/img/image14.jpg",
+             isCombo: 0,
+             isLimited: false
+            }], section: 1},
         {product: [{
            id: 5,
            likes: 10,
+           isLiked: false,
            price: 120,
            sourcePath: "content/img/image17.jpg",
            isCombo: 0,
            isLimited: true
         },{  id: 6,
            likes: 14,
+           isLiked: false,
            price: 250,
            sourcePath: "content/img/image18.jpg",
            isCombo: 0,
            isLimited: false
         },{  id: 7,
            likes: 32,
+           isLiked: false,
            price: 980,
            sourcePath: "content/img/image6.jpg",
            isCombo: 1,
@@ -111,18 +124,21 @@ angular.module('myApp.home', ['myApp.services.authentication'])
         {product: [{
           id: 5,
           likes: 10,
+          isLiked: false,
           price: 120,
           sourcePath: "content/img/image7.jpg",
           isCombo: 1,
           isLimited: false
        },{  id: 6,
           likes: 14,
+          isLiked: false,
           price: 250,
           sourcePath: "content/img/image4.jpg",
           isCombo: 0,
           isLimited: true
        },{  id: 7,
           likes: 32,
+          isLiked: true,
           price: 980,
           sourcePath: "content/img/image8.jpg",
           isCombo: 0,
