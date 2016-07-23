@@ -43,11 +43,12 @@
 					<div class="productlist-label" ng-if="product.isLimited">
 						<span class="sold-out-label">{{::limitedStock}}</span>
 					</div>
-					<span class="product-price"> 
+					<div class="product-price">
 						<img class="buyNow" src="content/img/button_buy_now.png">
 						<span>&#8377; {{product.price}}</span>
-						<span class="pull-right"><small>{{product.likes}} likes</small><i class="fa fa-heart-o"></i></span>
-					</span>
+						<span class="pull-right">{{product.likes}} likes<i ng-class="{liked: product.isLiked == true}" ng-click="liked(product)" class="fa fa-heart-o"></i>
+						</span>
+					</div>
 				</div>
 			</div>
 			<div class="row">
