@@ -2,7 +2,7 @@
 
 angular.module('myApp.home', ['myApp.services.authentication'])
 
-.controller('homeCtrl', function($scope, $routeParams, AuthenticationService) {
+.controller('homeCtrl', function($scope, $routeParams, $anchorScroll, AuthenticationService) {
 
 	// header section
 	var tabsData =  [{name:"Accessories", id:1, link:"home"},
@@ -61,6 +61,10 @@ angular.module('myApp.home', ['myApp.services.authentication'])
 	$scope.brandName = "MANPRIYA STYLES";
 
     $scope.offset = 3;
+
+    $scope.goTop = function goTop(){
+        $anchorScroll();
+    };
 
 	$scope.productList = [
 	    {product: [{

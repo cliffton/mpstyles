@@ -2,12 +2,15 @@
 
 <header class="container-fluid">
 		<div class="menu-wrapper" ng-class="{'visibility':toggleMenuFlag}">
-			<span class="close-menu visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-arrow-left"></i></span>
-			<h3 class="visible-xs">Menu</h3>
 			<span class="visible-xs shippingInfoSmall">{{::shipping.text}}<small>{{::shipping.info}}</small></span>
+			<div class="visible-xs"><a href="#login" ng-if="!loggedInUser"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> {{::login.label}}</a>
+				<a href="#home" ng-if="loggedInUser" ng-click="logout()"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> {{userInfo}}</a>
+				<a class="pull-right" href="#secure/1/cart"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="cartCount"></span></a>
+			</div>
 			<div class="shippingInfo pull-right">
 				<span><i class="fa fa-truck theme-color" aria-hidden="true"></i> {{::shipping.text}}<small>{{::shipping.info}}</small></span>
 			</div>
+			<h3 class="visible-xs">Menu <span class="close-menu visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-arrow-left"></i></span></h3>
 			<ul class="nav-list text-center effect">
 				<li ng-class="{active: $index == selected}" ng-click="select($index)" ng-repeat="tab in headerTabs"><a ng-class="{'highlighted-text': tab.name == 'Offer Zone'}" 
 				href="#/{{::tab.link}}">{{::tab.name}}</a></li>
@@ -17,6 +20,9 @@
 				<ul>
 					<li ng-repeat="info in infoTabs"><a href="#/{{::info.link}}">{{::info.name}}</a></li>
 				</ul>
+				<a href="https://www.instagram.com/explore/tags/manpriya/" class="pull-left">
+					<img src="content/img/instagram.png" alt="instagram connect">
+				</a>
 			</div>
 		</div>	
 </header>
@@ -59,7 +65,7 @@
 			</div>
 </section>
 
-<span class="go-top"><i class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"></i></span>
+<span class="go-top" ng-click="goTop()"><i class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"></i></span>
 
 <footer class="footer">
 	<div class="container-fluid">
