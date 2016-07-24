@@ -29,7 +29,7 @@
 			<a class="nav-icon-outline pull-right visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-list fa-2x"></i></a>
 			<a class="nav-icon-outline pull-right" href="#secure/1/cart"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="cartCount"></span></a>
 			<a href="#login" ng-if="!loggedInUser" class="loginText pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> {{::login.label}}</a>
-			<a href="#home" ng-if="loggedInUser" class="loginText pull-right" ng-click="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i></i> {{userInfo}}</a>
+			<a href="#home" ng-if="loggedInUser" class="loginText pull-right" ng-click="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> {{userInfo}}</a>
 			<a href="#home" class="nav-brand">MANPRIYA <span>STYLES</span></a>
 		</div>
 </section>
@@ -58,6 +58,8 @@
 
 			</div>
 </section>
+
+<span class="go-top"><i class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"></i></span>
 
 <footer class="footer">
 	<div class="container-fluid">

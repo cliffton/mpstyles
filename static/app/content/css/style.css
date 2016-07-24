@@ -1208,6 +1208,12 @@ blockquote small {
 .footer .copyright ul.nav-list li {
     margin-left: 0
 }
+.go-top{
+position: fixed;
+bottom: 35px;
+right: 15px;
+}
+
 @media (max-width: 767px) {
 .footer {
         display:none;
