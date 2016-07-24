@@ -50,7 +50,7 @@ angular.module('myApp.home', ['myApp.services.authentication'])
 	
 	var infoTabs = [
 	{name:"About Us", id:1, link:"about-us"},
-	{name:"Blogs", id:2, link:"blogs"},
+	{name:"Customer Feedback", id:2, link:"blogs"},
 	{name:"Contact Us", id:3, link:"contact-us"},
 	{name:"Delivery & Returns", id:4, link:"delivery-returns"},
 	{name:"FAQ's", id:5, link:"faqs"}
@@ -60,11 +60,7 @@ angular.module('myApp.home', ['myApp.services.authentication'])
 	
 	$scope.brandName = "MANPRIYA STYLES";
 
-	$scope.liked = function liked(product){
-	    var isLiked = product.isLiked;
-        isLiked ? product.likes++ : product.likes--;
-        product.isliked = !isLiked;
-	};
+    $scope.offset = 3;
 
 	$scope.productList = [
 	    {product: [{
@@ -82,14 +78,7 @@ angular.module('myApp.home', ['myApp.services.authentication'])
               sourcePath: "content/img/image02.jpg",
               isCombo: 0,
               isLimited: true
-           },{  id: 3,
-              likes: 3,
-              isLiked: false,
-              price: 70,
-              sourcePath: "content/img/image03.jpg",
-              isCombo: 0,
-              isLimited: false
-           },{
+           },{id: 3, likes: 3, isLiked: false, price: 70, sourcePath: "content/img/image03.jpg", isCombo: 0,isLimited: false},{
              id: 4,
              likes: 4,
              isLiked: false,
@@ -97,11 +86,11 @@ angular.module('myApp.home', ['myApp.services.authentication'])
              sourcePath: "content/img/image14.jpg",
              isCombo: 0,
              isLimited: false
-            }], section: 1},
+            }]},
         {product: [{
            id: 5,
            likes: 10,
-           isLiked: false,
+           isLiked: true,
            price: 120,
            sourcePath: "content/img/image17.jpg",
            isCombo: 0,
@@ -120,7 +109,7 @@ angular.module('myApp.home', ['myApp.services.authentication'])
            sourcePath: "content/img/image6.jpg",
            isCombo: 1,
            isLimited: false
-        }], section: 2},
+        }]},
         {product: [{
           id: 5,
           likes: 10,
@@ -143,7 +132,77 @@ angular.module('myApp.home', ['myApp.services.authentication'])
           sourcePath: "content/img/image8.jpg",
           isCombo: 0,
           isLimited: false
-        }], section : 3}
+        }]},
+        {product: [{
+                     id: 1,
+                     likes: 14,
+                     isLiked: false,
+                     price: 270,
+                     sourcePath: "content/img/image15.jpg",
+                     isCombo: 0,
+                     isLimited: false
+                   },{  id: 2,
+                      likes: 9,
+                      isLiked: true,
+                      price: 185,
+                      sourcePath: "content/img/image20.jpg",
+                      isCombo: 0,
+                      isLimited: true
+                   },{id: 3, likes: 5, isLiked: true, price: 90, sourcePath: "content/img/image26.jpg", isCombo: 0,isLimited: false},{
+                     id: 4,
+                     likes: 43,
+                     isLiked: false,
+                     price: 95,
+                     sourcePath: "content/img/image23.jpg",
+                     isCombo: 0,
+                     isLimited: false
+                    }]},
+        {product: [{
+                   id: 5,
+                   likes: 10,
+                   isLiked: true,
+                   price: 120,
+                   sourcePath: "content/img/image24.jpg",
+                   isCombo: 0,
+                   isLimited: true
+                },{  id: 6,
+                   likes: 14,
+                   isLiked: false,
+                   price: 250,
+                   sourcePath: "content/img/image11.jpg",
+                   isCombo: 0,
+                   isLimited: false
+                },{  id: 7,
+                   likes: 32,
+                   isLiked: false,
+                   price: 980,
+                   sourcePath: "content/img/image6.jpg",
+                   isCombo: 1,
+                   isLimited: false
+                }]},
+        {product: [{
+                  id: 5,
+                  likes: 10,
+                  isLiked: false,
+                  price: 120,
+                  sourcePath: "content/img/image7.jpg",
+                  isCombo: 1,
+                  isLimited: false
+               },{  id: 6,
+                  likes: 14,
+                  isLiked: false,
+                  price: 250,
+                  sourcePath: "content/img/image4.jpg",
+                  isCombo: 0,
+                  isLimited: true
+               },{  id: 7,
+                  likes: 32,
+                  isLiked: true,
+                  price: 980,
+                  sourcePath: "content/img/image8.jpg",
+                  isCombo: 0,
+                  isLimited: false
+                }]}
     ];
 
 

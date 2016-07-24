@@ -457,7 +457,7 @@ input[type=checkbox]:checked+span:before {
     .nav-brand {
         float: left;
         width: auto;
-        font-size: 28px;
+        font-size: 25px;
         letter-spacing: -1px;
         border: 0;
 		margin-left:12px
@@ -878,6 +878,9 @@ color: #D4195E
     font-size: 20px;
     line-height: 20px
 }
+.productlist {
+    margin-bottom: 50px
+}
 .productlist .product-price {
     background-color: #fff;
     display: inline-block;
@@ -888,12 +891,17 @@ color: #D4195E
 .productlist .product-price span {
     vertical-align:middle;
 }
+
+.productlist .product-price span:first-of-type {
+    color:#d4195e;
+}
+
 .productlist .product-price span.pull-right{
-    margin-top: 3px;
+    margin-top: 4px;
     font-size: 13px;
  }
 .productlist .product-price span.pull-right .liked{
-    color:red;
+    color:#d4195e;
 }
 .productlist .product-price .original-price {
     text-decoration: line-through;
@@ -930,7 +938,7 @@ color: #D4195E
     border-color: #D4195E
 }
 .show-more {
-    margin: 15px 0px 40px;
+    margin: 15px 0px 0px;
 }
 .show-more span{
     cursor:pointer;

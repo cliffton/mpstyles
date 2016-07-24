@@ -35,7 +35,7 @@
 </section>
 
 <section class="container-fluid productlist">
-			<div class="row top-buffer" ng-repeat="products in productList">
+			<div class="row top-buffer" ng-repeat="products in productList | limitTo:offset">
 				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products.product">
 					<a href="#/secure/{{product.id}}/product-description">
 						<img ng-src="{{product.sourcePath}}" class="img-responsive" alt="item">
@@ -46,15 +46,16 @@
 					<div class="product-price">
 						<img class="buyNow" src="content/img/button_buy_now.png">
 						<span>&#8377; {{product.price}}</span>
-						<span class="pull-right">{{product.likes}} likes<i ng-class="{liked: product.isLiked == true}" ng-click="liked(product)" class="fa fa-heart-o"></i>
+						<span class="pull-right">{{product.likes}} likes<i ng-class="{liked: product.isLiked === true}" ng-click="product.isLiked = !product.isLiked; product.likes = product.likes + (product.isLiked == true ?  1 : -1)" class="fa fa-heart-o"></i>
 						</span>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="text-center show-more">
+				<div class="text-center show-more" ng-hide="productList.length === offset" ng-click="offset = offset + 1">
 					<span>{{::seeMore}} <i class="fa fa-caret-square-o-down" aria-hidden="true"></i></span>
-				</div>	
+				</div>
+
 			</div>
 </section>
 

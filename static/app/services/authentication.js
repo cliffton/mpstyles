@@ -8,7 +8,7 @@ angular.module('myApp.services.authentication', [])
             /* Dummy authentication for testing, uses $timeout to simulate api call
              ----------------------------------------------*/
             $timeout(function(){
-                var response = { success: email === 'test@gmail.com' && password === 'test' };
+                var response = { success: email === 'test@gmail.com' && password === 'abc123' };
                 if(!response.success) {
                     response.message = 'Email or Password entered is incorrect';
                 }
