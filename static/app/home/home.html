@@ -10,6 +10,9 @@
 			<div class="shippingInfo pull-right">
 				<span><i class="fa fa-truck theme-color" aria-hidden="true"></i> {{::shipping.text}}<small>{{::shipping.info}}</small></span>
 			</div>
+			<div class="search-box pull-right">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
 			<h3 class="visible-xs">Menu <span class="close-menu visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-arrow-left"></i></span></h3>
 			<ul class="nav-list text-center effect">
 				<li ng-class="{active: $index == selected}" ng-click="select($index)" ng-repeat="tab in headerTabs"><a ng-class="{'highlighted-text': tab.name == 'Offer Zone'}" 
@@ -43,9 +46,17 @@
 <section class="container-fluid productlist">
 			<div class="row top-buffer" ng-repeat="products in productList | limitTo:offset">
 				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products.product">
-					<a href="#/secure/{{product.id}}/product-description">
+					<div class="add-preview">
+							<a class="fa-stack fa-lg cartPlus" href="#/secure/{{product.id}}/cart" title="ADD TO CART">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
+							</a>
+							<a class="fa-stack fa-lg preview" href="#/secure/{{product.id}}/product-description" title="PREVIEW">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+							</a>
+					</div>
 						<img ng-src="{{product.sourcePath}}" class="img-responsive" alt="item">
-					</a>
 					<div class="productlist-label" ng-if="product.isLimited">
 						<span class="sold-out-label">{{::limitedStock}}</span>
 					</div>

@@ -348,7 +348,7 @@ input[type=checkbox]:checked+span:before {
     .menu-wrapper {
         border-top: 12px solid #868686;
         position: fixed;
-        z-index: 1;
+        z-index: 9;
         right: 0;
         top: 0;
         bottom: 0;
@@ -401,6 +401,15 @@ input[type=checkbox]:checked+span:before {
 	margin-top: 6px;
 }
 
+.search-box{
+    margin: 4px 4px 4px 0px;
+}
+.search-box input{
+        border-radius: 0px;
+        height: 24px;
+        padding: 2px;
+}
+
 .menu-wrapper .nav-list{
 	border: 6px solid transparent;
     -webkit-border-image: url(img/border_image.png) 30% round;
@@ -412,7 +421,7 @@ input[type=checkbox]:checked+span:before {
     list-style-type: none;
     display: block;
     margin: 7px auto;
-    padding: 0 2em;
+    padding: 0px;
     font-weight: 300;
     color: #fff;
 }
@@ -828,6 +837,19 @@ color: #D4195E
     padding: 15px 17px;
     margin: 0
 }
+.add-preview{
+    position: absolute;
+    z-index:1;
+    padding: 10px;
+}
+.add-preview .cartPlus,.preview{
+    opacity:0.6;
+}
+
+.add-preview .cartPlus:hover, .preview:hover{
+    opacity:1;
+}
+
 .breadcrumb a {
     color: #585858
 }
@@ -1196,6 +1218,10 @@ blockquote small {
 }
 .img-responsive {
     border: 1px solid #d4d4d4;
+}
+
+.img-responsive:hover {
+    box-shadow: 5px 0px 5px #b7b6b6;
 }
 .highlighted-text {
     color: #D4195E !important;
