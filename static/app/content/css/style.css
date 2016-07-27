@@ -399,6 +399,7 @@ input[type=checkbox]:checked+span:before {
 .shippingInfo{
 	color: #D4195E;
 	margin-top: 6px;
+	font-size: 12px;
 }
 
 .search-box{
