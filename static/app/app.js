@@ -78,6 +78,8 @@ angular.module('myApp', [
             if (!$rootScope.globals.currentUser && isSecured) {
                 /* save the user's location to take him back to the same page after he has logged-in */
                 $rootScope.savedLocation = $location.url();
+                $rootScope.alertToggle = true;
+                $rootScope.alertMessage = "You need to login first.";
                 $location.path('/login');
             }
         });

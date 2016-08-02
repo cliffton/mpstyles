@@ -305,46 +305,6 @@ input[type=checkbox]:checked+span:before {
     font-weight: 300
 }
 @media (max-width: 767px) {
-    .login-page .login-content,.signup-content{
-        left: 15% !important;
-    }
-    .menu-wrapper .nav-list {
-        padding: 0px !important;
-		border: none !important;
-    }
-	.menu-wrapper .mt-info ul li a{
-		color: #777;
-	}
-    .menu-wrapper .nav-list li {
-        display: list-item;
-        text-align: left;
-        font-size: 15px;
-        font-weight: 400;
-        z-index: 100;
-        border-bottom: 1px solid #e8e5e5;
-        opacity: 0.8;
-    }
-    .menu-wrapper .nav-list li a {
-        color: #000000 !important;
-        text-transform: uppercase;
-		background-color: #FFFFFF !important;
-		padding: 5px;
-		width: 100%;
-    }
-	
-	.menu-wrapper .nav-list li a:hover {
-        color: #fff !important;
-        background-color: #908F8F !important;
-	}
-	
-	.shippingInfo {
-		display:none;
-	}
-	.instagram-connect{
-		display:none;
-	}
-}
-@media (max-width: 767px) {
     .menu-wrapper {
         border-top: 12px solid #868686;
         position: fixed;
@@ -843,12 +803,24 @@ color: #D4195E
     z-index:1;
     padding: 10px;
 }
-.add-preview .cartPlus,.preview{
-    opacity:0.6;
+.add-preview .cartPlus{
+    opacity: 0.5;
+    color: #337ab7;
+}
+
+.add-preview .preview{
+    opacity: 0.5;
+    color: #337ab7;
 }
 
 .add-preview .cartPlus:hover, .preview:hover{
     opacity:1;
+}
+
+.login-page .alert{
+    height: 35px;
+    padding: 6px;
+    border-radius: 1px;
 }
 
 .breadcrumb a {
@@ -1217,13 +1189,11 @@ blockquote small {
     margin-bottom: 10px;
     text-transform: uppercase
 }
+
 .img-responsive {
     border: 1px solid #d4d4d4;
 }
 
-.img-responsive:hover {
-    box-shadow: 5px 0px 5px #b7b6b6;
-}
 .highlighted-text {
     color: #D4195E !important;
     font-weight: bold !important;
@@ -1242,10 +1212,14 @@ blockquote small {
 }
 .footer .copyright ul.nav-list {
     margin: 0 0 0 -15px;
-    padding: 0
+    padding: 0;
+    font-size: 13px;
 }
 .footer .copyright ul.nav-list li {
     margin-left: 0
+}
+.footer .pull-right {
+    font-size:12px;
 }
 .go-top{
 position: fixed;
@@ -1274,14 +1248,59 @@ right: 15px;
 }
 
 .nav-brand {
-font-size: 20px;
-margin-left: 5px;
+    font-size: 20px;
+    margin-left: 5px;
 }
 
 .loginText {
 	display:none;
 }
 
+}
+
+@media (max-width: 767px) {
+    .login-page .login-content,.signup-content{
+        left: 10% !important;
+    }
+    .login-page .loginBtn{
+        width:85px !important;
+        margin-left: 10px !important;
+    }
+    .menu-wrapper .nav-list {
+        padding: 0px !important;
+		border: none !important;
+    }
+	.menu-wrapper .mt-info ul li a{
+		color: #777;
+	}
+    .menu-wrapper .nav-list li {
+        display: list-item;
+        text-align: left;
+        font-size: 15px;
+        font-weight: 400;
+        z-index: 100;
+        border-bottom: 1px solid #e8e5e5;
+        opacity: 0.8;
+    }
+    .menu-wrapper .nav-list li a {
+        color: #000000 !important;
+        text-transform: uppercase;
+		background-color: #FFFFFF !important;
+		padding: 5px;
+		width: 100%;
+    }
+
+	.menu-wrapper .nav-list li a:hover {
+        color: #fff !important;
+        background-color: #908F8F !important;
+	}
+
+	.shippingInfo {
+		display:none;
+	}
+	.instagram-connect{
+		display:none;
+	}
 }
 
 @media (min-width:768px) and (max-width:1199px) {

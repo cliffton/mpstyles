@@ -1,6 +1,13 @@
 <div class="login-page">
 	<div class="login-content">
-		<div ng-if="isInvalid" class="alert alert-danger"><strong>Error!</strong> {{errorMessage}}</div>
+		<div class="alert alert-info" ng-show="alertToggle">
+			<a class="close" ng-click="alertToggle=!alertToggle">&times;</a>
+			<strong>Info!</strong> {{alertMessage}}
+		</div>
+		<div class="alert alert-danger" ng-show="isInvalid">
+			<a class="close" ng-click="isInvalid=!isInvalid">&times;</a>
+			<strong>Error!</strong> {{errorMessage}}
+		</div>
 		<i ng-if="dataLoading" class="fa-li fa fa-spinner fa-spin fa-2x"></i>
 		<form name="form" ng-submit="login()" role="form">
 				<div class="pull-left">
