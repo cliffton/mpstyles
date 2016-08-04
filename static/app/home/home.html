@@ -44,8 +44,8 @@
 </section>
 
 <section class="container-fluid productlist">
-			<div class="row top-buffer" ng-repeat="products in productList | limitTo:offset">
-				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products.product">
+			<div class="row top-buffer">
+				<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in productList | limitTo: 4">
 					<div class="add-preview">
 							<a class="fa-stack fa-lg cartPlus" href="#/secure/{{product.id}}/cart" title="ADD TO CART">
 								<i class="fa fa-circle fa-stack-2x"></i>

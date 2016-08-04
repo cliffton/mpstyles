@@ -68,6 +68,28 @@ angular.module('myApp.services.authentication', [])
             $http.defaults.headers.common.Authorization = 'Basic ';
         };
 
+        service.forgotPassword = function(email, callback){
+
+        /* Dummy authentication for testing, uses $timeout to simulate api call
+         ----------------------------------------------*/
+        $timeout(function(){
+            var response = { success: email === 'test@gmail.com'};
+            if(!response.success) {
+                response.message = 'Email id is not registered';
+            }
+            callback(response);
+        }, 1000);
+
+
+        /* Use this for real authentication
+         ----------------------------------------------*/
+        //$http.post('/api/authenticate', { email: email})
+        //    .success(function (response) {
+        //        callback(response);
+        //    });
+
+        };
+
         return service;
     })
 

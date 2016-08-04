@@ -8,8 +8,12 @@
 			<a class="close" ng-click="isInvalid=!isInvalid">&times;</a>
 			<strong>Error!</strong> {{errorMessage}}
 		</div>
+		<div class="alert alert-success" ng-show="valid">
+			<a class="close" ng-click="valid=!valid">&times;</a>
+			<strong>Success!</strong> {{successMessage}}
+		</div>
 		<i ng-if="dataLoading" class="fa-li fa fa-spinner fa-spin fa-2x"></i>
-		<form name="form" ng-submit="login()" role="form">
+		<form name="form" ng-submit="login()" role="form" ng-show="!isForgotPassword">
 				<div class="pull-left">
 					<div class="form-group">
 						<input type="email" class="form-control input-lg" placeholder="EMAIL" ng-model="email" required>
@@ -23,7 +27,7 @@
 						<input id="Option" type="checkbox" class="">
 						<span></span>
 						</label>{{::rememberNote}}
-						<span class="pass">{{::forgotPasswordNote}}</span>
+						<span class="pass" ng-click="isForgotPassword = !isForgotPassword">{{::forgotPasswordNote}}</span>
 						<a class="member" href="#/register">{{::notMemberNote}}</a>
 					</div>
 				</div>
@@ -33,6 +37,20 @@
 						<a href="#/home" class="pull-right homeText">{{::home}} <i class="fa fa-level-up fa-2x" aria-hidden="true"></i></a>
 					</div>
 				</div>
+		</form>
+		<form name="form1" ng-submit="forgotPassword()" role="form" ng-show="isForgotPassword">
+			<div class="pull-left">
+				<div class="form-group">
+					<input type="email" class="form-control input-lg" placeholder="EMAIL" ng-model="email" required>
+				</div>
+				<span><i class="fa fa-hand-o-right" aria-hidden="true"></i> {{::newPasswordMsg}}</span>
+			</div>
+			<div class="pull-left">
+				<button type="submit" class="loginBtn"><i class="fa fa-chevron-right fa-3x" aria-hidden="true"></i></button>
+				<div>
+					<a href="#/home" class="pull-right homeText">{{::home}} <i class="fa fa-level-up fa-2x" aria-hidden="true"></i></a>
+				</div>
+			</div>
 		</form>
 	</div>
 </div>

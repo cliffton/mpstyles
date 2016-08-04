@@ -593,7 +593,8 @@ padding: 2px;
 
 .login-page  span.pass {
     padding-top: 2px;
-    margin-left: 15px;
+    margin-left: 12px;
+    cursor: pointer
 }
 
 .loginText{
@@ -1242,22 +1243,6 @@ right: 15px;
 }
 }
 
-@media (max-width: 480px) { 
-.buyNow{
-	display:none;
-}
-
-.nav-brand {
-    font-size: 20px;
-    margin-left: 5px;
-}
-
-.loginText {
-	display:none;
-}
-
-}
-
 @media (max-width: 767px) {
     .login-page .login-content,.signup-content{
         left: 10% !important;
@@ -1303,9 +1288,34 @@ right: 15px;
 	}
 }
 
-@media (min-width:768px) and (max-width:1199px) {
+@media (max-width: 480px) {
 .buyNow{
 	display:none;
 }
+
+.nav-brand {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.loginText {
+	display:none;
+}
+
+.login-page .login-content,.signup-content{
+        left: 2% !important;
+}
+
+.login-page .loginBtn{
+    width:55px !important;
+    margin-left: 5px !important;
+}
+
+}
+
+@media (min-width:768px) and (max-width:1199px) {
+.buyNow{
+	display:none;
+    }
 }
 }
