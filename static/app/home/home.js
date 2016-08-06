@@ -32,6 +32,14 @@ angular.module('myApp.home', ['myApp.services.authentication'])
 	$scope.cartCount = 0;
 	$scope.selected = 0;
 
+    $scope.priceRange = 500;
+    $scope.priceMin = 0;
+    $scope.priceMax = 2000;
+
+    $scope.resetPriceRange = function(){
+        $scope.priceRange = 500;
+    };
+
 	$scope.select = function(index) {
 		$scope.selected = index; 
 	};

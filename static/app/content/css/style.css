@@ -4,7 +4,7 @@ html {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
     color: #585858;
-    font-size: 14px
+    font-size: 13px
 }
 body {
     background-color: #fff
@@ -48,6 +48,7 @@ a:focus {
     text-decoration: none;
     outline: 0
 }
+
 .color {
     background-color: #D4195E
 }
@@ -830,6 +831,32 @@ color: #D4195E
 .breadcrumb>.active {
     color: #ccc
 }
+.product-gallery{
+    width:80%;
+}
+.product-filter{
+    width:19%;
+    display: inline-block;
+}
+.product-filter .panel-default{
+    border-radius: 0px;
+}
+
+.product-filter .panel-heading {
+    padding: 5px 5px;
+}
+
+.product-filter .panel-body {
+    padding: 10px;
+}
+
+.product-filter .resetBtn{
+    background-color: #d4195e;
+    color: #fff;
+    padding: 1px 3px;
+    opacity: 0.8;
+    cursor:pointer
+}
 .productlist a .product-price {
     -webkit-transition: all .3s ease-out;
     -moz-transition: all .3s ease-out;
@@ -905,8 +932,8 @@ color: #D4195E
 }
 
 .productlist .product-price span.pull-right{
-    margin-top: 4px;
-    font-size: 13px;
+    margin-top: 3px;
+    font-size: 11px;
  }
 .productlist .product-price span.pull-right .liked{
     color:#d4195e;
@@ -1229,6 +1256,14 @@ right: 15px;
 }
 
 @media (max-width: 767px) {
+.product-gallery{
+    width:70%
+}
+
+.product-filter{
+    width:28%;
+    margin-left:10px
+}
 .footer {
         display:none;
 }
