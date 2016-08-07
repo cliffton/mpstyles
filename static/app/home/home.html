@@ -46,24 +46,47 @@
 <section class="container-fluid productlist">
 			<div class="row top-buffer">
 				<div class="product-filter">
-					<div class="panel panel-default sidebar-menu">
+					<div class="panel panel-default">
 						<div class="panel-heading">
 							<span>Price Range </span>
 							<span class="resetBtn pull-right" ng-click="resetPriceRange();"><i class="fa fa-times-circle"></i> Reset</span>
 						</div>
 						<div class="panel-body">
-							<form class="ng-pristine ng-valid">
-								<span>&#8377; {{priceMin}}</span>
-								<span class="pull-right">&#8377; {{priceMax}}</span>
-								<input type="range" name="points" min="0" max="2000" ng-model="priceRange">
-								<span>&#8377; {{priceRange}}</span>
-							</form>
+							<span>&#8377; {{priceMin}}</span>
+							<span class="pull-right">&#8377; {{priceMax}}</span>
+							<input type="range" name="points" min="0" max="2000" ng-model="priceRange">
+							<span>&#8377; {{priceRange}}</span>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<span><i class="search-icon fa fa-search nav-search-icon"></i></span>
+							<input type="text" class="filter-category" placeholder="Filter by Category" ng-model="categoryValue" autocomplete="off" autofocus="">
+						</div>
+						<div class="panel-body category-filter-panel">
+									<div ng-repeat="category in categories | filter:categoryValue as results">
+										<input type="checkbox" ng-model="filterCategory.type[category]" ng-true-value="'{{category}}'" ng-false-value="''">{{category}}
+									</div>
+							<div class="animate-repeat" ng-if="results.length === 0">
+								<strong>No category found...</strong>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<span>Sort By </span>
+							<span class="resetBtn pull-right" ng-click="resetSorting();"><i class="fa fa-times-circle"></i> Reset</span>
+						</div>
+						<div class="panel-body category-filter-panel">
+							<div ng-repeat="sortValue in sortBy">
+								<input type="checkbox" ng-model="filterSortBy.sort[sortValue]" ng-true-value="'{{sortValue}}'" ng-false-value="''">{{sortValue}}
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="product-gallery  pull-right">
 					<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in productList | limitTo: 4">
-					<div class="add-preview">
+					<div class="add-preview" ng-hide="true">
 							<a class="fa-stack fa-lg cartPlus" href="#/secure/{{product.id}}/cart" title="ADD TO CART">
 								<i class="fa fa-circle fa-stack-2x"></i>
 								<i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
@@ -73,7 +96,7 @@
 								<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
 							</a>
 					</div>
-						<img ng-src="{{product.sourcePath}}" class="img-responsive" alt="item">
+						<a href="#/secure/{{product.id}}/product-description"><img ng-src="{{product.sourcePath}}" class="img-responsive" alt="item"></a>
 					<div class="productlist-label" ng-if="product.isLimited">
 						<span class="sold-out-label">{{::limitedStock}}</span>
 					</div>
@@ -90,7 +113,6 @@
 				<div class="text-center show-more" ng-hide="productList.length === offset" ng-click="offset = offset + 1">
 					<span>{{::seeMore}} <i class="fa fa-caret-square-o-down" aria-hidden="true"></i></span>
 				</div>
-
 			</div>
 </section>
 

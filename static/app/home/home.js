@@ -49,6 +49,8 @@ angular.module('myApp.home', ['myApp.services.authentication'])
 		info:"*T & C"
 	};
 
+	$scope.categoryValue = "";
+
 	$scope.seeMore = "See More";
 	
 	$scope.toggleMenuFlag = true;
@@ -71,6 +73,22 @@ angular.module('myApp.home', ['myApp.services.authentication'])
 
     $scope.goTop = function goTop(){
         $anchorScroll();
+    };
+
+    $scope.categories = ['Choker','Bracelets','Rings','Bangles','Necklace'];
+
+    $scope.filterCategory = {
+        type: {}
+    };
+
+    $scope.sortBy = ['Price','Most Liked','Discount Offers','Combo Packs'];
+
+    $scope.filterSortBy = {
+        sort: {}
+    };
+
+    $scope.resetSorting = function() {
+        $scope.filterSortBy.sort = {};
     };
 
 	$scope.productList = [{

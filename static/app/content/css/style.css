@@ -200,10 +200,7 @@ input[type=radio] {
 address {
     font-size: 14px
 }
-input[type=radio],
-input[type=checkbox] {
-    display: none
-}
+
 input[type=radio]+span:before,
 input[type=checkbox]+span:before {
     position: relative;
@@ -846,8 +843,17 @@ color: #D4195E
     padding: 5px 5px;
 }
 
+.product-filter .panel-heading .filter-category {
+    width:80%
+}
+
 .product-filter .panel-body {
     padding: 10px;
+}
+
+.category-filter-panel {
+    height: 110px;
+    overflow: auto;
 }
 
 .product-filter .resetBtn{
@@ -1222,6 +1228,15 @@ blockquote small {
     border: 1px solid #d4d4d4;
 }
 
+.img-responsive:hover {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}
+
 .highlighted-text {
     color: #D4195E !important;
     font-weight: bold !important;
@@ -1261,7 +1276,7 @@ right: 15px;
 }
 
 .product-filter{
-    width:28%;
+    width:27%;
     margin-left:10px
 }
 .footer {
@@ -1324,9 +1339,6 @@ right: 15px;
 }
 
 @media (max-width: 480px) {
-.buyNow{
-	display:none;
-}
 
 .nav-brand {
     font-size: 20px;
@@ -1346,11 +1358,20 @@ right: 15px;
     margin-left: 5px !important;
 }
 
+.product-filter {
+    width: 85%;
+    margin: 0px 25px;
 }
 
-@media (min-width:768px) and (max-width:1199px) {
-.buyNow{
-	display:none;
-    }
+.product-gallery {
+    width: 100%
 }
+
+}
+
+@media (max-width:1099px) {
+    .buyNow{
+        display:none;
+        }
+    }
 }
