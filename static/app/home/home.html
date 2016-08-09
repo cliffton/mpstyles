@@ -11,7 +11,7 @@
 				<span><i class="fa fa-truck theme-color" aria-hidden="true"></i> {{::shipping.text}}<small>{{::shipping.info}}</small></span>
 			</div>
 			<div class="search-box pull-right">
-				<input type="text" class="form-control" placeholder="Search">
+				<input type="text" class="form-control" ng-model="$ctrl.query" placeholder="Search">
 			</div>
 			<h3 class="visible-xs">Menu <span class="close-menu visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-arrow-left"></i></span></h3>
 			<ul class="nav-list text-center effect">
@@ -85,7 +85,7 @@
 					</div>
 				</div>
 				<div class="product-gallery  pull-right">
-					<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in productList | limitTo: 4">
+					<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in productList | filter:$ctrl.query | limitTo: 4">
 					<div class="add-preview" ng-hide="true">
 							<a class="fa-stack fa-lg cartPlus" href="#/secure/{{product.id}}/cart" title="ADD TO CART">
 								<i class="fa fa-circle fa-stack-2x"></i>
