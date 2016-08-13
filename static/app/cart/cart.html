@@ -1,1 +1,146 @@
-<h1> cart </h1>
+<div class="container-fluid">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="#home">{{::home}}</a></li>
+            <li class="active">{{::cart}}</li>
+        </ol>
+    </div>
+</div>
+
+<div class="container-fluid title">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>{{::shopping_cart}}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid cart-list">
+    <div class="row">
+        <div class="col-sm-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Items</th>
+                    <th>Unit Cost</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-right">Total</th>
+                    <!--<th class="text-right">Include</th>-->
+                    <th class="text-right">Remove</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in items">
+                    <td class="vert-align"><a href="#/secure/1/product-description">{{::item.name}}</a></td>
+                    <td class="vert-align">&#8377; {{::item.price}}</td>
+                    <td class="text-center vert-align"><input type="number" min="1" max="9" ng-model="item.quantity" ng-required></td>
+                    <td class="text-right vert-align">{{ item.quantity * item.price}}</td>
+                    <!--<td class="text-right vert-align"><input type="checkbox" ng-required></td>-->
+                    <td class="text-right vert-align"><a href="#" ng-click="removeItem($index)" class="remove-item"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                </tr>
+                <tr ng-if="total() == 0">
+                    <td colspan="5">
+                        <h2 class="text-center">Your cart is empty.</h2>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <a href=#secure/1/home class="paymentBtn">Continue shopping <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+            <hr>
+            <h4>National ORDERS</h4>
+            <p>Shipping costs for national orders will be applicable only if order is less than 500 INR.<br>
+                Tax will be charged as per government policy. Invoice will contain all the necessary break up.
+            </p>
+            <hr>
+            <h4>International ORDERS</h4>
+            <p>Shipping costs for international orders will be displayed at checkout.<br>
+                All international orders must have a ship-to destination outside of the United States. We cannot support customers with international billing addresses shipping to U.S. addresses.
+            </p>
+            <hr>
+            <div class="product-points">
+                <div class="pull-left">
+                    <img src="content/img/shipping.png">
+                    <div>FREE SHIPPING &amp; RETURNS</div>
+                </div>
+                <div class="pull-left">
+                    <img src="content/img/customerSatisfaction.png">
+                    <div>CUSTOMER SATISFACTION</div>
+                </div>
+                <div class="pull-left">
+                    <img src="content/img/quality.png">
+                    <div>ASSURED QUALITY</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3 pull-right" ng-if="total() > 0">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th colspan="3" class="table-header">Order summary</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Sub total:</td>
+                    <td></td>
+                    <td class="text-right"><b>&#8377; 1222</b></td>
+                </tr>
+                <tr>
+                    <td>Shipping cost:</td>
+                    <td></td>
+                    <td class="text-right">&#8377;  0</td>
+                </tr>
+                <tr>
+                    <td>Tax:</td>
+                    <td></td>
+                    <td class="text-right">&#8377; 45</td>
+                </tr>
+                <tr>
+                    <td>Promo code ?</td>
+                    <td></td>
+                    <td class="text-right"><input type="text" ng-model="promoCode"></td>
+                </tr>
+                <tr>
+                    <td>Total:</td>
+                    <td></td>
+                    <td id="total" class="text-right">&#8377; 1267</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="table-header" colspan="3">Kindly mention shipping Details</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Address:</td>
+                    <td></td>
+                    <td class="text-right"><b><textarea rows="2" cols="20"></textarea></b></td>
+                </tr>
+                <tr>
+                    <td>Pin code:</td>
+                    <td></td>
+                    <td class="text-right"><input type="text" ng-model="pinCode"></td>
+                </tr>
+                <tr>
+                    <td>Mobile:</td>
+                    <td></td>
+                    <td class="text-right"><input type="text" ng-model="contactNumber"></td>
+                </tr>
+                <tr>
+                    <td>Mail:</td>
+                    <td></td>
+                    <td class="text-right"><input type="text" ng-model="emailId"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <a href="checkout.html" class="addToCartBtn">Proceed to checkout <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+</div>

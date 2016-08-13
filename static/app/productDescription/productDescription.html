@@ -1,4 +1,4 @@
-<div class="container-fluid hidden-xs">
+<div class="container-fluid">
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="#home">{{::home}}</a></li>
@@ -8,67 +8,76 @@
 </div>
 
 <div class="container-fluid product">
-    <div class="row visible-xs product-mobile">
-        <div class="col-xs-12 text-center">
-            <h2 class="product-title">{{::productDetails.name}}</h2>
-            <div class="product-price">
-                <span class="price">&#8377; {{::productDetails.price}}</span>
-            </div>
-        </div>
-    </div>
     <div class="row">
-        <div class="col-sm-5">
+        <div class="col-sm-4 text-center">
             <img ng-src="{{productDetails.sourcePath}}" class="product-img" alt="default">
             <img ng-src="{{productDetails.sourcePath}}" class="product-img" alt="default">
-            <img ng-src="{{productDetails.sourcePath}}" class="product-img" alt="default">
+            <!--<img ng-src="{{productDetails.sourcePath}}" class="product-img" alt="default">-->
         </div>
-        <div class="col-sm-4">
-            <h2 class="product-title hidden-xs">{{::productDetails.name}}</h2>
-            <div class="product-price hidden-xs">
-                <span class="price">&#8377; {{::productDetails.price}}</span>
-            </div>
-            <div class="product-detail">
-                <p>Collect all of our hand-thrown vessels for endless arrangement possibilities, whether filled with flowers or dressed with beads.</p>
-                <ul>
-                    <li>Holds objects, collections of stones or shells, or candles (sold separately) for a striking display.</li>
-                    <li>Weighty bases are designed to counterbalance top-heavy stems.</li>
-                    <li>Fluid design is finished with a cut rim.</li>
-                    <li>Monogramming is available at an additional charge.</li>
-                    <li>Monogram will be centered on the side of the bowl.</li>
-                    <li>Small: 6.5" diameter, 7" high</li>
-                </ul>
-            </div>
-            <form action="product1.html" method="POST" class="myform">
-                <div class="form-group clearfix">
-                    <label class="control-label">Quantity</label>
-                    <select class="form-control">
-                        <option value="XS">XS</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
+        <div class="col-sm-6">
+                <h2 class="product-title">{{::productDetails.name}}</h2>
+                <div class="product-price">
+                    <span class="price">&#8377; {{::productDetails.price}}</span>
+                    <a href="#/secure/1/home" title="ADD TO CART" class="addToCartBtn">Add to Cart <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
                 </div>
-
-                <ul class="product-colors">
-                    <li class="selected"><a class="white" style="background-color:#FFF" data-original-title="" title=""> </a></li>
-                    <li class=""><a style="background-color:#000" data-original-title="" title=""> </a></li>
-                    <li class=""><a style="background-color:#49A3F1" data-original-title="" title=""> </a></li>
-                    <li class=""><a style="background-color:#FF6279" data-original-title="" title=""> </a></li>
-                </ul>
-
-                <div class="product-btn">
-                    <a href="" class="btn">Add To Cart</a>
+                <div class="product-detail">
+                    <h4 class="highlighted-text">Product Details</h4>
+                    <p>{{::productDetails.description}}</p>
+                    <ul>
+                        <li><b>Color : </b>{{::productDetails.color}}</li>
+                        <li><b>Product Code : </b>{{::productDetails.productCode}}</li>
+                        <li><b>In Stock : </b>{{::productDetails.inStock}}</li>
+                        <li><b>Warranty : </b>{{::productDetails.warranty}}</li>
+                        <li><b>COD : </b>{{::productDetails.COD}}</li>
+                        <li><b>Size: </b>{{::productDetails.size}}</li>
+                    </ul>
+                    <div>
+                        <b>Call or mail us in case of any queries:  </b> <br>
+                        +91 9892761957 / nevilledsouza28@gmail.com
+                    </div>
                 </div>
-            </form>
+                <hr>
+                <form class="myOrderForm">
+                    <h4 class="highlighted-text">Place an Order</h4>
+                    <div class="form-group">
+                        <span>Order Quantity  </span>
+                        <input type="number" name="quantity" min="1" max="5" ng-model="orderQuantity" ng-init="orderQuantity=1">
+                    </div>
+                    <div class="form-group">
+                        <span>Color  </span>
+                        <select name="repeatSelect" ng-model="selectedOption.id">
+                            <option ng-repeat="option in availableColorOptions" value="{{option.id}}">{{option.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <span>Payment Mode</span>
+                        <label class="radio-group">
+                            <input type="radio" ng-model="paymentMode.type" value="cod"> COD
+                        </label>
+                        <label class="radio-group">
+                            <input type="radio" ng-model="paymentMode.type" value="online_banking"> ONLINE BANKING
+                        </label>
+                    </div>
+
+                    <div class="product-btn">
+                        <a href=#secure/1/cart class="paymentBtn">Proceed to payment <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                    </div>
+                </form>
+                <hr>
+                <div class="product-points">
+                    <div class="pull-left">
+                        <img src="content/img/shipping.png">
+                        <div>FREE SHIPPING &amp; RETURNS</div>
+                    </div>
+                    <div class="pull-left">
+                        <img src="content/img/customerSatisfaction.png">
+                        <div>CUSTOMER SATISFACTION</div>
+                    </div>
+                    <div class="pull-left">
+                        <img src="content/img/quality.png">
+                        <div>ASSURED QUALITY</div>
+                    </div>
+                </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-8">
-            <div class="paging clearfix">
-                <a class="btn btn-outline pull-left" href="product2.html"><i class="icon-arrow-left2 left"></i><span>Previous</span><span class="hidden-xs"> Product</span></a>
-            </div>
-        </div>
-    </div>
-
 </div>

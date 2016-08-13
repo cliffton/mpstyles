@@ -29,7 +29,7 @@ angular.module('myApp.home', ['myApp.services.authentication'])
 
 	$scope.limitedStock = "Limited Stock";
 	
-	$scope.cartCount = 0;
+	$scope.cartCount = 3;
 	$scope.selected = 0;
 
     $scope.priceRange = 500;
