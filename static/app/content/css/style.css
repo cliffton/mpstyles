@@ -64,12 +64,6 @@ cursor:pointer;
     margin-left: auto;
     max-width: 1200px
 }
-.title h2 {
-    margin-bottom: 20px;
-    border-bottom: 2px solid #ebebeb;
-    padding-bottom: 15px;
-    font-weight: 400
-}
 .myform {
     padding-top: 5px;
     padding-bottom: 15px
@@ -201,6 +195,7 @@ input[type=radio] {
 .table .table-header{
     background-color: #f5f5f5;
     font-size: 14px;
+    border: 1px solid #ccc !important;
 }
 address {
     font-size: 14px
@@ -1057,7 +1052,8 @@ color: #D4195E
 }
 
 .product-points .pull-left{
-    margin-right:20px
+    margin-right:20px;
+    margin-bottom:10px
 }
 
 .addToCartBtn{
@@ -1169,6 +1165,14 @@ color: #D4195E
 }
 .cart-list a.remove-item th {
     font-size: 16px
+}
+
+.cart-list table.shopping-cart{
+    width:75%;
+}
+
+.cart-list table.order-summary{
+    width:75%;
 }
 .blog-sidebar h3 {
     margin-top: 28px
