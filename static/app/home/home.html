@@ -130,16 +130,24 @@
 
 <footer class="footer">
 	<div class="container-fluid">
-		<div class="pull-left copyright">
-			<ul class="nav-list effect">
-				<li ng-repeat="footerInfo in infoTabs"><a href="#/{{::footerInfo.link}}">{{::footerInfo.name}} | </a></li>
-			</ul>	
+		<div class="pull-left">
+			<ul class="link-list">
+				<li ng-repeat="footerInfo in infoTabs"><a href="#/{{::footerInfo.link}}">{{::footerInfo.name}} |</a></li>
+			</ul>
+			<p><b>{{::brandName}}</b> © 2016.
+			<a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank"> "NEVILLE SAVIO DSOUZA" </a></p>
 		</div>
-		
-		<div class="pull-right copyright">
-		<p> <b>{{::brandName}}</b> © 2016. Developed by <a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank">Neville D'souza</a></p>
+		<div class="pull-right">
+			<span class="newsLetterText">NEWSLETTER SIGN UP</span>
+			<form name="subscribeForm" target="_blank" class="input-group">
+				<input type="email" ng-model="" placeholder="Enter your email id" name="EMAIL">
+		<span>
+			<input type="submit" class="subscribeBtn" value="Subscribe" name="subscribe">
+		</span>
+			</form>
 		</div>
-	</div>
+
+		</div>
 </footer>
 
 </div>
