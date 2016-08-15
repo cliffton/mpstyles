@@ -278,4 +278,8 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	}];
 
 	$scope.productList = ArrayUtils.getDataInChunks(data, 4);
+
+    $scope.loggedInMessage = "Hope you have a wonderful experience shopping with us";
+    $scope.logoutMessage = "Kindly register or login to shop with us.";
+    $scope.showAlert = true;
 });

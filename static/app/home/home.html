@@ -11,7 +11,7 @@
 				<span><i class="fa fa-truck theme-color" aria-hidden="true"></i> {{::shipping.text}}<small>{{::shipping.info}}</small></span>
 			</div>
 			<div class="search-box pull-right">
-				<input type="text" class="form-control" ng-model="$ctrl.query" placeholder="Search">
+				<input type="text" class="form-control" ng-model="$ctrl.query" placeholder="Search by name, price..">
 			</div>
 			<h3 class="visible-xs">Menu <span class="close-menu visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-arrow-left"></i></span></h3>
 			<ul class="nav-list text-center effect">
@@ -85,6 +85,14 @@
 					</div>
 				</div>
 				<div class="pull-left product-gallery">
+					<div class="alert alert-success" ng-show="loggedInUser && showAlert">
+						<a class="close" ng-click="showAlert=!showAlert">&times;</a>
+						<strong>Successfully logged in !</strong> {{loggedInMessage}}
+					</div>
+					<div class="alert alert-warning" ng-show="!loggedInUser && showAlert">
+						<a class="close" ng-click="showAlert=!showAlert">&times;</a>
+						<strong>Not logged in !</strong> {{logoutMessage}}
+					</div>
 					<div ng-repeat="products in productList | limitTo: offset">
 						<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products | filter:$ctrl.query">
 							<div class="add-preview" ng-hide="true">
