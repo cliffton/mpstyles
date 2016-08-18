@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
     'profiles'
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -123,3 +126,11 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/home/ubuntu/mpstyles/static/'
 
 AUTH_USER_MODEL = 'profiles.User'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
