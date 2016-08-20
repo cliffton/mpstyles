@@ -13,7 +13,10 @@
 			<div class="search-box pull-right">
 				<input type="text" class="form-control" ng-model="$ctrl.query" placeholder="Search by name, price..">
 			</div>
-			<h3 class="visible-xs">Menu <span class="close-menu visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-arrow-left"></i></span></h3>
+			<h3 class="visible-xs">
+				<span class="pull-left">Menu</span>
+				<span class="close-menu visible-xs pull-right" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-chevron-left"></i></span>
+			</h3>
 			<ul class="nav-list text-center effect">
 				<li ng-class="{active: $index == selected}" ng-click="select($index)" ng-repeat="tab in headerTabs"><a ng-class="{'highlighted-text': tab.name == 'Offer Zone'}" 
 				href="#/{{::tab.link}}">{{::tab.name}}</a></li>
@@ -110,9 +113,9 @@
 								<span class="sold-out-label">{{::limitedStock}}</span>
 							</div>
 							<div class="product-price">
-								<img class="buyNow" src="content/img/button_buy_now.png">
+								<img class="buyNow" src="content/img/buy_now.png">
 								<span>&#8377; {{product.price}}</span>
-						<span class="pull-right">{{product.likes}} likes<i ng-class="{liked: product.isLiked === true}" ng-click="product.isLiked = !product.isLiked; product.likes = product.likes + (product.isLiked == true ?  1 : -1)" class="fa fa-heart-o"></i>
+						<span class="pull-right">SHORTLIST<i ng-class="{liked: product.isLiked === true}" ng-click="product.isLiked = !product.isLiked; product.likes = product.likes + (product.isLiked == true ?  1 : -1)" class="fa fa-heart-o"></i>
 						</span>
 							</div>
 						</div>
