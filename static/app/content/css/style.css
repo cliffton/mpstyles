@@ -54,6 +54,10 @@ a:focus {
     background-color: #D4195E
 }
 
+.alert{
+    padding:6px;
+}
+
 .fa-heart-o{
 cursor:pointer;
 }
@@ -307,7 +311,7 @@ input[type=checkbox]:checked+span:before {
     .menu-wrapper {
         border-top: 12px solid #6b9dc7;
         position: fixed;
-        z-index: 9;
+        z-index: 20;
         right: 0;
         top: 0;
         bottom: 0;
@@ -681,10 +685,7 @@ color: #D4195E
     transform: translate3d(-240px, 0, 0);
     overflow: hidden
 }
-.close-menu:hover {
-    color: #D4195E;
-    text-decoration: none
-}
+
 @media (max-width: 767px) {
     .close-menu {
         position: absolute;
@@ -837,10 +838,17 @@ color: #D4195E
     width:80%;
 }
 
-.product-gallery .alert{
+.product-gallery .alert,.carousel{
     margin: 0px 15px 15px;
-    padding: 6px;
     border-radius: 0px;
+}
+.product-gallery .carousel-control{
+    width: 4%;
+}
+.product-gallery .carousel-indicators li{
+    width: 12px;
+    height: 12px;
+    margin: 2px;
 }
 .product-filter{
     width:19%;
@@ -1447,7 +1455,7 @@ right: 15px;
 	.shippingInfo {
 		display:none;
 	}
-	.instagram-connect{
+	.social-connect{
 		display:none;
 	}
 }

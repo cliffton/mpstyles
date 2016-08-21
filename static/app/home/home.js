@@ -279,6 +279,33 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
 
 	$scope.productList = ArrayUtils.getDataInChunks(data, 4);
 
+     $scope.imgSourcePath = "content/img";
+     $scope.images = [
+        {pos:0, name: 'offer0.gif'},
+        {pos:1, name: 'offer1.gif'},
+        {pos:2, name: 'offer2.jpg'},
+        {pos:3, name: 'offer3.png'}
+     ];
+
+      // by default
+      var currentPos = 0;
+      $scope.currentImage = $scope.images[currentPos].name;
+
+      $scope.selectOffer = function(indexPos){
+         currentPos = indexPos;
+         $scope.currentImage = $scope.images[currentPos].name;
+      };
+
+      $scope.previousSel = function () {
+         currentPos = (currentPos == 0) ?  $scope.images.length - 1 : currentPos - 1;
+         $scope.currentImage = $scope.images[currentPos].name;
+      };
+
+      $scope.nextSel = function () {
+        currentPos = (currentPos == $scope.images.length-1) ?  0 : currentPos + 1;
+        $scope.currentImage = $scope.images[currentPos].name;
+      };
+
     $scope.loggedInMessage = "Hope you have a wonderful experience shopping with us";
     $scope.logoutMessage = "Kindly register or login to shop with us.";
     $scope.showAlert = true;

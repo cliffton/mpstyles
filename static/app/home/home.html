@@ -13,10 +13,7 @@
 			<div class="search-box pull-right">
 				<input type="text" class="form-control" ng-model="$ctrl.query" placeholder="Search by name, price..">
 			</div>
-			<h3 class="visible-xs">
-				<span class="pull-left">Menu</span>
-				<span class="close-menu visible-xs pull-right" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-chevron-left"></i></span>
-			</h3>
+			<h3 class="visible-xs">Menu<span ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-chevron-circle-left"></i></span></h3>
 			<ul class="nav-list text-center effect">
 				<li ng-class="{active: $index == selected}" ng-click="select($index)" ng-repeat="tab in headerTabs"><a ng-class="{'highlighted-text': tab.name == 'Offer Zone'}" 
 				href="#/{{::tab.link}}">{{::tab.name}}</a></li>
@@ -27,7 +24,7 @@
 					<li ng-repeat="info in infoTabs"><a href="#/{{::info.link}}">{{::info.name}}</a></li>
 				</ul>
 				<a href="https://www.instagram.com/explore/tags/manpriya/" class="pull-left">
-					<img src="content/img/instagram.png" alt="instagram connect">
+					<img src="content/img/social.jpg" alt="social connect">
 				</a>
 			</div>
 		</div>	
@@ -35,14 +32,14 @@
 
 <section class="container-fluid">
 	<div class="nav-header">
-			<a class="instagram-connect pull-left" href="https://www.instagram.com/explore/tags/manpriya/" class="pull-left">
-				<img src="content/img/instagram.png" alt="instagram connect">
-			</a>
+			<div class="social-connect pull-left" href="https://www.instagram.com/explore/tags/manpriya/" class="pull-left">
+				<img src="content/img/social.jpg" alt="social connect">
+			</div>
 			<a class="nav-icon-outline pull-right visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-list fa-2x"></i></a>
 			<a class="nav-icon-outline pull-right" href="#secure/1/cart"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="cartCount"></span></a>
 			<a href="#login" ng-if="!loggedInUser" class="loginText pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> {{::login.label}}</a>
 			<a href="#home" ng-if="loggedInUser" class="loginText pull-right" ng-click="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> {{userInfo}}</a>
-			<a href="#home" class="nav-brand">MANPRIYA <span>STYLES</span></a>
+			<a href="#home" class="nav-brand"> MANPRIYA <span>STYLES</span></a>
 		</div>
 </section>
 
@@ -95,6 +92,25 @@
 					<div class="alert alert-warning" ng-show="!loggedInUser && showAlert">
 						<a class="close" ng-click="showAlert=!showAlert">&times;</a>
 						<strong>Not logged in !</strong> {{logoutMessage}}
+					</div>
+					<div class="carousel slide">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+							<li ng-repeat="img in images" class="{active : (img.pos === 0)}" ng-click="selectOffer($index)"></li>
+						</ol>
+						<div class="carousel-inner">
+							<div ng-class="{item: true, active : (img.pos === 0)}" ng-repeat="img in images"> <img ng-src="{{imgSourcePath}}/{{currentImage}}" alt="offer not found">
+								<div class="container">
+									<div class="carousel-caption"> </div>
+								</div>
+							</div>
+						</div>
+						<a class="left carousel-control">
+							<span class="fa fa-chevron-left" ng-click="previousSel()"></span>
+						</a>
+						<a class="right carousel-control">
+							<span class="fa fa-chevron-right" ng-click="nextSel()"></span>
+						</a>
 					</div>
 					<div ng-repeat="products in productList | limitTo: offset">
 						<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products | filter:$ctrl.query">
