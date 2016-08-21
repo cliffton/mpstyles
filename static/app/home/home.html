@@ -106,14 +106,14 @@
 							</div>
 						</div>
 						<a class="left carousel-control">
-							<span class="fa fa-chevron-left" ng-click="previousSel()"></span>
+							<span class="fa fa-chevron-left fa-lg" ng-click="previousSel()"></span>
 						</a>
 						<a class="right carousel-control">
-							<span class="fa fa-chevron-right" ng-click="nextSel()"></span>
+							<span class="fa fa-chevron-right fa-lg" ng-click="nextSel()"></span>
 						</a>
 					</div>
 					<div ng-repeat="products in productList | limitTo: offset">
-						<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products | filter:$ctrl.query">
+						<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products | filter:$ctrl.query | filter: {type:categoryValue} | selectedOptions:types" ng-if="product.price < priceRange">
 							<div class="add-preview" ng-hide="true">
 								<a class="fa-stack fa-lg cartPlus" href="#/secure/{{product.id}}/cart" title="ADD TO CART">
 									<i class="fa fa-circle fa-stack-2x"></i>

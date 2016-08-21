@@ -1,7 +1,16 @@
 'use strict';
 
 angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.arrayUtils'])
-
+.filter('selectedOptions', function() {
+    return function(selectedOptions, types) {
+        return selectedOptions.filter(function(selectedOptions) {
+                if (types.indexOf(selectedOptions.type) != -1) {
+                    return true;
+                }
+            return false;
+        });
+    };
+})
 .controller('homeCtrl', function($scope, $routeParams, $anchorScroll, AuthenticationService, ArrayUtils) {
 
 	// header section
@@ -32,12 +41,12 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
 	$scope.cartCount = 3;
 	$scope.selected = 0;
 
-    $scope.priceRange = 500;
+    $scope.priceRange = 1000;
     $scope.priceMin = 0;
     $scope.priceMax = 2000;
 
     $scope.resetPriceRange = function(){
-        $scope.priceRange = 500;
+        $scope.priceRange = 1000;
     };
 
 	$scope.select = function(index) {
@@ -81,7 +90,9 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
         type: {}
     };
 
-    $scope.sortBy = ['Price','Most Liked','Discount Offers','Combo Packs'];
+    $scope.types = ['Choker','Bracelets','Rings','Bangles','Necklace'];
+
+    $scope.sortBy = ['Price','Shortlisted','Recent','On Discount'];
 
     $scope.filterSortBy = {
         sort: {}
@@ -97,7 +108,8 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    isLiked: true,
                    	    name: "Simple Braclet",
                    	    productCode: "A123",
-                   	    price: 120,
+                   	    type : 'Choker',
+                   	    price: 220,
                    	    sourcePath: "content/img/image17.jpg",
                    	    isCombo: 0,
                    	    isLimited: true
@@ -107,6 +119,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    isLiked: false,
                    	    name: "Beeded chain",
                    	    productCode: "C123",
+                   	    type : 'Choker',
                    	    price: 250,
                    	    sourcePath: "content/img/image18.jpg",
                    	    isCombo: 0,
@@ -116,8 +129,9 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    likes: 32,
                    	    isLiked: false,
                    	    name: "Chain",
-                   	    name: "Chooker",
+                   	    type: "Choker",
                    	    productCode: "D123",
+                   	    type : 'Choker',
                    	    price: 980,
                    	    sourcePath: "content/img/image34.jpg",
                    	    isCombo: 0,
@@ -127,7 +141,8 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    likes: 10,
                    	    isLiked: false,
                    	    name: "Chain",
-                   	    price: 120,
+                   	    type : 'Rings',
+                   	    price: 320,
                    	    sourcePath: "content/img/bangle1.jpg",
                    	    isCombo: 0,
                    	    isLimited: false
@@ -136,6 +151,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    likes: 14,
                    	    isLiked: false,
                    	    name: "Chain",
+                   	    type : 'Bangles',
                    	    price: 250,
                    	    sourcePath: "content/img/bangle2.jpg",
                    	    isCombo: 0,
@@ -144,6 +160,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    id: 7,
                    	    likes: 32,
                    	    isLiked: true,
+                   	    type: 'Rings',
                    	    price: 980,
                    	    sourcePath: "content/img/image35.jpg",
                    	    isCombo: 0,
@@ -153,6 +170,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    likes: 14,
                    	    isLiked: false,
                    	    name: "Chain",
+                   	    type: 'Rings',
                    	    price: 270,
                    	    sourcePath: "content/img/image15.jpg",
                    	    isCombo: 0,
@@ -162,6 +180,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                                           	    likes: 14,
                                           	    name: "Beeded chain",
                                           	    productCode: "ABC123",
+                                          	    type: 'Bangles',
                                           	    isLiked: false,
                                           	    price: 250,
                                           	    sourcePath: "content/img/image9.jpg",
@@ -172,6 +191,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                                           	    likes: 5,
                                           	    isLiked: true,
                                           	    name: "Pattern Chain",
+                                          	    type: 'Bangles',
                                           	    productCode: "PQR123",
                                           	    price: 385,
                                           	    sourcePath: "content/img/image02.jpg",
@@ -182,7 +202,8 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                                           	    likes: 3,
                                           	    isLiked: false,
                                           	    name: "Elegant Chain",
-                                          	    price: 70,
+                                          	    type: 'Bangles',
+                                          	    price: 210,
                                           	    sourcePath: "content/img/image03.jpg",
                                           	    isCombo: 0,
                                           	    isLimited: false
@@ -191,6 +212,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                                           	    likes: 4,
                                           	    isLiked: false,
                                           	    name: "Simple Braclet",
+                                          	    type: 'Bracelets',
                                           	    productCode: "XYZ123",
                                           	    price: 290,
                                           	    sourcePath: "content/img/image14.jpg",
@@ -200,7 +222,8 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    id: 2,
                    	    likes: 9,
                    	    isLiked: true,
-                   	    price: 185,
+                   	    type: 'Bangles',
+                   	    price: 685,
                    	    sourcePath: "content/img/image20.jpg",
                    	    isCombo: 0,
                    	    isLimited: true
@@ -208,7 +231,8 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    id: 3,
                    	    likes: 5,
                    	    isLiked: true,
-                   	    price: 90,
+                   	    price: 190,
+                   	    type: 'Bangles',
                    	    sourcePath: "content/img/image26.jpg",
                    	    isCombo: 0,
                    	    isLimited: false
@@ -217,6 +241,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    likes: 43,
                    	    isLiked: false,
                    	    name: "Chain",
+                   	    type: 'Bracelets',
                    	    price: 95,
                    	    sourcePath: "content/img/image23.jpg",
                    	    isCombo: 0,
@@ -226,6 +251,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    likes: 10,
                    	    isLiked: true,
                    	    name: "Chain",
+                   	    type: 'Bracelets',
                    	    price: 120,
                    	    sourcePath: "content/img/image24.jpg",
                    	    isCombo: 0,
@@ -235,6 +261,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    likes: 14,
                    	    isLiked: false,
                    	    name: "Chain",
+                   	    type: 'Bracelets',
                    	    price: 250,
                    	    sourcePath: "content/img/image11.jpg",
                    	    isCombo: 0,
@@ -244,6 +271,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    likes: 32,
                    	    isLiked: false,
                    	    name: "Chain",
+                   	    type: 'Bracelets',
                    	    price: 980,
                    	    sourcePath: "content/img/image1.png",
                    	    isCombo: 0,
@@ -253,6 +281,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    likes: 10,
                    	    isLiked: false,
                    	    name: "Chain",
+                   	    type: 'Necklace',
                    	    price: 120,
                    	    sourcePath: "content/img/image36.jpg",
                    	    isCombo: 0,
@@ -262,6 +291,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    likes: 14,
                    	    isLiked: false,
                    	    name: "Chain",
+                   	    type:'Necklace',
                    	    price: 250,
                    	    sourcePath: "content/img/image4.jpg",
                    	    isCombo: 0,
@@ -271,6 +301,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
                    	    likes: 32,
                    	    isLiked: true,
                    	    name: "Chain",
+                   	    type: 'Necklace',
                    	    price: 980,
                    	    sourcePath: "content/img/image8.jpg",
                    	    isCombo: 0,
@@ -281,10 +312,10 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
 
      $scope.imgSourcePath = "content/img";
      $scope.images = [
-        {pos:0, name: 'offer0.gif'},
-        {pos:1, name: 'offer1.gif'},
-        {pos:2, name: 'offer2.jpg'},
-        {pos:3, name: 'offer3.png'}
+        {pos:0, name: 'offer_1.jpg'},
+        {pos:1, name: 'offer_2.jpg'},
+        {pos:2, name: 'offer_3.png'},
+        {pos:3, name: 'offer_4.jpg'}
      ];
 
       // by default
