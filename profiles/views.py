@@ -17,8 +17,11 @@ class RegistrationView(APIView):
         registration = RegistrationSerializer(data=request.data)
         registration.is_valid(raise_exception=True)
         user, _ = User.objects.get_or_create(**registration.data)
+        user.set_password(registration.data['password'])
+        user.save()
         response = {
-            "username": user.contact_number
+            "username": user.username,
+            "success": True
         }
         return JsonResponse(response, status=status.HTTP_200_OK)
 
@@ -29,5 +32,12 @@ class LoginView(APIView):
         username = request.data['username']
         password = request.data['password']
         user = authenticate(username=username, password=password)
-        token, _ = Token.objects.get_or_create(user=user)
-        return JsonResponse({'token': token.key}, status=status.HTTP_200_OK)
+        if user:
+            token, _ = Token.objects.get_or_create(user=user)
+            return JsonResponse(
+                {'token': token.key}, status=status.HTTP_200_OK)
+        else:
+            return JsonResponse(
+                {'error': 'Invalid credentials'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
