@@ -9,13 +9,17 @@
 				<a href="#/home" class="pull-right homeText">{{::home}}<i class="fa fa-level-up fa-2x" aria-hidden="true"></i></a>
 			</div>
 			<div class="form-group">
-				<input type="text" ng-model="register.name" class="form-control input-lg" placeholder="NAME" minlength="1" maxlength="25" required oninvalid="this.setCustomValidity('Enter a valid name');">
+				<input type="text" ng-model="register.first_name" class="form-control input-lg" placeholder="FIRST NAME" minlength="1" maxlength="25" required oninvalid="this.setCustomValidity('Enter a valid name');">
+			</div>
+			<div class="form-group">
+				<input type="text" ng-model="register.last_name" class="form-control input-lg" placeholder="LAST NAME" minlength="1" maxlength="25" required oninvalid="this.setCustomValidity('Enter a valid name');">
 			</div>
 			<div class="form-group">
 				<input type="email" ng-model="register.email" class="form-control input-lg" placeholder="EMAIL" maxlength="40" required oninvalid="this.setCustomValidity('Enter a valid email-id');">
 			</div>
 			<div class="form-group">
-				<input type="text" ng-model="register.mobile" class="form-control input-lg" placeholder="MOBILE" pattern="^\d{10}$" required oninvalid="this.setCustomValidity('Enter a valid mobile number');">
+				<!-- <input type="text" ng-model="register.mobile" class="form-control input-lg" placeholder="MOBILE" pattern="^\d{10}$" required oninvalid="this.setCustomValidity('Enter a valid mobile number');"> -->
+				<input type="text" ng-model="register.mobile" class="form-control input-lg" placeholder="MOBILE" required oninvalid="this.setCustomValidity('Enter a valid mobile number');">
 			</div>
 			<div class="form-group">
 				<input type="text" ng-model="register.city" class="form-control input-lg" placeholder="CITY" minlength="3" maxlength="25" required oninvalid="this.setCustomValidity('Enter a valid city');">
