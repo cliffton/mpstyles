@@ -19,5 +19,6 @@ class User(AbstractUser):
     is_verified = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
-        self.username = self.contact_number
+        if not self.username:
+            self.username = self.contact_number
         super(User, self).save(*args, **kwargs)
