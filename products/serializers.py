@@ -1,16 +1,20 @@
 from rest_framework import serializers
+from products.models import Category, SubCategory, Product
 
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
-        exclude_fields = ('uuid')
+        model = Category
+        exclude = ('uuid', 'created', 'modified')
 
 
 class SubCategorySerializer(serializers.ModelSerializer):
     class Meta:
-        exclude_fields = ('uuid')
+        model = SubCategory
+        exclude = ('uuid', 'created', 'modified')
 
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
-        exclude_fields = ('uuid')
+        model = Product
+        exclude = ('uuid', 'created', 'modified')
