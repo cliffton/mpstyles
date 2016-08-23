@@ -17,8 +17,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from profiles import urls as profiles_urls
+from products.urls import urlpatterns as product_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/v1/', include(profiles_urls, namespace="profiles")),
+    url(r'^api/v1/', include(product_urls, namespace="products")),
 ]
