@@ -60,26 +60,26 @@
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<span><i class="search-icon fa fa-search nav-search-icon"></i></span>
-							<input type="text" class="filter-category" placeholder="Filter by Category" ng-model="categoryValue" autocomplete="off" autofocus="">
+							<span>Search by Categories</span>
+							<span class="resetBtn pull-right" ng-click="resetFilterCategory();"><i class="fa fa-times-circle"></i> Reset</span>
 						</div>
 						<div class="panel-body category-filter-panel">
-									<div ng-repeat="category in categories | filter:categoryValue as results">
-										<input type="checkbox" ng-model="filterCategory.type[category]" ng-true-value="'{{category}}'" ng-false-value="''">{{category}}
-									</div>
-							<div class="animate-repeat" ng-if="results.length === 0">
-								<strong>No category found...</strong>
+							<div ng-repeat="category in categories">
+								<input type="checkbox" ng-model="filterCategory.type[category]" ng-true-value="'{{category}}'" ng-false-value="''">{{category}}
 							</div>
 						</div>
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<span>Sort By </span>
-							<span class="resetBtn pull-right" ng-click="resetSorting();"><i class="fa fa-times-circle"></i> Reset</span>
+							<span><i class="search-icon fa fa-search nav-search-icon"></i></span>
+							<input type="text" class="filter-category" placeholder="Sort By.." ng-model="sortByValue" autocomplete="off" autofocus=""><i class="fa fa-sort-alpha-desc pull-right ascArrow" aria-hidden="true"></i> <i class="fa fa-sort-alpha-asc pull-right descArrow" aria-hidden="true"></i>
 						</div>
-						<div class="panel-body category-filter-panel">
-							<div ng-repeat="sortValue in sortBy">
-								<input type="checkbox" ng-model="filterSortBy.sort[sortValue]" ng-true-value="'{{sortValue}}'" ng-false-value="''">{{sortValue}}
+						<div class="panel-body">
+							<div ng-repeat="sortValue in sortBy | filter: sortByValue as results">
+								{{sortValue}}
+							</div>
+							<div class="animate-repeat" ng-if="results.length === 0">
+								<strong>No match found...</strong>
 							</div>
 						</div>
 					</div>
@@ -113,7 +113,7 @@
 						</a>
 					</div>
 					<div ng-repeat="products in productList | limitTo: offset">
-						<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products | filter:$ctrl.query | filter: {type:categoryValue} | selectedOptions:types" ng-if="product.price < priceRange">
+						<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products | filter:$ctrl.query | selectedOptions:filterCategory.type" ng-if="product.price < priceRange">
 							<div class="add-preview" ng-hide="true">
 								<a class="fa-stack fa-lg cartPlus" href="#/secure/{{product.id}}/cart" title="ADD TO CART">
 									<i class="fa fa-circle fa-stack-2x"></i>

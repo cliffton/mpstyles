@@ -4,9 +4,15 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
 .filter('selectedOptions', function() {
     return function(selectedOptions, types) {
         return selectedOptions.filter(function(selectedOptions) {
-                if (types.indexOf(selectedOptions.type) != -1) {
-                    return true;
+            var arr = [];
+            for(var key in types) {
+                if (types.hasOwnProperty(key) && types[key] !== null && types[key] !== "") {
+                    arr.push(types[key]);
                 }
+            }
+            if (arr.length ===0 || arr.indexOf(selectedOptions.type) != -1) {
+                return true;
+            }
             return false;
         });
     };
@@ -58,7 +64,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
 		info:"*T & C"
 	};
 
-	$scope.categoryValue = "";
+	$scope.sortByValue = "";
 
 	$scope.seeMore = "See More";
 	
@@ -90,16 +96,14 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
         type: {}
     };
 
-    $scope.types = ['Choker','Bracelets','Rings','Bangles','Necklace'];
-
     $scope.sortBy = ['Price','Shortlisted','Recent','On Discount'];
 
     $scope.filterSortBy = {
         sort: {}
     };
 
-    $scope.resetSorting = function() {
-        $scope.filterSortBy.sort = {};
+    $scope.resetFilterCategory = function() {
+        $scope.filterCategory.type = {};
     };
 
     var data = [ {

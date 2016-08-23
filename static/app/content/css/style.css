@@ -867,7 +867,7 @@ color: #D4195E
 }
 
 .product-filter .panel-heading .filter-category {
-    width:80%
+    width:65%
 }
 
 .product-filter .panel-body {
@@ -875,7 +875,7 @@ color: #D4195E
 }
 
 .category-filter-panel {
-    height: 110px;
+    height: 130px;
     overflow: auto;
 }
 
@@ -886,6 +886,18 @@ color: #D4195E
     opacity: 0.8;
     cursor:pointer
 }
+.product-filter .descArrow{
+    color: #908F8F;
+    padding: 4px 3px;
+    cursor: pointer;
+}
+
+.product-filter .ascArrow{
+    color: #d4195e;
+    padding: 4px 3px;
+    cursor: pointer;
+}
+
 .productlist a .product-price {
     -webkit-transition: all .3s ease-out;
     -moz-transition: all .3s ease-out;
