@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-    'profiles'
-
+    'profiles',
+    'products'
 ]
 
 MIDDLEWARE_CLASSES = [
