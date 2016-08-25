@@ -19,6 +19,8 @@ from django.contrib import admin
 from profiles import urls as profiles_urls
 from products.urls import urlpatterns as product_urls
 
+admin.site.site_header = 'Manpriya Styles'
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/v1/', include(profiles_urls, namespace="profiles")),
