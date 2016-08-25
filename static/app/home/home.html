@@ -31,16 +31,13 @@
 </header>
 
 <section class="container-fluid">
-	<div class="nav-header">
-			<div class="social-connect pull-left" href="https://www.instagram.com/explore/tags/manpriya/" class="pull-left">
-				<img src="content/img/social.png" alt="social connect">
-			</div>
+	<div class="row col-sm-12 nav-header">
 			<a class="nav-icon-outline pull-right visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-list fa-2x"></i></a>
 			<a class="nav-icon-outline pull-right" href="#secure/1/cart"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="cartCount"></span></a>
 			<a href="#login" ng-if="!loggedInUser" class="loginText pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> {{::login.label}}</a>
 			<a href="#home" ng-if="loggedInUser" class="loginText pull-right" ng-click="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> {{userInfo}}</a>
 			<a href="#home" class="nav-brand"> MANPRIYA <span>STYLES</span></a>
-		</div>
+	</div>
 </section>
 
 <section class="container-fluid productlist">
@@ -60,7 +57,7 @@
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<span>Search by Categories</span>
+							<span>Categories</span>
 							<span class="resetBtn pull-right" ng-click="resetFilterCategory();"><i class="fa fa-times-circle"></i> Reset</span>
 						</div>
 						<div class="panel-body category-filter-panel">
@@ -83,6 +80,14 @@
 							</div>
 						</div>
 					</div>
+					<div class="social-connect">
+						<img src="content/img/social.png" alt="social connect" usemap="#logos">
+					</div>
+					<map name="logos">
+						<area shape="poly" coords="7,6,62,6,35,74" href="http://www.youtube.com/" title="Youtube Connect" alt="Youtube" />
+						<area shape="poly" coords="74,6,127,6,100,74" href="http://www.instagram.com/explore/tags/manpriya/" title="Instagram Connect" alt="Instagram" />
+						<area shape="poly" coords="137,6,192,6,166,74" href="http://www.facebook.com/manpriyastyles" title="Facebook Connect" alt="Facebook" />
+					</map>
 				</div>
 				<div class="pull-left product-gallery">
 					<div class="alert alert-success" ng-show="loggedInUser && showAlert">
