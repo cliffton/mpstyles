@@ -89,8 +89,33 @@ class Product(TimeStampedModel):
         super(Product, self).save(*args, **kwargs)
 
 
-# class ProductDetail(TimeStampedModel):
-#     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+class ProductDetail(TimeStampedModel):
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False)
 
-#     # Relations
-#     product = models.ForeignKey(Product, related_name='product_details')
+    # Relations
+    product = models.OneToOneField(Product, related_name='product_details')
+
+    class Meta:
+        verbose_name_plural = '4. Products Details'
+
+    def __str__(self):
+        return self.product.name
+
+    def __unicode__(self):
+        return u'%s' % self.product.name
+
+
+class Image(TimeStampedModel):
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+    product_detail = models.ForeignKey(ProductDetail, related_name='images')
+    image = models.ImageField(upload_to='images/')
+
+    class Meta:
+        verbose_name = 'image'
+        verbose_name_plural = '5. Images'
+
+    def __str__(self):
+        return self.image.url
+
+    def __unicode__(self):
+        return u'%s' % self.image.url
