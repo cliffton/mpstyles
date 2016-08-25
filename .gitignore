@@ -1,4 +1,5 @@
 static/app/bower_components/*
 static/node_modules/*
+mpstyles/local_settings.py
 *.log
 *.pyc
