@@ -115,7 +115,7 @@ class Image(TimeStampedModel):
         verbose_name_plural = '5. Images'
 
     def __str__(self):
-        return self.image.url
+        return self.product_detail.product.name
 
     def __unicode__(self):
-        return u'%s' % self.image.url
+        return u'%s' % self.product_detail.product.name
