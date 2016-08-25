@@ -20,6 +20,8 @@ from profiles import urls as profiles_urls
 from products.urls import urlpatterns as product_urls
 
 admin.site.site_header = 'Manpriya Styles'
+admin.site.site_title = 'Manpriya Styles'
+admin.site.index_title = 'Console'
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
