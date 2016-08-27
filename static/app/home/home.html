@@ -153,24 +153,38 @@
 <span class="go-top" ng-click="goTop()"><i class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"></i></span>
 
 <footer class="footer">
-	<div class="container-fluid">
-		<div class="pull-left">
+	<div class="row">
+		<div class="col-sm-2">
+			<h5>Customer Services</h5>
 			<ul class="link-list">
-				<li ng-repeat="footerInfo in infoTabs"><a href="#/{{::footerInfo.link}}">{{::footerInfo.name}} |</a></li>
+				<li ng-repeat="customerService in footerTabs.customerServices"><a href="#/{{::customerService.link}}">{{::customerService.name}}</a></li>
 			</ul>
-			<p><b>{{::brandName}}</b> © 2016.
-			<a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank"> "NEVILLE SAVIO DSOUZA" </a></p>
 		</div>
-		<div class="pull-right">
+		<div class="col-sm-2">
+			<h5>About Us</h5>
+			<ul class="link-list">
+				<li ng-repeat="about in footerTabs.aboutUs"><a href="#/{{::about.link}}">{{::about.name}}</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-2">
+			<h5>Our Policies</h5>
+			<ul class="link-list">
+				<li ng-repeat="policy in footerTabs.policies"><a href="#/{{::policy.link}}">{{::policy.name}}</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-6">
 			<span class="newsLetterText">NEWSLETTER SIGN UP</span>
 			<form name="subscribeForm" target="_blank" class="input-group">
 				<input type="email" ng-model="subscribedEmailId" placeholder="Enter your email id" name="EMAIL">
-		<span>
-			<input type="submit" class="subscribeBtn" value="Subscribe" name="subscribe">
-		</span>
+			<span>
+				<input type="submit" class="subscribeBtn" value="Subscribe" name="subscribe">
+			</span>
 			</form>
+			<span class="brand"><b>{{::brandName}}</b> © 2016.
+				<a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank"> NEVILLE DSOUZA</a>
+			</span>
+			<img src="content/img/payment.png" alt="payment option">
 		</div>
-
 		</div>
 </footer>
 

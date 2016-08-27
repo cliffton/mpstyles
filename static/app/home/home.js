@@ -72,16 +72,31 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
 	
 	// on smaller device
 	
-	var infoTabs = [
-	{name:"About Us", id:1, link:"about-us"},
-	{name:"Customer Feedback", id:2, link:"blogs"},
-	{name:"Contact Us", id:3, link:"contact-us"},
-	{name:"Delivery & Returns", id:4, link:"delivery-returns"},
-	{name:"FAQ's", id:5, link:"faqs"}
+	var customerServices = [
+	{name:"Delivery & Returns", id:1, link:"about-us"},
+	{name:"Cancellations", id:2, link:"contact-us"},
+	{name:"FAQ's", id:3, link:"faqs"}
 	];
+
+	var aboutUs = [
+    {name:"Who are we", id:1, link:"about-us"},
+    {name:"Happy Customers", id:2, link:"contact-us"},
+    {name:"Terms & Condition", id:3, link:"contact-us"},
+    {name:"Payment Options", id:4, link:"faqs"}
+    ];
+
+    var policies = [
+    {name:"Shipping Policy", id:1, link:"contact-us"},
+    {name:"Discounting Policies", id:2, link:"contact-us"},
+    {name:"Privacy Policy", id:3, link:"contact-us"},
+    ];
 	
-	$scope.infoTabs = infoTabs;
-	
+	$scope.footerTabs = {};
+
+	$scope.footerTabs['customerServices'] = customerServices;
+	$scope.footerTabs['aboutUs'] = aboutUs;
+	$scope.footerTabs['policies'] = policies;
+
 	$scope.brandName = "MANPRIYA STYLES";
 
     $scope.offset = 3;
