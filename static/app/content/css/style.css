@@ -867,8 +867,17 @@ color: #D4195E
     padding: 5px 5px;
 }
 
+.panel-heading span.filter-result{
+    color: #d4195e;
+    letter-spacing: 1px;
+}
+
 .product-filter .panel-heading .filter-category {
     width:65%
+}
+
+.product-filter .panel-heading .filter-check{
+    display: none;
 }
 
 .product-filter .panel-body {
@@ -1398,8 +1407,9 @@ blockquote small {
 
 
 .footer span a{
-         color: #fff;
-         margin-left: 5px
+     color: #fff;
+     margin-left: 1px;
+     font-size: 12px;
  }
 
 .footer .newsLetterText{
@@ -1501,14 +1511,26 @@ right: 15px;
 
 .product-filter {
     width: 85%;
-    margin: 0px 25px;
+    margin: 0px 15px;
 }
 
 .product-gallery {
     width: 100%
 }
-
 }
+
+@media (max-width:481px){
+    .product-filter .panel-heading .filter-check{
+        display: block;
+    }
+}
+
+@media (min-width:481px){
+    .product-filter .panel.panel-default{
+        display: block !important;
+    }
+}
+
 
 @media (max-width:1099px) {
     .buyNow{

@@ -18,7 +18,6 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
     };
 })
 .controller('homeCtrl', function($scope, $routeParams, $anchorScroll, AuthenticationService, ArrayUtils) {
-
 	// header section
 	var tabsData =  [{name:"Accessories", id:1, link:"home"},
 	{name:"Bags & Clutch", id:2, link:"home"},
@@ -69,6 +68,8 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
 	$scope.seeMore = "See More";
 	
 	$scope.toggleMenuFlag = true;
+
+	$scope.toggleFilterFlag = true;
 	
 	// on smaller device
 	

@@ -39,6 +39,11 @@
 				<div class="pull-left product-filter">
 					<div class="panel panel-default">
 						<div class="panel-heading">
+						Result - <span class="filter-result">10 out of 20 products</span> <span class="filter-check pull-right" ng-click="toggleFilterFlag = !toggleFilterFlag"> Filter <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+						</div>
+					</div>
+					<div class="panel panel-default" ng-show="toggleFilterFlag">
+						<div class="panel-heading">
 							<span>Price Range </span>
 							<span class="resetBtn pull-right" ng-click="resetPriceRange();"><i class="fa fa-times-circle"></i> Reset</span>
 						</div>
@@ -49,7 +54,7 @@
 							<span>&#8377; {{priceRange}}</span>
 						</div>
 					</div>
-					<div class="panel panel-default">
+					<div class="panel panel-default" ng-show="toggleFilterFlag">
 						<div class="panel-heading">
 							<span>Categories</span>
 							<span class="resetBtn pull-right" ng-click="resetFilterCategory();"><i class="fa fa-times-circle"></i> Reset</span>
@@ -60,7 +65,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="panel panel-default">
+					<div class="panel panel-default" ng-show="toggleFilterFlag">
 						<div class="panel-heading">
 							<span><i class="search-icon fa fa-search nav-search-icon"></i></span>
 							<input type="text" class="filter-category" placeholder="Sort By.." ng-model="sortByValue" autocomplete="off" autofocus=""><i class="fa fa-sort-alpha-desc pull-right ascArrow" aria-hidden="true"></i> <i class="fa fa-sort-alpha-asc pull-right descArrow" aria-hidden="true"></i>
@@ -112,7 +117,7 @@
 						</a>
 					</div>
 					<div ng-repeat="products in productList | limitTo: offset">
-						<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products | filter:$ctrl.query | selectedOptions:filterCategory.type" ng-if="product.price < priceRange">
+						<div class="col-sm-3" ng-repeat="product in products | filter:$ctrl.query | selectedOptions:filterCategory.type" ng-if="product.price < priceRange">
 							<div class="add-preview" ng-hide="true">
 								<a class="fa-stack fa-lg cartPlus" href="#/secure/{{product.id}}/cart" title="ADD TO CART">
 									<i class="fa fa-circle fa-stack-2x"></i>
