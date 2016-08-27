@@ -2,10 +2,14 @@
 
 <header class="container-fluid">
 		<div class="menu-wrapper" ng-class="{'visibility':toggleMenuFlag}">
-			<span class="visible-xs shippingInfoSmall">{{::shipping.text}}<small>{{::shipping.info}}</small></span>
-			<div class="visible-xs"><a href="#login" ng-if="!loggedInUser"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> {{::login.label}}</a>
+			<div class="visible-xs shippingInfoSmall">
+				<span><i class="fa fa-truck theme-color fa-lg" aria-hidden="true"></i> {{::shipping.text}}<small>{{::shipping.info}}</small></span>
+				<hr>
+				<a href="#login" ng-if="!loggedInUser"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> {{::login.label}}</a>
 				<a href="#home" ng-if="loggedInUser" ng-click="logout()"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> {{userInfo}}</a>
 				<a class="pull-right" href="#secure/1/cart"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="cartCount"></span></a>
+				<hr>
+				<h3>Menu <span class="pull-right" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-angle-double-left fa-lg"></i></span></h3>
 			</div>
 			<div class="shippingInfo pull-right">
 				<span><i class="fa fa-truck theme-color" aria-hidden="true"></i> {{::shipping.text}}<small>{{::shipping.info}}</small></span>
@@ -13,34 +17,21 @@
 			<div class="search-box pull-right">
 				<input type="text" class="form-control" ng-model="$ctrl.query" placeholder="Search by name, price..">
 			</div>
-			<h3 class="visible-xs">Menu<span ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-chevron-circle-left"></i></span></h3>
 			<ul class="nav-list text-center effect">
 				<li ng-class="{active: $index == selected}" ng-click="select($index)" ng-repeat="tab in headerTabs"><a ng-class="{'highlighted-text': tab.name == 'Offer Zone'}" 
 				href="#/{{::tab.link}}">{{::tab.name}}</a></li>
 			</ul>
-			
-			<div class="visible-xs mt-info">
-				<ul>
-					<li ng-repeat="info in infoTabs"><a href="#/{{::info.link}}">{{::info.name}}</a></li>
-				</ul>
-				<a href="https://www.instagram.com/explore/tags/manpriya/" class="pull-left">
-					<img src="content/img/social.jpg" alt="social connect">
-				</a>
-			</div>
-		</div>	
+		</div>
 </header>
 
 <section class="container-fluid">
-	<div class="nav-header">
-			<div class="social-connect pull-left" href="https://www.instagram.com/explore/tags/manpriya/" class="pull-left">
-				<img src="content/img/social.jpg" alt="social connect">
-			</div>
+	<div class="row nav-header">
 			<a class="nav-icon-outline pull-right visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-list fa-2x"></i></a>
 			<a class="nav-icon-outline pull-right" href="#secure/1/cart"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="cartCount"></span></a>
 			<a href="#login" ng-if="!loggedInUser" class="loginText pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> {{::login.label}}</a>
 			<a href="#home" ng-if="loggedInUser" class="loginText pull-right" ng-click="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> {{userInfo}}</a>
 			<a href="#home" class="nav-brand"> MANPRIYA <span>STYLES</span></a>
-		</div>
+	</div>
 </section>
 
 <section class="container-fluid productlist">
@@ -60,29 +51,37 @@
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<span><i class="search-icon fa fa-search nav-search-icon"></i></span>
-							<input type="text" class="filter-category" placeholder="Filter by Category" ng-model="categoryValue" autocomplete="off" autofocus="">
+							<span>Categories</span>
+							<span class="resetBtn pull-right" ng-click="resetFilterCategory();"><i class="fa fa-times-circle"></i> Reset</span>
 						</div>
 						<div class="panel-body category-filter-panel">
-									<div ng-repeat="category in categories | filter:categoryValue as results">
-										<input type="checkbox" ng-model="filterCategory.type[category]" ng-true-value="'{{category}}'" ng-false-value="''">{{category}}
-									</div>
-							<div class="animate-repeat" ng-if="results.length === 0">
-								<strong>No category found...</strong>
+							<div ng-repeat="category in categories">
+								<input type="checkbox" ng-model="filterCategory.type[category]" ng-true-value="'{{category}}'" ng-false-value="''">{{category}}
 							</div>
 						</div>
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<span>Sort By </span>
-							<span class="resetBtn pull-right" ng-click="resetSorting();"><i class="fa fa-times-circle"></i> Reset</span>
+							<span><i class="search-icon fa fa-search nav-search-icon"></i></span>
+							<input type="text" class="filter-category" placeholder="Sort By.." ng-model="sortByValue" autocomplete="off" autofocus=""><i class="fa fa-sort-alpha-desc pull-right ascArrow" aria-hidden="true"></i> <i class="fa fa-sort-alpha-asc pull-right descArrow" aria-hidden="true"></i>
 						</div>
-						<div class="panel-body category-filter-panel">
-							<div ng-repeat="sortValue in sortBy">
-								<input type="checkbox" ng-model="filterSortBy.sort[sortValue]" ng-true-value="'{{sortValue}}'" ng-false-value="''">{{sortValue}}
+						<div class="panel-body">
+							<div ng-repeat="sortValue in sortBy | filter: sortByValue as results">
+								{{sortValue}}
+							</div>
+							<div class="animate-repeat" ng-if="results.length === 0">
+								<strong>No match found...</strong>
 							</div>
 						</div>
 					</div>
+					<div class="social-connect">
+						<img src="content/img/social.png" alt="social connect" usemap="#logos">
+					</div>
+					<map name="logos">
+						<area shape="poly" coords="7,6,62,6,35,74" href="http://www.youtube.com/" title="Youtube Connect" alt="Youtube" />
+						<area shape="poly" coords="74,6,127,6,100,74" href="http://www.instagram.com/explore/tags/manpriya/" title="Instagram Connect" alt="Instagram" />
+						<area shape="poly" coords="137,6,192,6,166,74" href="http://www.facebook.com/manpriyastyles" title="Facebook Connect" alt="Facebook" />
+					</map>
 				</div>
 				<div class="pull-left product-gallery">
 					<div class="alert alert-success" ng-show="loggedInUser && showAlert">
@@ -113,7 +112,7 @@
 						</a>
 					</div>
 					<div ng-repeat="products in productList | limitTo: offset">
-						<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products | filter:$ctrl.query | filter: {type:categoryValue} | selectedOptions:types" ng-if="product.price < priceRange">
+						<div ng-class="{1:'col-sm-6', 0:'col-sm-3'}[product.isCombo]" ng-repeat="product in products | filter:$ctrl.query | selectedOptions:filterCategory.type" ng-if="product.price < priceRange">
 							<div class="add-preview" ng-hide="true">
 								<a class="fa-stack fa-lg cartPlus" href="#/secure/{{product.id}}/cart" title="ADD TO CART">
 									<i class="fa fa-circle fa-stack-2x"></i>
@@ -148,24 +147,38 @@
 <span class="go-top" ng-click="goTop()"><i class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"></i></span>
 
 <footer class="footer">
-	<div class="container-fluid">
-		<div class="pull-left">
+	<div class="row">
+		<div class="col-sm-2">
+			<h5>Customer Services</h5>
 			<ul class="link-list">
-				<li ng-repeat="footerInfo in infoTabs"><a href="#/{{::footerInfo.link}}">{{::footerInfo.name}} |</a></li>
+				<li ng-repeat="customerService in footerTabs.customerServices"><a href="#/{{::customerService.link}}">{{::customerService.name}}</a></li>
 			</ul>
-			<p><b>{{::brandName}}</b> © 2016.
-			<a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank"> "NEVILLE SAVIO DSOUZA" </a></p>
 		</div>
-		<div class="pull-right">
+		<div class="col-sm-2">
+			<h5>About Us</h5>
+			<ul class="link-list">
+				<li ng-repeat="about in footerTabs.aboutUs"><a href="#/{{::about.link}}">{{::about.name}}</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-2">
+			<h5>Our Policies</h5>
+			<ul class="link-list">
+				<li ng-repeat="policy in footerTabs.policies"><a href="#/{{::policy.link}}">{{::policy.name}}</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-6">
 			<span class="newsLetterText">NEWSLETTER SIGN UP</span>
 			<form name="subscribeForm" target="_blank" class="input-group">
 				<input type="email" ng-model="subscribedEmailId" placeholder="Enter your email id" name="EMAIL">
-		<span>
-			<input type="submit" class="subscribeBtn" value="Subscribe" name="subscribe">
-		</span>
+			<span>
+				<input type="submit" class="subscribeBtn" value="Subscribe" name="subscribe">
+			</span>
 			</form>
+			<span class="brand"><b>{{::brandName}}</b> © 2016. Developed by
+				<a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank"> NEVILLE DSOUZA</a>
+			</span>
+			<img src="content/img/payment.png" alt="payment option">
 		</div>
-
 		</div>
 </footer>
 

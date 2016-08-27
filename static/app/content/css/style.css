@@ -8,7 +8,8 @@ html {
 }
 body {
     border-top: 5px solid #6b9dc7;
-    background-color: #fff
+    background-color: #fff;
+    overflow-x: hidden;
 }
 h1,
 h2,
@@ -23,7 +24,7 @@ h1 span {
 }
 hr {
     border-top: 2px solid #ebebeb;
-    margin: 15px 0
+    margin: 7px 0
 }
 ol,
 ul {
@@ -438,7 +439,6 @@ input[type=checkbox]:checked+span:before {
         font-size: 25px;
         letter-spacing: -1px;
         border: 0;
-		margin-left:12px
     }
 }
 .nav-header {
@@ -626,6 +626,7 @@ padding: 2px;
 div.visible-xs a{
     margin-left:5px;
     margin-right: 5px;
+    margin-top: -3px;
     color:#585858
 }
 
@@ -867,7 +868,7 @@ color: #D4195E
 }
 
 .product-filter .panel-heading .filter-category {
-    width:80%
+    width:65%
 }
 
 .product-filter .panel-body {
@@ -875,7 +876,7 @@ color: #D4195E
 }
 
 .category-filter-panel {
-    height: 110px;
+    height: 130px;
     overflow: auto;
 }
 
@@ -886,6 +887,18 @@ color: #D4195E
     opacity: 0.8;
     cursor:pointer
 }
+.product-filter .descArrow{
+    color: #908F8F;
+    padding: 4px 3px;
+    cursor: pointer;
+}
+
+.product-filter .ascArrow{
+    color: #d4195e;
+    padding: 4px 3px;
+    cursor: pointer;
+}
+
 .productlist a .product-price {
     -webkit-transition: all .3s ease-out;
     -moz-transition: all .3s ease-out;
@@ -1354,9 +1367,16 @@ blockquote small {
     width: 100%;
     z-index: 99999;
     border-top: 1px solid #C3C3C3;
-    padding: 6px;
+    padding: 6px 20px;
 }
-
+.footer h5{
+ color: #ffffff;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ font-weight: bold;
+ background: #6393bb;
+ padding: 2px;
+}
 .footer .link-list{
     padding: 0;
     list-style: none;
@@ -1364,20 +1384,22 @@ blockquote small {
 
 .footer .link-list li a{
     color: #fff;
-    text-transform: uppercase;
-    font-size: 12px;
+    font-size: 11px;
 }
 .footer .link-list li{
-    display: inline;
-    padding: 4px;
+    display: block;
+    padding: 3px;
 }
-.footer p{
-    margin-left: 2px;
+
+.footer span.brand{
+    display: inherit;
+    margin: 8px 0px;
 }
-.footer p a{
+
+
+.footer span a{
          color: #fff;
-         font-weight: bold;
-             margin-left: 5px
+         margin-left: 5px
  }
 
 .footer .newsLetterText{
@@ -1405,16 +1427,9 @@ right: 15px;
     width:27%;
     margin-left:10px
 }
-.footer {
-        display:none;
-}
 .col-sm-3{
 	width: 45%;
     display: inline-block;
-    margin: 8px;
-}
-.col-sm-6{
-	width: 93%;
     margin: 8px;
 }
 }
@@ -1501,6 +1516,15 @@ right: 15px;
         }
     .productlist .product-price span.pull-right{
         margin-top: 4px;
+        }
+    }
+
+@media (max-width:1099px) and (min-width:768px){
+    .product-filter{
+        width: 26%
+    }
+    .product-gallery{
+        width: 72%;
     }
     }
 }
