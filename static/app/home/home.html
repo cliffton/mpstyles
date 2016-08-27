@@ -2,10 +2,14 @@
 
 <header class="container-fluid">
 		<div class="menu-wrapper" ng-class="{'visibility':toggleMenuFlag}">
-			<span class="visible-xs shippingInfoSmall">{{::shipping.text}}<small>{{::shipping.info}}</small></span>
-			<div class="visible-xs"><a href="#login" ng-if="!loggedInUser"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> {{::login.label}}</a>
+			<div class="visible-xs shippingInfoSmall">
+				<span><i class="fa fa-truck theme-color fa-lg" aria-hidden="true"></i> {{::shipping.text}}<small>{{::shipping.info}}</small></span>
+				<hr>
+				<a href="#login" ng-if="!loggedInUser"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> {{::login.label}}</a>
 				<a href="#home" ng-if="loggedInUser" ng-click="logout()"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> {{userInfo}}</a>
 				<a class="pull-right" href="#secure/1/cart"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="cartCount"></span></a>
+				<hr>
+				<h3>Menu <span class="pull-right" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-angle-double-left fa-lg"></i></span></h3>
 			</div>
 			<div class="shippingInfo pull-right">
 				<span><i class="fa fa-truck theme-color" aria-hidden="true"></i> {{::shipping.text}}<small>{{::shipping.info}}</small></span>
@@ -13,25 +17,15 @@
 			<div class="search-box pull-right">
 				<input type="text" class="form-control" ng-model="$ctrl.query" placeholder="Search by name, price..">
 			</div>
-			<h3 class="visible-xs">Menu<span ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-chevron-circle-left"></i></span></h3>
 			<ul class="nav-list text-center effect">
 				<li ng-class="{active: $index == selected}" ng-click="select($index)" ng-repeat="tab in headerTabs"><a ng-class="{'highlighted-text': tab.name == 'Offer Zone'}" 
 				href="#/{{::tab.link}}">{{::tab.name}}</a></li>
 			</ul>
-			
-			<div class="visible-xs mt-info">
-				<ul>
-					<li ng-repeat="info in infoTabs"><a href="#/{{::info.link}}">{{::info.name}}</a></li>
-				</ul>
-				<a href="https://www.instagram.com/explore/tags/manpriya/" class="pull-left">
-					<img src="content/img/social.png" alt="social connect">
-				</a>
-			</div>
-		</div>	
+		</div>
 </header>
 
 <section class="container-fluid">
-	<div class="row col-sm-12 nav-header">
+	<div class="row nav-header">
 			<a class="nav-icon-outline pull-right visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-list fa-2x"></i></a>
 			<a class="nav-icon-outline pull-right" href="#secure/1/cart"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="cartCount"></span></a>
 			<a href="#login" ng-if="!loggedInUser" class="loginText pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> {{::login.label}}</a>
@@ -180,7 +174,7 @@
 				<input type="submit" class="subscribeBtn" value="Subscribe" name="subscribe">
 			</span>
 			</form>
-			<span class="brand"><b>{{::brandName}}</b> © 2016.
+			<span class="brand"><b>{{::brandName}}</b> © 2016. Developed by
 				<a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank"> NEVILLE DSOUZA</a>
 			</span>
 			<img src="content/img/payment.png" alt="payment option">

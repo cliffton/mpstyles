@@ -24,7 +24,7 @@ h1 span {
 }
 hr {
     border-top: 2px solid #ebebeb;
-    margin: 15px 0
+    margin: 7px 0
 }
 ol,
 ul {
@@ -439,7 +439,6 @@ input[type=checkbox]:checked+span:before {
         font-size: 25px;
         letter-spacing: -1px;
         border: 0;
-		margin-left:12px
     }
 }
 .nav-header {
@@ -627,6 +626,7 @@ padding: 2px;
 div.visible-xs a{
     margin-left:5px;
     margin-right: 5px;
+    margin-top: -3px;
     color:#585858
 }
 
@@ -1373,6 +1373,9 @@ blockquote small {
  color: #ffffff;
  text-transform: uppercase;
  letter-spacing: 2px;
+ font-weight: bold;
+ background: #6393bb;
+ padding: 2px;
 }
 .footer .link-list{
     padding: 0;
@@ -1424,16 +1427,9 @@ right: 15px;
     width:27%;
     margin-left:10px
 }
-.footer {
-        display:none;
-}
 .col-sm-3{
 	width: 45%;
     display: inline-block;
-    margin: 8px;
-}
-.col-sm-6{
-	width: 93%;
     margin: 8px;
 }
 }

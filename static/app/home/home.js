@@ -81,8 +81,7 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
 	var aboutUs = [
     {name:"Who are we", id:1, link:"about-us"},
     {name:"Happy Customers", id:2, link:"contact-us"},
-    {name:"Terms & Condition", id:3, link:"contact-us"},
-    {name:"Payment Options", id:4, link:"faqs"}
+    {name:"Terms & Condition", id:3, link:"contact-us"}
     ];
 
     var policies = [
