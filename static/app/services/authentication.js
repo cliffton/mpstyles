@@ -7,21 +7,21 @@ angular.module('myApp.services.authentication', [])
 
             /* Dummy authentication for testing, uses $timeout to simulate api call
              ----------------------------------------------*/
-            $timeout(function(){
-                var response = { success: email === 'test@gmail.com' && password === 'abc123' };
-                if(!response.success) {
-                    response.message = 'Email or Password entered is incorrect';
-                }
-                callback(response);
-            }, 1000);
+            // $timeout(function(){
+            //     var response = { success: email === 'test@gmail.com' && password === 'abc123' };
+            //     if(!response.success) {
+            //         response.message = 'Email or Password entered is incorrect';
+            //     }
+            //     callback(response);
+            // }, 1000);
 
 
             /* Use this for real authentication
              ----------------------------------------------*/
-            //$http.post('/api/authenticate', { email: email, password: password })
-            //    .success(function (response) {
-            //        callback(response);
-            //    });
+            $http.post('http://cliffton.xyz/api/v1/login/', { username: email, password: password })
+               .success(function (response) {
+                   callback(response);
+               });
 
         };
 
@@ -29,22 +29,22 @@ angular.module('myApp.services.authentication', [])
 
             /* Dummy authentication for testing, uses $timeout to simulate api call
              ----------------------------------------------*/
-            $timeout(function(){
-                var response = { success: register.name === 'neville' && register.email === 'test@gmail.com' && register.password === 'abc123'
-                && register.city === 'mumbai' && register.mobile ==='9892761957'};
-                if(!response.success) {
-                    response.message = 'Try again later';
-                }
-                callback(response);
-            }, 1000);
+            // $timeout(function(){
+            //     var response = { success: register.name === 'neville' && register.email === 'test@gmail.com' && register.password === 'abc123'
+            //     && register.city === 'mumbai' && register.mobile ==='9892761957'};
+            //     if(!response.success) {
+            //         response.message = 'Try again later';
+            //     }
+            //     callback(response);
+            // }, 1000);
 
 
             /* Use this for real authentication
              ----------------------------------------------*/
-            //$http.post('/api/authenticate', { email: email, password: password })
-            //    .success(function (response) {
-            //        callback(response);
-            //    });
+            $http.post('http://cliffton.xyz/api/v1/register/', { username: email, password: password })
+               .success(function (response) {
+                   callback(response);
+               });
 
         };
 
@@ -58,14 +58,14 @@ angular.module('myApp.services.authentication', [])
                 }
             };
 
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
-            $cookieStore.put('globals', $rootScope.globals);
+            // $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
+            // $cookieStore.put('globals', $rootScope.globals);
         };
 
         service.clearCredentials = function () {
             $rootScope.globals = {};
             $cookieStore.remove('globals');
-            $http.defaults.headers.common.Authorization = 'Basic ';
+            // $http.defaults.headers.common.Authorization = 'Basic ';
         };
 
         service.forgotPassword = function(email, callback){

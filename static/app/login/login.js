@@ -21,9 +21,9 @@ AuthenticationService.clearCredentials();
 $scope.login = function () {
     $scope.dataLoading = true;
     AuthenticationService.login($scope.email, $scope.password, function(response) {
-        if(response.success) {
-            AuthenticationService.setCredentials($scope.email, $scope.password);
-            $location.path('secure/1/home');
+        if(response) {
+            // AuthenticationService.setCredentials($scope.email, $scope.password);
+            $location.path('/home');
         } else {
             $scope.errorMessage = response.message;
             $scope.dataLoading = false;
