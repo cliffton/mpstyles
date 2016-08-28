@@ -51,6 +51,18 @@ a:focus {
     outline: 0
 }
 
+blockquote{
+    font-size: 15px;
+}
+
+blockquote span:first-child{
+    color: #337ab7;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    margin-bottom: 0px;
+    font-size: 16px;
+}
+
 .color {
     background-color: #D4195E
 }
@@ -637,6 +649,10 @@ div.visible-xs a span{
 
 .theme-color {
     color: #908F8F;
+}
+
+.theme-color-1{
+    color: #D4195E;
 }
 
 .theme-color:hover, .theme-color:focus {
@@ -1244,8 +1260,11 @@ color: #D4195E
 .blog-sidebar .post-date span {
     float: right
 }
+
 article {
-    margin-bottom: 60px
+    margin-bottom: 20px;
+    padding: 2px 5px;
+    box-shadow: 0px 1px 1px 0px;
 }
 article h1 {
     font-size: 32px
@@ -1255,6 +1274,9 @@ article h1 a {
 }
 article h1 a:hover {
     text-decoration: none
+}
+article .fa-star-o {
+    color: #e3cf7a;
 }
 article .social-links {
     margin: 30px 0

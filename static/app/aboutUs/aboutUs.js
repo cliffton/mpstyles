@@ -2,6 +2,8 @@
 
 angular.module('myApp.aboutUs', [])
 
-.controller('aboutUsCtrl', function() {
+.controller('aboutUsCtrl', function($scope) {
+    $scope.home = "Home";
+    $scope.aboutUs = "About Us";
 	
 });
