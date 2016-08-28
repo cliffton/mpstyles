@@ -41,7 +41,15 @@ angular.module('myApp.services.authentication', [])
 
             /* Use this for real authentication
              ----------------------------------------------*/
-            $http.post('http://cliffton.xyz/api/v1/register/', { username: email, password: password })
+            data = {
+                password: register.password,
+                first_name: register.first_name,
+                last_name: register.last_name,
+                contact_number: register.mobile,
+                email: register.email
+            }
+
+            $http.post('http://cliffton.xyz/api/v1/register/', data)
                .success(function (response) {
                    callback(response);
                });
