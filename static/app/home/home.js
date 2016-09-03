@@ -74,21 +74,21 @@ angular.module('myApp.home', ['myApp.services.authentication', 'myApp.services.a
 	// on smaller device
 	
 	var customerServices = [
-	{name:"Delivery & Returns", id:1, link:"about-us"},
-	{name:"Cancellations", id:2, link:"contact-us"},
-	{name:"FAQ's", id:3, link:"faqs"}
+	{name:"Delivery & Returns", id:1, link:"customer-services"},
+	{name:"Cancellations", id:2, link:"customer-services"},
+	{name:"FAQ's", id:3, link:"customer-services"}
 	];
 
 	var aboutUs = [
     {name:"Who are we", id:1, link:"about-us"},
-    {name:"Happy Customers", id:2, link:"contact-us"},
-    {name:"Terms & Condition", id:3, link:"contact-us"}
+    {name:"Happy Customers", id:2, link:"about-us"},
+    {name:"Contact Us", id:3, link:"about-us"}
     ];
 
     var policies = [
-    {name:"Shipping Policy", id:1, link:"contact-us"},
-    {name:"Discounting Policies", id:2, link:"contact-us"},
-    {name:"Privacy Policy", id:3, link:"contact-us"},
+    {name:"Shipping Policy", id:1, link:"policies"},
+    {name:"Discounting Policies", id:2, link:"policies"},
+    {name:"Terms & Conditions", id:3, link:"policies"},
     ];
 	
 	$scope.footerTabs = {};
