@@ -20,12 +20,12 @@ AuthenticationService.clearCredentials();
 
 $scope.login = function () {
     $scope.dataLoading = true;
-    AuthenticationService.login($scope.email, $scope.password, function(response) {
-        if(response) {
-            // AuthenticationService.setCredentials($scope.email, $scope.password);
-            $location.path('/home');
+    AuthenticationService.login($scope.number, $scope.password, function(response) {
+        if(response === 'valid') {
+            AuthenticationService.setCredentials($scope.number);
+            $location.path('/secure/home');
         } else {
-            $scope.errorMessage = response.message;
+            $scope.errorMessage = response.error;
             $scope.dataLoading = false;
             $scope.isInvalid = true;
         }
@@ -34,7 +34,7 @@ $scope.login = function () {
 
 $scope.forgotPassword = function () {
     $scope.dataLoading = true;
-    AuthenticationService.forgotPassword($scope.email, function(response) {
+    AuthenticationService.forgotPassword($scope.number, function(response) {
         $scope.dataLoading = false;
         if(response.success) {
             $scope.successMessage = "Password is sent";

@@ -30,11 +30,11 @@ angular.module('myApp', [
         templateUrl: 'home/home.html',
         controller: 'homeCtrl'
       }).
-      when('/secure/:userId/home', {
+      when('/secure/home', {
         templateUrl: 'home/home.html',
         controller: 'homeCtrl'
       }).
-      when('/secure/:userId/cart', {
+      when('/secure/cart/', {
           templateUrl: 'cart/cart.html',
           controller: 'cartCtrl'
       }).
@@ -58,7 +58,7 @@ angular.module('myApp', [
         templateUrl: 'faqs/faqs.html',
         controller: 'faqsCtrl'
       }).
-	  when('/secure/:productId/product-description', {
+	  when('/product-description/:productId', {
         templateUrl: 'productDescription/productDescription.html',
         controller: 'productDescriptionCtrl'
       })
