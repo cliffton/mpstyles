@@ -597,23 +597,14 @@ box-shadow: 5px 5px 3px #b7b6b6;
 }
 
 .login-page a.member{
-display: inherit;
-padding: 2px;
+    display: inherit;
 }
 
-.login-page .checkbox1 {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
+.login-page  div.pass {
     cursor: pointer;
-    margin-top: 5px;
-    margin-right: 2px;
-}
-
-.login-page  span.pass {
-    padding-top: 2px;
-    margin-left: 12px;
-    cursor: pointer
+    text-transform: uppercase;
+    color: #908f8f;
+    margin-top: 1px;
 }
 
 .loginText{
