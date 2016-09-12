@@ -15,16 +15,16 @@
 				<span><i class="fa fa-truck theme-color" aria-hidden="true"></i> {{::pageText.shipping}}</span>
 			</div>
 			<div class="search-box pull-right">
-				<input type="text" class="form-control" ng-model="$ctrl.query" placeholder="Search by name, price..">
+				<input type="text" class="form-control input-sm" ng-model="$ctrl.query" placeholder="Whats your style..?">
 			</div>
 			<ul class="nav-list text-center effect">
-				<li ng-class="{active: $index == selected}" ng-click="select($index)" ng-repeat="tab in headerTabs"><a ng-class="{'highlighted-text': tab.name == 'Offer Zone'}" href="#/{{::tab.link}}">{{::tab.name}}</a></li>
+				<li ng-class="{active: $index == selected}" ng-click="select($index)" ng-repeat="tab in headerTabs"><a href="#/{{::tab.link}}">{{::tab.name}}</a></li>
 			</ul>
 		</div>
 	</header>
 
 	<section class="container-fluid">
-		<div class="row nav-header">
+		<div class="nav-header">
 			<a class="nav-icon-outline pull-right visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-list fa-2x"></i></a>
 			<a class="nav-icon-outline pull-right" href="#secure/cart"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="userInfo.cartCount || 0"></span></a>
 			<a href="#login" ng-if="!loggedIn.value" class="loginText pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> {{::loggedOff.label}}</a>
@@ -132,9 +132,8 @@
 							<span class="sold-out-label">{{::pageText.limitedStock}}</span>
 						</div>
 						<div class="product-price">
-							<img class="buyNow" src="content/img/buy_now.png">
 							<span>&#8377; {{product.price}}</span>
-                            <span class="pull-right">SHORTLIST<i ng-class="{liked: product.isLiked === true}" ng-click="product.isLiked = !product.isLiked; product.likes = product.likes + (product.isLiked == true ?  1 : -1)" class="fa fa-heart-o"></i>
+                            <span class="pull-right">SHORTLIST<i ng-class="product.isLiked ? 'fa-heart': 'fa-heart-o'" ng-click="product.isLiked = !product.isLiked; product.likes = product.likes + (product.isLiked == true ?  1 : -1)" class="fa"></i>
 						</span>
 						</div>
 					</div>
@@ -180,8 +179,13 @@
 				</form>
                 <span class="brand"><b>{{::pageText.brandName}}</b> © 2016. Developed by
 				<a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank"> NEVILLE DSOUZA</a>
-			</span>
-				<img src="content/img/payment.png" alt="payment option">
+				</span>
+					<ul class="banking-options">
+						<li class="netbank"><span></span></li>
+						<li class="visa"><span></span></li>
+						<li class="mastercard"><span></span></li>
+						<li class="cod"><span></span></li>
+					</ul>
 			</div>
 		</div>
 	</footer>

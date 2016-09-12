@@ -22,9 +22,10 @@ angular.module('myApp.services.tabsData', [])
             name: "Watches",
             id: 3,
             link: "home"
-        }, {
-            name: "Offer Zone",
-            id: 5,
+        },
+        {
+            name: "Others",
+            id: 4,
             link: "home"
         }]
     };
