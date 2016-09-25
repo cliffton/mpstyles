@@ -1,41 +1,148 @@
 <div ng-controller="homeCtrl">
 
 	<header class="container-fluid">
-		<div class="menu-wrapper" ng-class="{'visibility':toggleMenuFlag}">
-			<div class="visible-xs shippingInfoSmall">
-				<span><i class="fa fa-truck theme-color fa-lg" aria-hidden="true"></i> {{::pageText.shipping}}</span>
-				<hr>
-				<a href="#login" ng-if="!loggedIn.value"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> {{::loggedOff.label}}</a>
-				<a href="#home" ng-if="loggedIn.value" ng-click="loggedOff.logout()"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> Hello {{userInfo.first_name}}</a>
-				<a class="pull-right" href="#secure/cart"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="cartCount"></span></a>
-				<hr>
+		<div class="nav-header-top" ng-class="{'visibility':toggleMenuFlag}">
+			<div class="row top-row">
+				<div class="pull-left">
+					<i class="fa fa-phone fa-lg" aria-hidden="true"></i><span>+91- 9892761957 / 9821946852</span>
+				</div>
+				<div class="pull-right">
+					<span><i class="fa fa-credit-card" aria-hidden="true"></i>online payment</span>
+					<span><i class="fa fa-phone-square" aria-hidden="true"></i>24/7 support</span>
+					<span><i class="fa fa-truck" aria-hidden="true"></i></i>Shipping</span>
+					<span><i class="fa fa-map-marker" aria-hidden="true"></i>track order</span>
+					<span><i class="fa fa-money" aria-hidden="true"></i>refund money</span>
+				</div>
+			</div>
+			<div class="visible-xs">
 				<h3>Menu <span class="pull-right" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-angle-double-left fa-lg"></i></span></h3>
 			</div>
-			<div class="shippingInfo pull-right">
-				<span><i class="fa fa-truck theme-color" aria-hidden="true"></i> {{::pageText.shipping}}</span>
+			<div class="row nav-list">
+				<ul class="effect">
+					<li ng-class="{active: $index == selected}" ng-click="select($index)" ng-repeat="tab in headerTabs"><a href="#/{{::tab.link}}">{{::tab.name}}</a></li>
+				</ul>
+				<div class="loginText">
+					<a href="#login" ng-if="!loggedIn.value">{{::loggedOff.label}} <i class="fa fa-lock" aria-hidden="true"></i></a>
+					<a href="#home" ng-if="loggedIn.value" ng-click="loggedOff.logout()"> Hello {{userInfo.first_name}} <i class="fa fa-unlock" aria-hidden="true"></i></a>
+				</div>
 			</div>
-			<div class="search-box pull-right">
-				<input type="text" class="form-control input-sm" ng-model="$ctrl.query" placeholder="Whats your style..?">
-			</div>
-			<ul class="nav-list text-center effect">
-				<li ng-class="{active: $index == selected}" ng-click="select($index)" ng-repeat="tab in headerTabs"><a href="#/{{::tab.link}}">{{::tab.name}}</a></li>
-			</ul>
+		</div>
+		<div class="nav-header-bottom">
+			<a href="#home" class="nav-brand pull-left"> MANPRIYA <span>STYLES</span></a>
+			<a class="nav-icon-outline pull-right visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-list fa-2x"></i></a>
+			<a class="nav-icon-outline pull-right" href="#secure/cart"><i class="fa fa-shopping-basket fa-2x" aria-hidden="true"></i><span class="badge" ng-bind="userInfo.cartCount || 0"></span></a>
+			<span class="fa fa-venus fa-2x pull-right" aria-hidden="true"></span>
+			<input type="text" class="search-box pull-right" ng-model="$ctrl.query" placeholder="Search your style here..">
 		</div>
 	</header>
 
 	<section class="container-fluid">
-		<div class="nav-header">
-			<a class="nav-icon-outline pull-right visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-list fa-2x"></i></a>
-			<a class="nav-icon-outline pull-right" href="#secure/cart"><i class="fa fa-shopping-cart fa-2x"></i><span class="badge" ng-bind="userInfo.cartCount || 0"></span></a>
-			<a href="#login" ng-if="!loggedIn.value" class="loginText pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> {{::loggedOff.label}}</a>
-			<a href="#home" ng-if="loggedIn.value" class="loginText pull-right" ng-click="loggedOff.logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Hello {{userInfo.first_name}}</a>
-			<a href="#home" class="nav-brand"> MANPRIYA <span>STYLES</span></a>
+		<div class="row">
+			<div class="alert alert-warning home-page" ng-show="!loggedIn.value && showAlert">
+				<a class="close" ng-click="showAlert=!showAlert">&times;</a>
+				<strong>Welcome to our online store !</strong> {{loggedOff.message}}
+			</div>
+			<div class="alert alert-success" ng-show="loggedIn.value && showAlert">
+				<a class="close" ng-click="showAlert=!showAlert">&times;</a>
+				<strong>Successfully logged in !</strong> {{loggedIn.message}}
+			</div>
 		</div>
 	</section>
 
-	<section class="container-fluid productlist">
-		<div class="row top-buffer">
-			<div class="pull-left product-filter">
+	<section class="container-fluid">
+		<div class="row">
+			<ul class="pull-left nav nav-tabs">
+				<li ng-class="{active: $index == activated}" ng-click="active($index)" ng-repeat="subTabs in subHeaderTabs"><i class="fa fa-lg fa-caret-up" aria-hidden="true" ng-show="activated == $index"></i><a>{{subTabs.name}}<span ng-show="activated == $index" class="badge">{{subTabs.items}} items</span></a></li>
+			</ul>
+			<div class="sortBy">
+				<span class="pull-left">
+				SORT BY <select class="sortBy" ng-model="sortedValue" ng-options="x for x in sortBy"></select>
+				</span>
+				<span class="pull-right" ng-click="toggleFilterFlag = !toggleFilterFlag">FILTER BY<i class="fa fa-angle-down" aria-hidden="true"></i></span>
+			</div>
+		</div>
+		<div class="row product-gallery">
+			<div class="pull-left col-sm-10">
+				<div class="products" ng-repeat="products in productList | limitTo: offset">
+					<div class="col-sm-3" ng-repeat="product in products | filter:$ctrl.query | selectedOptions:filterBy.selected">
+						<a href="#/secure/product-description/{{product.id}}"><img ng-src="{{product.sourcePath}}" class="img-responsive" alt="item"></a>
+						<div class="product-label">
+							<span class="limited-stock-label" ng-if="product.isLimited">{{::pageText.limitedStock}}</span>
+							<span class="sale-label" ng-if="product.isSale">{{::pageText.sale}}</span>
+							<span class="sold-out-label" ng-if="product.isSoldOut">{{::pageText.soldOut}}</span>
+						</div>
+						<div class="product-detail">
+						<div class="product-name">
+							<a href="#/secure/product-description/{{product.id}}">{{product.name}}</a>
+						</div>
+						<span class="pull-left">
+							<i ng-class="product.isLiked ? 'fa-heart': 'fa-heart-o'" ng-click="product.isLiked = !product.isLiked; product.likes = product.likes + (product.isLiked == true ?  1 : -1)" class="fa fa-lg"></i>
+							{{::pageText.shortlist}}
+						</span>
+						<span class="pull-right">
+							<i class="fa fa-inr fa-lg" aria-hidden="true"></i> {{::product.price}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="text-center show-more" ng-hide="productList.length === offset" ng-click="offset = offset + 1">
+					<span>{{::pageText.seeMore}} <i class="fa fa-caret-square-o-down" aria-hidden="true"></i></span>
+				</div>
+			</div>
+			<div class="pull-left col-sm-2">
+				<div class="panel panel-default" ng-if="toggleFilterFlag">
+					<div class="panel-heading">
+						<span>Filter</span>
+						<button class="resetBtn pull-right" ng-click="filterBy.reset();"><i class="fa fa-times-circle"></i> Reset</button>
+					</div>
+					<div class="panel-body category-filter-panel">
+						<div class="category-filter-row" ng-repeat="category in filterBy.categories">
+							<input type="checkbox" ng-model="filterBy.selected[category]" ng-true-value="'{{category}}'" ng-false-value="''">
+							{{category}}
+						</div>
+					</div>
+				</div>
+				<div class="carousel slide">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<span>LATEST DEALS</span>
+							<div class="carousel-controls-arrows">
+								<span class="fa fa-chevron-left" ng-click="previousSel()"></span>
+								<span class="fa fa-chevron-right" ng-click="nextSel()"></span>
+							</div>
+						</div>
+						<div class="carousel-inner">
+						<ol class="carousel-indicators">
+							<li ng-repeat="offer in offers" class="{active : (offer.id === 0)}" ng-click="selectOffer($index)"></li>
+						</ol>
+						<div ng-class="{item: true, active : (offer.id === 0)}" ng-repeat="offer in offers"> <img ng-src="{{imgSourcePath}}/{{currentOffer}}" alt="offer not found">
+							<div class="product-detail">
+							<div class="product-name">
+								<a href="#/secure/product-description/{{offer.id}}">{{offer.name}}</a>
+							</div>
+							<span class="pull-left">
+								<i ng-class="offer.isLiked ? 'fa-heart': 'fa-heart-o'" ng-click="offer.isLiked = !offer.isLiked; offer.likes = offer.likes + (offer.isLiked == true ?  1 : -1)" class="fa fa-lg"></i>
+										{{::pageText.shortlist}}
+							</span>
+							<span class="pull-right">
+								<i class="fa fa-inr fa-lg" aria-hidden="true"></i> {{::offer.price}}
+							</span>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				<div class="social-connect text-center">
+					<img src="content/img/social.png" alt="social connect" usemap="#logos">
+				</div>
+				<map name="logos">
+					<area shape="poly" coords="7,6,62,6,35,74" href="http://www.youtube.com/" title="Youtube Connect" alt="Youtube" />
+					<area shape="poly" coords="74,6,127,6,100,74" href="http://www.instagram.com/explore/tags/manpriya/" title="Instagram Connect" alt="Instagram" />
+					<area shape="poly" coords="137,6,192,6,166,74" href="http://www.facebook.com/manpriyastyles" title="Facebook Connect" alt="Facebook" />
+				</map>
+			</div>
+		</div>
+
+			<!--<div class="pull-left product-filter">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						Result - <span class="filter-result">10 out of 20 products</span> <span class="filter-check pull-right" ng-click="toggleFilterFlag = !toggleFilterFlag"> Filter <i class="fa fa-angle-down" aria-hidden="true"></i></span>
@@ -86,65 +193,26 @@
 					<area shape="poly" coords="74,6,127,6,100,74" href="http://www.instagram.com/explore/tags/manpriya/" title="Instagram Connect" alt="Instagram" />
 					<area shape="poly" coords="137,6,192,6,166,74" href="http://www.facebook.com/manpriyastyles" title="Facebook Connect" alt="Facebook" />
 				</map>
-			</div>
-			<div class="pull-left product-gallery">
-				<div class="alert alert-success" ng-show="loggedIn.value && showAlert">
-					<a class="close" ng-click="showAlert=!showAlert">&times;</a>
-					<strong>Successfully logged in !</strong> {{loggedIn.message}}
-				</div>
-				<div class="alert alert-warning" ng-show="!loggedIn.value && showAlert">
-					<a class="close" ng-click="showAlert=!showAlert">&times;</a>
-					<strong>Not logged in !</strong> {{loggedOff.message}}
-				</div>
-				<div class="carousel slide">
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<li ng-repeat="offer in offers" class="{active : (offer.pos === 0)}" ng-click="selectOffer($index)"></li>
-					</ol>
-					<div class="carousel-inner">
-						<div ng-class="{item: true, active : (offer.pos === 0)}" ng-repeat="offer in offers"> <img ng-src="{{imgSourcePath}}/{{currentOffer}}" alt="offer not found">
-							<div class="container">
-								<div class="carousel-caption"> </div>
-							</div>
-						</div>
-					</div>
-					<a class="left carousel-control">
-						<span class="fa fa-chevron-left fa-lg" ng-click="previousSel()"></span>
-					</a>
-					<a class="right carousel-control">
-						<span class="fa fa-chevron-right fa-lg" ng-click="nextSel()"></span>
-					</a>
-				</div>
-				<div ng-repeat="products in productList | limitTo: offset">
-					<div class="col-sm-3" ng-repeat="product in products | filter:$ctrl.query | selectedOptions:filterBy.selected" ng-if="product.price < price.midRange">
-						<div class="add-preview" ng-hide="true">
-							<a class="fa-stack fa-lg cartPlus" href="#/secure/cart" title="ADD TO CART">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
-							</a>
-							<a class="fa-stack fa-lg preview" href="#/secure/product-description/{{product.id}}" title="PREVIEW">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-							</a>
-						</div>
-						<a href="#/secure/product-description/{{product.id}}"><img ng-src="{{product.sourcePath}}" class="img-responsive" alt="item"></a>
-						<div class="productlist-label" ng-if="product.isLimited">
-							<span class="sold-out-label">{{::pageText.limitedStock}}</span>
-						</div>
-						<div class="product-price">
-							<span>&#8377; {{product.price}}</span>
-                            <span class="pull-right">SHORTLIST<i ng-class="product.isLiked ? 'fa-heart': 'fa-heart-o'" ng-click="product.isLiked = !product.isLiked; product.likes = product.likes + (product.isLiked == true ?  1 : -1)" class="fa"></i>
-						</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="text-center show-more" ng-hide="productList.length === offset" ng-click="offset = offset + 1">
-				<span>{{::pageText.seeMore}} <i class="fa fa-caret-square-o-down" aria-hidden="true"></i></span>
-			</div>
-		</div>
+			</div>-->
+			<!--<div class="carousel slide">
+                &lt;!&ndash; Indicators &ndash;&gt;
+                <ol class="carousel-indicators">
+                    <li ng-repeat="offer in offers" class="{active : (offer.id === 0)}" ng-click="selectOffer($index)"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div ng-class="{item: true, active : (offer.id === 0)}" ng-repeat="offer in offers"> <img ng-src="{{imgSourcePath}}/{{currentOffer}}" alt="offer not found">
+                        <div class="container">
+                            <div class="carousel-caption"> </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="left carousel-control">
+                    <span class="fa fa-chevron-left fa-lg" ng-click="previousSel()"></span>
+                </a>
+                <a class="right carousel-control">
+                    <span class="fa fa-chevron-right fa-lg" ng-click="nextSel()"></span>
+                </a>
+            </div>-->
 	</section>
 
 	<span class="go-top" ng-click="goTop()"><i class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"></i></span>
@@ -152,15 +220,15 @@
 	<footer class="footer">
 		<div class="row">
 			<div class="col-sm-2">
-				<h5>Customer Services</h5>
-				<ul class="link-list">
-					<li ng-repeat="customerService in footerTabs.customerServices"><a href="#/{{::customerService.link}}">{{::customerService.name}}</a></li>
-				</ul>
-			</div>
-			<div class="col-sm-2">
 				<h5>About Us</h5>
 				<ul class="link-list">
 					<li ng-repeat="about in footerTabs.aboutUs"><a href="#/{{::about.link}}">{{::about.name}}</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-2">
+				<h5>Our Services</h5>
+				<ul class="link-list">
+					<li ng-repeat="customerService in footerTabs.customerServices"><a href="#/{{::customerService.link}}">{{::customerService.name}}</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-2">
@@ -170,20 +238,19 @@
 				</ul>
 			</div>
 			<div class="col-sm-6">
-				<span class="newsLetterText">NEWSLETTER SIGN UP</span>
-				<form name="subscribeForm" ng-submit="subscribe()" role="form" class="input-group">
+				<div class="newsLetterSection">
+					<div class="newsLetterText"> NEWSLETTER SIGN UP</div>
+				<form class="row" name="subscribeForm" ng-submit="subscribe()" role="form" class="input-group">
 					<input type="email" ng-model="subscribedEmailId" placeholder="Enter your email id" name="EMAIL">
-                    <span>
-				<input type="submit" class="subscribeBtn" value="Subscribe">
-			</span>
+				<button type="submit" class="subscribeBtn">Subscribe</button>
 				</form>
-                <span class="brand"><b>{{::pageText.brandName}}</b> © 2016. Developed by
-				<a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank"> NEVILLE DSOUZA</a>
-				</span>
+				</div>
+                <div class="brand"><span><b>{{::pageText.brandName}}</b> © 2016. Developed by</span>
+				<a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank">" NEVILLE & CLIFFTON "</a>
+				</div>
 					<ul class="banking-options">
 						<li class="netbank"><span></span></li>
 						<li class="visa"><span></span></li>
-						<li class="mastercard"><span></span></li>
 						<li class="cod"><span></span></li>
 					</ul>
 			</div>

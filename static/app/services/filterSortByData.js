@@ -10,7 +10,7 @@ angular.module('myApp.services.filterSortByData', [])
                       //error
                     })
                     return promise;*/
-        return ['Choker', 'Bracelets', 'Rings', 'Bangles', 'Necklace'];
+        return ['Choker', 'Delicate Chain', 'Bohemian'];
     };
 
     filterSortBy.attribute = function() {

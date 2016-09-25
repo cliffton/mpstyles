@@ -18,7 +18,9 @@ angular.module('myApp.services.productData', [])
             type: 'Choker',
             price: 220,
             sourcePath: "content/img/image17.jpg",
-            isLimited: true
+            isisSale: false,
+            isSale: false,
+            isSoldOut: true
         }, {
             id: 2,
             isShortListed: false,
@@ -27,7 +29,9 @@ angular.module('myApp.services.productData', [])
             type: 'Choker',
             price: 250,
             sourcePath: "content/img/image18.jpg",
-            isLimited: false
+            isLimited: true,
+            isSale: false,
+            isSoldOut: false
         }, {
             id: 3,
             isShortListed: true,
@@ -36,7 +40,9 @@ angular.module('myApp.services.productData', [])
             type: 'Choker',
             price: 980,
             sourcePath: "content/img/image34.jpg",
-            isLimited: false
+            isLimited: false,
+            isSale: false,
+            isSoldOut: false
         }, {
             id: 4,
             isShortListed: false,
@@ -45,7 +51,9 @@ angular.module('myApp.services.productData', [])
             productCode: "D123",
             price: 320,
             sourcePath: "content/img/bangle1.jpg",
-            isLimited: false
+            isLimited: false,
+            isSale: true,
+            isSoldOut: false
         }, {
             id: 5,
             isShortListed: false,
@@ -54,7 +62,9 @@ angular.module('myApp.services.productData', [])
             productCode: "D123",
             price: 250,
             sourcePath: "content/img/bangle2.jpg",
-            isLimited: true
+            isLimited: false,
+            isSale: false,
+            isSoldOut: true
         }, {
             id: 6,
             isShortListed: true,
@@ -63,7 +73,9 @@ angular.module('myApp.services.productData', [])
             price: 980,
             productCode: "D123",
             sourcePath: "content/img/image35.jpg",
-            isLimited: false
+            isLimited: false,
+            isSale: false,
+            isSoldOut: false
         }, {
             id: 7,
             isShortListed: true,
@@ -72,7 +84,9 @@ angular.module('myApp.services.productData', [])
             price: 270,
             productCode: "D123",
             sourcePath: "content/img/image15.jpg",
-            isLimited: false
+            isLimited: false,
+            isSale: false,
+            isSoldOut: false
         }, {
             id: 8,
             isShortListed: false,
@@ -81,7 +95,9 @@ angular.module('myApp.services.productData', [])
             type: 'Bangles',
             price: 250,
             sourcePath: "content/img/image9.jpg",
-            isLimited: false
+            isLimited: false,
+            isSale: false,
+            isSoldOut: false
         }, {
             id: 9,
             isShortListed: false,
@@ -90,7 +106,9 @@ angular.module('myApp.services.productData', [])
             productCode: "PQR123",
             price: 385,
             sourcePath: "content/img/image02.jpg",
-            isLimited: true
+            isLimited: true,
+            isSale: false,
+            isSoldOut: false
         }, {
             id: 10,
             isShortListed: false,
@@ -98,7 +116,9 @@ angular.module('myApp.services.productData', [])
             type: 'Bangles',
             price: 210,
             sourcePath: "content/img/image03.jpg",
-            isLimited: false
+            isLimited: false,
+            isSale: true,
+            isSoldOut: false
         }, {
             id: 11,
             isShortListed: true,
@@ -107,7 +127,9 @@ angular.module('myApp.services.productData', [])
             productCode: "XYZ123",
             price: 290,
             sourcePath: "content/img/image14.jpg",
-            isLimited: false
+            isLimited: false,
+            isSale: true,
+            isSoldOut: false
         }, {
             id: 12,
             isShortListed: false,
@@ -115,14 +137,18 @@ angular.module('myApp.services.productData', [])
             type: 'Bangles',
             price: 685,
             sourcePath: "content/img/image20.jpg",
-            isLimited: true
+            isLimited: true,
+            isSale: false,
+            isSoldOut: false
         }, {
             id: 13,
             isShortListed: true,
             price: 190,
             type: 'Bangles',
             sourcePath: "content/img/image26.jpg",
-            isLimited: false
+            isLimited: false,
+            isSale: true,
+            isSoldOut: false
         }, {
             id: 14,
             isShortListed: false,
@@ -130,7 +156,9 @@ angular.module('myApp.services.productData', [])
             type: 'Bracelets',
             price: 95,
             sourcePath: "content/img/image23.jpg",
-            isLimited: false
+            isLimited: false,
+            isSale: false,
+            isSoldOut: false
         }, {
             id: 15,
             isShortListed: false,
@@ -138,7 +166,9 @@ angular.module('myApp.services.productData', [])
             type: 'Bracelets',
             price: 120,
             sourcePath: "content/img/image24.jpg",
-            isLimited: true
+            isLimited: true,
+            isSale: false,
+            isSoldOut: false
         }, {
             id: 16,
             isShortListed: true,
@@ -146,7 +176,9 @@ angular.module('myApp.services.productData', [])
             type: 'Bracelets',
             price: 250,
             sourcePath: "content/img/image11.jpg",
-            isLimited: false
+            isLimited: false,
+            isSale: false,
+            isSoldOut: false
         }, {
             id: 17,
             isShortListed: true,
@@ -155,7 +187,9 @@ angular.module('myApp.services.productData', [])
             price: 980,
             productCode: "XYZ123",
             sourcePath: "content/img/image1.png",
-            isLimited: false
+            isLimited: false,
+            isSale: false,
+            isSoldOut: true
         }, {
             id: 18,
             isShortListed: true,
@@ -164,7 +198,9 @@ angular.module('myApp.services.productData', [])
             type: 'Necklace',
             price: 120,
             sourcePath: "content/img/image36.jpg",
-            isLimited: false
+            isLimited: false,
+            isSale: true,
+            isSoldOut: false
         }, {
             id: 19,
             isShortListed: true,
@@ -173,7 +209,9 @@ angular.module('myApp.services.productData', [])
             type: 'Necklace',
             price: 250,
             sourcePath: "content/img/image4.jpg",
-            isLimited: true
+            isLimited: false,
+            isSale: false,
+            isSoldOut: false
         }, {
             id: 20,
             isShortListed: true,
@@ -182,7 +220,9 @@ angular.module('myApp.services.productData', [])
             type: 'Necklace',
             price: 980,
             sourcePath: "content/img/image8.jpg",
-            isLimited: false
+            isLimited: false,
+            isSale: true,
+            isSoldOut: false
         }];
     };
 
@@ -194,17 +234,35 @@ angular.module('myApp.services.productData', [])
         })
         return promise;*/
         return [{
-            pos: 0,
-            name: 'offer_1.jpg'
+            id: 0,
+            isLiked: false,
+            price: 199,
+            sourcePath: 'offer1.jpg',
+            name: 'Elegant choker'
         }, {
-            pos: 1,
-            name: 'offer_2.jpg'
+            id: 1,
+            isLiked: false,
+            price: 99,
+            sourcePath: 'offer2.jpg',
+            name: 'Elegant choker'
         }, {
-            pos: 2,
-            name: 'offer_3.png'
+            id: 2,
+            isLiked: false,
+            price: 225,
+            sourcePath: 'offer3.jpg',
+            name: 'Anklets'
         }, {
-            pos: 3,
-            name: 'offer_4.jpg'
+            id: 3,
+            isLiked: false,
+            price: 350,
+            sourcePath: 'offer4.jpg',
+            name: 'Gold Bracelets'
+        },{
+            id: 4,
+            isLiked: false,
+            price: 500,
+            sourcePath: 'offer5.jpg',
+            name: 'Thin Chain'
         }];
     };
     return product;

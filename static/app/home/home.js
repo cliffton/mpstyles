@@ -42,7 +42,7 @@ angular.module('myApp.home', [
                 alert('You have logout successfully!');
             },
             'message': "Kindly register or login to shop with us.",
-            'label': "LOGIN / SIGN UP"
+            'label': "Sign In or Create an account"
         };
 
         // getting logged in user info
@@ -50,6 +50,8 @@ angular.module('myApp.home', [
 
         // header tabs
         $scope.headerTabs = TabsData.getHeader() || [];
+
+        $scope.subHeaderTabs = TabsData.getSubHeader() || [];
 
         // footer tabs
         $scope.footerTabs = TabsData.getFooter() || {};
@@ -64,10 +66,7 @@ angular.module('myApp.home', [
         };
 
         // sort data based on attributes
-        $scope.sortBy = {
-            attributes: FilterSortByData.attribute() || [],
-            value: ""
-        };
+        $scope.sortBy =  FilterSortByData.attribute() || [];
 
         // get list of products
         var data = ProductData.getList();
@@ -78,8 +77,10 @@ angular.module('myApp.home', [
         // page text and labels
         $scope.pageText = {
             brandName: "Manpriya Styles",
-            limitedStock: "Limited Stock",
-            shipping: "Free Shipping on ALL orders !",
+            shortlist: "shortlist",
+            limitedStock: "Limited",
+            sale: "Sale",
+            soldOut: "Sold Out",
             seeMore: "See More"
         };
 
@@ -89,12 +90,17 @@ angular.module('myApp.home', [
         };
 
         // nav tabs to set active
+        $scope.activated = 0;
+        $scope.active = function(index) {
+                    $scope.activated = index;
+        };
+
         $scope.selected = 0;
         $scope.select = function(index) {
             $scope.selected = index;
         };
 
-        // price range
+        /*// price range
         $scope.price = {
             midRange: 1000,
             priceMin: 0,
@@ -102,7 +108,9 @@ angular.module('myApp.home', [
             reset: function() {
                 $scope.price.midRange = 1000;
             }
-        };
+        };*/
+
+
         // show and hide menu button on toggle
         $scope.toggleMenuFlag = true;
 
@@ -120,24 +128,24 @@ angular.module('myApp.home', [
 
         // by default
         var currentPos = 0;
-        $scope.currentOffer = $scope.offers[currentPos].name;
+        $scope.currentOffer = $scope.offers[currentPos].sourcePath;
 
         // select randomly
         $scope.selectOffer = function(indexPos) {
             currentPos = indexPos;
-            $scope.currentOffer = $scope.offers[currentPos].name;
+            $scope.currentOffer = $scope.offers[currentPos].sourcePath;
         };
 
         // go back
         $scope.previousSel = function() {
             currentPos = (currentPos == 0) ? $scope.offers.length - 1 : currentPos - 1;
-            $scope.currentOffer = $scope.offers[currentPos].name;
+            $scope.currentOffer = $scope.offers[currentPos].sourcePath;
         };
 
         // go to next
         $scope.nextSel = function() {
             currentPos = (currentPos == $scope.offers.length - 1) ? 0 : currentPos + 1;
-            $scope.currentOffer = $scope.offers[currentPos].name;
+            $scope.currentOffer = $scope.offers[currentPos].sourcePath;
         };
 
         // subscription for updates

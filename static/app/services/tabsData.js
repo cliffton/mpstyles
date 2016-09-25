@@ -30,6 +30,38 @@ angular.module('myApp.services.tabsData', [])
         }]
     };
 
+    tab.getSubHeader = function() {
+        /*          var promise = $http.get('http://cliffton.xyz/api/v1/subHeaderTab').then(function(response) {
+                       return response.data;
+                    }, function (error) {
+                      //error
+                    })
+                    return promise;*/
+        return [{
+            name: "necklace",
+            id: 1,
+            items: 73
+        }, {
+            name: "bracelets",
+            id: 2,
+            items: 15
+        }, {
+            name: "earnings",
+            id: 3,
+            items: 35
+        },
+        {
+            name: "anklets",
+            id: 4,
+            items: 10
+        },
+        {
+            name: "hand cuff",
+            id: 5,
+            items: 49
+        }]
+    };
+
     tab.getFooter = function() {
         /*          var promise = $http.get('http://cliffton.xyz/api/v1/footerTab').then(function(response) {
                        return response.data;
@@ -51,7 +83,6 @@ angular.module('myApp.services.tabsData', [])
             id: 3,
             link: "customer-services"
         }];
-
         var aboutUs = [{
             name: "Who are we",
             id: 1,
@@ -65,7 +96,6 @@ angular.module('myApp.services.tabsData', [])
             id: 3,
             link: "about-us"
         }];
-
         var policies = [{
             name: "Shipping Policy",
             id: 1,
