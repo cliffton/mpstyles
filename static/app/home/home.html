@@ -65,7 +65,7 @@
 			<div class="pull-left col-sm-10">
 				<div class="products" ng-repeat="products in productList | limitTo: offset">
 					<div class="col-sm-3" ng-repeat="product in products | filter:$ctrl.query | selectedOptions:filterBy.selected">
-						<a href="#/secure/product-description/{{product.id}}"><img ng-src="{{product.sourcePath}}" class="img-responsive" alt="item"></a>
+						<a href="#/product-description/{{product.id}}"><img ng-src="{{product.sourcePath}}" class="img-responsive" alt="item"></a>
 						<div class="product-label">
 							<span class="limited-stock-label" ng-if="product.isLimited">{{::pageText.limitedStock}}</span>
 							<span class="sale-label" ng-if="product.isSale">{{::pageText.sale}}</span>
@@ -73,7 +73,7 @@
 						</div>
 						<div class="product-detail">
 						<div class="product-name">
-							<a href="#/secure/product-description/{{product.id}}">{{product.name}}</a>
+							<a href="#/product-description/{{product.id}}">{{product.name}}</a>
 						</div>
 						<span class="pull-left">
 							<i ng-class="product.isLiked ? 'fa-heart': 'fa-heart-o'" ng-click="product.isLiked = !product.isLiked; product.likes = product.likes + (product.isLiked == true ?  1 : -1)" class="fa fa-lg"></i>
@@ -117,7 +117,7 @@
 						<div ng-class="{item: true, active : (offer.id === 0)}" ng-repeat="offer in offers"> <img ng-src="{{imgSourcePath}}/{{currentOffer}}" alt="offer not found">
 							<div class="product-detail">
 							<div class="product-name">
-								<a href="#/secure/product-description/{{offer.id}}">{{offer.name}}</a>
+								<a href="#/product-description/{{offer.id}}">{{offer.name}}</a>
 							</div>
 							<span class="pull-left">
 								<i ng-class="offer.isLiked ? 'fa-heart': 'fa-heart-o'" ng-click="offer.isLiked = !offer.isLiked; offer.likes = offer.likes + (offer.isLiked == true ?  1 : -1)" class="fa fa-lg"></i>
@@ -246,7 +246,7 @@
 				</form>
 				</div>
                 <div class="brand"><span><b>{{::pageText.brandName}}</b> © 2016. Developed by</span>
-				<a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank">" NEVILLE & CLIFFTON "</a>
+				<a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank">"CLIFFTON & NEVILLE"</a>
 				</div>
 					<ul class="banking-options">
 						<li class="netbank"><span></span></li>

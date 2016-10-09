@@ -1,14 +1,18 @@
 angular.module('myApp.login', ['myApp.services.authentication'])
 
-.controller('loginCtrl', function($scope, $rootScope, $location, AuthenticationService) {
-    // all the note msgs to be displayed
+.controller('loginCtrl', function($scope, $location, AuthenticationService) {
+
+    var defaultErrorMsg = 'Something went wrong at our end. Try again Later';
+
+    // all the note msgs to be displayed on login page
     $scope.note = {
         'notMember': "Not a Member ? Register with us",
         'forgotPassword': "Forgot Password",
         'newPasswordMsg': "Password will been sent to your mail",
+        'home': "HOME"
     };
-    // home
-    $scope.home = "HOME";
+
+    $scope.mobileNo = "";
 
     // dataLoading icon
     $scope.dataLoading = false;
@@ -23,13 +27,13 @@ angular.module('myApp.login', ['myApp.services.authentication'])
     // on login
     $scope.login = function() {
         $scope.dataLoading = true;
-        AuthenticationService.login($scope.number, $scope.password, function(response) {
+        AuthenticationService.login($scope.mobileNo, $scope.password, function(response) {
             $scope.dataLoading = false;
-            if (response === 'valid') {
-                AuthenticationService.setCredentials($scope.number);
-                $location.path('/secure/home');
+            if (response.isValid) {
+                AuthenticationService.setCredentials($scope.mobileNo);
+                $location.path('/home');
             } else {
-                $scope.errorMessage = response.error;
+                $scope.errorMessage = response.errorMessage || defaultErrorMsg;
                 $scope.errorAlertToggle = true;
             }
         });
@@ -38,13 +42,13 @@ angular.module('myApp.login', ['myApp.services.authentication'])
     // on forgot password
     $scope.forgotPassword = function() {
         $scope.dataLoading = true;
-        AuthenticationService.forgotPassword($scope.number, function(response) {
+        AuthenticationService.forgotPassword($scope.mobileNo, function(response) {
             $scope.dataLoading = false;
-            if (response === 'valid') {
-                $scope.successMessage = "Password has been sent to your mail";
+            if (response.successMessage) {
+                $scope.successMessage = response.successMessage;
                 $scope.successAlertToggle = true;
             } else {
-                $scope.errorMessage = response.error;
+                $scope.errorMessage = response.errorMessage || defaultErrorMsg;
                 $scope.errorAlertToggle = true;
             }
         });

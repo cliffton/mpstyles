@@ -30,10 +30,6 @@ angular.module('myApp', [
         templateUrl: 'home/home.html',
         controller: 'homeCtrl'
       }).
-      when('/secure/home', {
-        templateUrl: 'home/home.html',
-        controller: 'homeCtrl'
-      }).
       when('/secure/cart/', {
           templateUrl: 'cart/cart.html',
           controller: 'cartCtrl'

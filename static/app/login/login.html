@@ -13,39 +13,37 @@
 			<strong>Success!</strong> {{successMessage}}
 		</div>
 		<i ng-if="dataLoading" class="fa-li fa fa-spinner fa-spin fa-2x"></i>
-		<form name="Loginform" ng-submit="login()" role="form" ng-show="!isForgotPassword">
+		<form name="loginForm" ng-submit="login()" role="form" ng-show="!isForgotPassword">
 			<div class="pull-left">
 				<div class="form-group">
-					<input type="text" class="form-control input-lg" placeholder="NUMBER" ng-model="number" required pattern="^\d{10}$" oninvalid="this.setCustomValidity('Enter a valid mobile number');">
+					<input type="text" class="form-control input-lg" placeholder="MOBILE NUMBER" name="mobileNo" ng-model="mobileNo" pattern="^[2-9]{2}[0-9]{8}$" required>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control input-lg" placeholder="PASSWORD" ng-model="password" required>
+					<input type="password" name="password" class="form-control input-lg" placeholder="PASSWORD" ng-model="password" required>
 				</div>
-
 				<div class="form-group">
 					<a class="member" href="#/register">{{::note.notMember}}</a>
 					<div class="pass" ng-click="isForgotPassword = !isForgotPassword">{{::note.forgotPassword}}</div>
-
 				</div>
 			</div>
 			<div class="pull-left">
 				<button type="submit" class="loginBtn"><i class="fa fa-chevron-right fa-3x" aria-hidden="true"></i></button>
 				<div>
-					<a href="#/home" class="pull-right homeText">{{::home}} <i class="fa fa-level-up fa-2x" aria-hidden="true"></i></a>
+					<a href="#/home" class="pull-right homeText">{{::note.home}} <i class="fa fa-level-up fa-2x" aria-hidden="true"></i></a>
 				</div>
 			</div>
 		</form>
 		<form name="forgotPasswordForm" ng-submit="forgotPassword()" role="form" ng-show="isForgotPassword">
 			<div class="pull-left">
 				<div class="form-group">
-					<input type="text" class="form-control input-lg" placeholder="Number" ng-model="number" required pattern="^\d{10}$" oninvalid="this.setCustomValidity('Enter a valid mobile number');">
+					<input type="text" class="form-control input-lg" placeholder="Mobile Number" ng-model="mobileNo" pattern="^[2-9]{2}[0-9]{8}$" required>
 				</div>
-				<span><i class="fa fa-info-circle" aria-hidden="true"></i> {{::note.newPasswordMsg}}</span>
+				<span><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> {{::note.newPasswordMsg}}</span>
 			</div>
 			<div class="pull-left">
 				<button type="submit" class="loginBtn"><i class="fa fa-chevron-right fa-3x" aria-hidden="true"></i></button>
 				<div>
-					<a href="#/home" class="pull-right homeText">{{::home}} <i class="fa fa-level-up fa-2x" aria-hidden="true"></i></a>
+					<a href="#/home" class="pull-right homeText">{{::note.home}} <i class="fa fa-level-up fa-2x" aria-hidden="true"></i></a>
 				</div>
 			</div>
 		</form>

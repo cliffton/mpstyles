@@ -171,9 +171,11 @@ header .top-row .pull-right span{
 }
 
 .sortBy{
-    margin: 3px 0px 0px 3px;
+    margin-left: 3px;
     color: #908f8f;
-    vertical-align: middle;
+}
+.sortBy span{
+    margin-left: 5px;
 }
 
 .fa-heart-o{
@@ -608,7 +610,7 @@ a.nav-icon-outline:hover {
     box-shadow: 5px 5px 3px #b7b6b6;
 }
 .login-page .signup-text{
-    color: #f998bc;
+    color: #ee6a70;
     font-size:20px;
     letter-spacing:1px
 }
@@ -617,6 +619,7 @@ a.nav-icon-outline:hover {
     font-weight: 300;
     font-size: 15px;
     color: #b3b1b2;
+    text-decoration: none;
 }
 
 .login-page .login-content{
@@ -639,7 +642,7 @@ box-shadow: 5px 5px 3px #b7b6b6;
     height: 45px;
     width: 90px;
     border-radius: 0;
-    background: #f998bc;
+    background: #ee6a70;
     border:0px;
     box-shadow: none;
     color: #fff;
@@ -666,12 +669,12 @@ box-shadow: 5px 5px 3px #b7b6b6;
     height: 107px;
     width: 100px;
     border-radius: 0;
-	background: #f998bc;
+	background: #ee6a70;
     border: 0px;
     box-shadow: none;
     margin-left: 15px;
     color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .login-page .fa-spinner{
@@ -1154,13 +1157,16 @@ color: #ee6a70
 .product-colors li.selected {
     border: 2px solid #585858
 }
+.product-cost{
+    font-size: 25px;
+}
 .product .product-title {
     margin-top: 0;
     margin-bottom: 12px
 }
 .product .product-detail {
     font-weight: 300;
-    font-size: 23px;
+    font-size: 14px;
     padding: 0
 }
 .product .product-detail .original-price {
@@ -1183,7 +1189,7 @@ color: #ee6a70
     height: 30px;
     width: 140px;
     border-radius: 0;
-    background: #f998bc;
+    background: #ee6a70;
     border: 0px;
     box-shadow: none;
     color: #fff !important;
@@ -1455,7 +1461,7 @@ blockquote small {
     float: right
 }
 .footer {
-    background-color: #908f8f;
+    background-color: #585858;
     width: 100%;
     z-index: 99999;
     padding: 5px 10px;
@@ -1553,9 +1559,9 @@ blockquote small {
 }
 
 .go-top{
-position: fixed;
-bottom: 80px;
-right: 15px;
+    position: fixed;
+    bottom: 80px;
+    right: 15px;
 }
 
 @media (max-width: 767px) {
@@ -1676,6 +1682,7 @@ right: 15px;
 
       .product-gallery .products .col-sm-3 {
           width: 50%;
+          padding-right: 12px;
           display: inline-block;
       }
 

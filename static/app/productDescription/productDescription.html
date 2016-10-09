@@ -16,10 +16,9 @@
         </div>
         <div class="col-sm-6">
                 <h2 class="product-title">{{::productDetails.name}}</h2>
-                <div class="product-price">
-                    <span class="price">&#8377; {{::productDetails.price}}</span>
-                    <a href="#/secure/1/home" title="ADD TO CART" class="addToCartBtn">Add to Cart <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
-                </div>
+                    <span class="product-cost"><i class="fa fa-inr fa-lg" aria-hidden="true"></i> {{::productDetails.price}}</span>
+                    <a href="#/secure/1/home" title="ADD TO CART" class="addToCartBtn">Add To Cart <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                <hr>
                 <div class="product-detail">
                     <h4 class="highlighted-text">Product Details</h4>
                     <p>{{::productDetails.description}}</p>

@@ -9,12 +9,15 @@ angular.module('myApp.services.authentication', [])
                 username: number,
                 password: password
             })
-            .success(function(data, status, config, headers) {
-                tokenId = data.token;
-                callback('valid');
+            .success(function(response) {
+                if(angular.isDefined(response.token)){
+                    tokenId = response.token;
+                    response.isValid = true;
+                }
+                callback(response);
             })
-            .error(function(errorMsg) {
-                callback(errorMsg)
+            .error(function(response) {
+                callback(response);
             });
 
     };
@@ -38,6 +41,26 @@ angular.module('myApp.services.authentication', [])
 
     };
 
+    service.forgotPassword = function(number, callback) {
+        $http.post('http://cliffton.xyz/api/v1/forgotPassword/', number)
+        .success(function(response) {
+            callback(response);
+        })
+        .error(function(response) {
+            callback(response)
+        });
+    };
+
+    service.subscribe = function(email) {
+                $http.post('http://cliffton.xyz/api/v1/subscribe/', email)
+                    .success(function(data, status, config, headers) {
+                        callback('valid');
+                    })
+                    .error(function(errorMsg) {
+                        callback(errorMsg)
+                    });
+            };
+
     service.setCredentials = function(number) {
         $rootScope.globals = {
             currentUser: {
@@ -48,31 +71,10 @@ angular.module('myApp.services.authentication', [])
         $cookieStore.put('globals', $rootScope.globals);
     };
 
+    // clearing cookie
     service.clearCredentials = function() {
         $rootScope.globals = {};
         $cookieStore.remove('globals');
-    };
-
-    service.forgotPassword = function(number, callback) {
-
-        $http.post('http://cliffton.xyz/api/v1/forgotPassword/', number)
-        .success(function(data, status, config, headers) {
-            callback('valid');
-        })
-        .error(function(errorMsg) {
-            callback(errorMsg)
-        });
-
-    };
-
-    service.subscribe = function(email) {
-        $http.post('http://cliffton.xyz/api/v1/subscribe/', email)
-            .success(function(data, status, config, headers) {
-                callback('valid');
-            })
-            .error(function(errorMsg) {
-                callback(errorMsg)
-            });
     };
 
     return service;
