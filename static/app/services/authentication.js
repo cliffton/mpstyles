@@ -25,18 +25,18 @@ angular.module('myApp.services.authentication', [])
     service.signUp = function(register, callback) {
         data = {
             password: register.password,
-            first_name: register.first_name,
-            last_name: register.last_name,
-            contact_number: register.mobile,
+            first_name: register.firstName,
+            last_name: register.lastName,
+            contact_number: register.mobileNumber,
             email: register.email
         }
 
         $http.post('http://cliffton.xyz/api/v1/register/', data)
-            .success(function(data, status, config, headers) {
-                callback('valid');
+            .success(function(response) {
+                callback(response);
             })
-            .error(function(errorMsg) {
-                callback(errorMsg)
+            .error(function(response) {
+                callback(response)
             });
 
     };
@@ -52,14 +52,14 @@ angular.module('myApp.services.authentication', [])
     };
 
     service.subscribe = function(email) {
-                $http.post('http://cliffton.xyz/api/v1/subscribe/', email)
-                    .success(function(data, status, config, headers) {
-                        callback('valid');
-                    })
-                    .error(function(errorMsg) {
-                        callback(errorMsg)
-                    });
-            };
+        $http.post('http://cliffton.xyz/api/v1/subscribe/', email)
+            .success(function(data, status, config, headers) {
+                callback('valid');
+            })
+            .error(function(errorMsg) {
+                callback(errorMsg)
+            });
+    };
 
     service.setCredentials = function(number) {
         $rootScope.globals = {

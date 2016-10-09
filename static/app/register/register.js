@@ -10,29 +10,34 @@ angular.module('myApp.register', ['myApp.services.authentication'])
     // dataloading icon
     $scope.dataLoading = false;
 
+    $scope.defaultErrorMsg = 'Something went wrong at our end. Try again Later';
+
+    // register object
+    $scope.register = {};
+
     // on signup
     $scope.signUp = function() {
         $scope.dataLoading = true;
         AuthenticationService.signUp($scope.register, function(response) {
             $scope.dataLoading = false;
-            if (response === 'valid') {
-                $scope.isValid = true;
-                $scope.successMessage = "Redirecting you to login Page";
+            if (response.successMessage) {
+                $scope.successMessage = response.successMessage;
+                $scope.successAlertToggle = true;
                 $timeout(function() {
                     $location.path('login');
                 }, 2500);
-
             } else {
-                $scope.errorMessage = response.error;
-                $scope.isInvalid = true;
+                $scope.errorMessage = response.errorMessage || defaultErrorMsg;
+                $scope.errorAlertToggle = true;
             }
         });
     };
 
-    // removing alert msgs
+    // removing alert msgs and setting register to empty object
     $scope.reset = function() {
-        $scope.isInvalid = false;
-        $scope.isValid = false;
+        $scope.successAlertToggle = false;
+        $scope.errorAlertToggle = false;
+        $scope.register = {};
     };
 
 });

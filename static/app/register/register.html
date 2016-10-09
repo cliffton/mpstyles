@@ -1,7 +1,13 @@
 <div class="login-page">
 	<div class="signup-content">
-		<div ng-if="isInvalid" class="alert alert-danger"><strong>Error! </strong>{{errorMessage}}</div>
-		<div ng-if="isValid" class="alert alert-success"><strong>Registered Successfully! </strong>{{successMessage}}</div>
+		<div class="alert alert-danger" ng-show="errorAlertToggle">
+			<a class="close" ng-click="errorAlertToggle=!errorAlertToggle">&times;</a>
+			<strong>Error!</strong> {{errorMessage}}
+		</div>
+		<div class="alert alert-success" ng-show="successAlertToggle">
+			<a class="close" ng-click="successAlertToggle=!successAlertToggle">&times;</a>
+			<strong>Success!</strong> {{successMessage}}
+		</div>
 		<i ng-if="dataLoading" class="fa-li fa fa-spinner fa-spin fa-2x"></i>
 		<form name="registerForm" ng-submit="signUp()" role="form">
 			<div class="form-group">
@@ -9,22 +15,19 @@
 				<a href="#/home" class="pull-right homeText">{{::home}}<i class="fa fa-level-up fa-2x" aria-hidden="true"></i></a>
 			</div>
 			<div class="form-group">
-				<input type="text" ng-model="register.first_name" class="form-control input-lg" placeholder="FIRST NAME" minlength="1" maxlength="25" required oninvalid="this.setCustomValidity('Enter a valid name');">
+				<input type="text" ng-model="register.firstName" class="form-control input-lg" placeholder="FIRST NAME" minlength="1" maxlength="25" required>
 			</div>
 			<div class="form-group">
-				<input type="text" ng-model="register.last_name" class="form-control input-lg" placeholder="LAST NAME" minlength="1" maxlength="25" required oninvalid="this.setCustomValidity('Enter a valid name');">
+				<input type="text" ng-model="register.lastName" class="form-control input-lg" placeholder="LAST NAME" minlength="1" maxlength="25" required>
 			</div>
 			<div class="form-group">
-				<input type="email" ng-model="register.email" class="form-control input-lg" placeholder="EMAIL" maxlength="40" required oninvalid="this.setCustomValidity('Enter a valid email-id');">
+				<input type="email" ng-model="register.email" class="form-control input-lg" placeholder="EMAIL" maxlength="40" required>
 			</div>
 			<div class="form-group">
-				<input type="text" ng-model="register.mobile" class="form-control input-lg" placeholder="MOBILE" required pattern="^\d{10}$" oninvalid="this.setCustomValidity('Enter a valid mobile number');">
+				<input type="text" ng-model="register.mobileNumber" class="form-control input-lg" placeholder="MOBILE NUMBER" pattern="^[2-9]{2}[0-9]{8}$" required>
 			</div>
 			<div class="form-group">
-				<input type="password" ng-model="register.password" class="form-control input-lg" placeholder="PASSWORD" minlength="6" maxlength="15" required oninvalid="this.setCustomValidity('Enter a password having 6 or more characters');">
-			</div>
-			<div class="form-group">
-				<input type="password" class="form-control input-lg" placeholder="CONFIRM PASSWORD" minlength="6" maxlength="15" required oninvalid="this.setCustomValidity('Password does not match');">
+				<input type="password" ng-model="register.password" class="form-control input-lg" placeholder="PASSWORD" minlength="6" maxlength="15" required>
 			</div>
 			<button type="submit" class="signupBtn"><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
 

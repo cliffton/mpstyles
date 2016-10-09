@@ -914,7 +914,7 @@ color: #ee6a70
 .product-gallery .product-name a{
     font-weight: 800;
     letter-spacing: 2px;
-    color: #999;
+    color: #ee6a70;
     padding-bottom: 5px;
     font-size: 10px;
 }
@@ -1199,6 +1199,10 @@ color: #ee6a70
     margin-left: 10px;
 }
 
+span.dataLoading{
+    color: #fff;
+    position: relative;
+}
 .subscribeBtn{
     width: 75px;
     border-radius: 0;

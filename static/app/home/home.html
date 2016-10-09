@@ -1,5 +1,4 @@
 <div ng-controller="homeCtrl">
-
 	<header class="container-fluid">
 		<div class="nav-header-top" ng-class="{'visibility':toggleMenuFlag}">
 			<div class="row top-row">
@@ -239,9 +238,9 @@
 			</div>
 			<div class="col-sm-6">
 				<div class="newsLetterSection">
-					<div class="newsLetterText"> NEWSLETTER SIGN UP</div>
+					<div class="newsLetterText"> NEWSLETTER SIGN UP</div><span class="dataLoading"><i ng-if="dataLoading" class="fa-li fa fa-spinner fa-spin fa-2x"></i></span>
 				<form class="row" name="subscribeForm" ng-submit="subscribe()" role="form" class="input-group">
-					<input type="email" ng-model="subscribedEmailId" placeholder="Enter your email id" name="EMAIL">
+					<input type="email" ng-model="subscribedEmailId" placeholder="Enter your email id" name="EMAIL" required>
 				<button type="submit" class="subscribeBtn">Subscribe</button>
 				</form>
 				</div>

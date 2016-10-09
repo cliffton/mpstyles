@@ -120,6 +120,8 @@ angular.module('myApp.home', [
         // the number of rows to be shown in the home page
         $scope.offset = 3;
 
+        $scope.dataLoading = false;
+
         // image path
         $scope.imgSourcePath = "content/img";
 
@@ -150,11 +152,13 @@ angular.module('myApp.home', [
 
         // subscription for updates
         $scope.subscribe = function() {
+            $scope.dataLoading = true;
             AuthenticationService.subscribe($scope.subscribedEmailId, function(response) {
-                if (response === 'valid') {
-                    alert("You have subscribed to our newsletter successfully");
+            $scope.dataLoading = false;
+                if (response.successMessage) {
+                    alert(response.successMessage);
                 } else {
-                    alert("Kindly enter a valid email id");
+                    alert(response.errorMessage || "Something is wrong at our end. Try again later.");
                 }
             });
         };
