@@ -206,10 +206,10 @@ AUTH_USER_MODEL = "custom_user.User"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = location('public/static')
-STATICFILES_DIRS = (
-    location('static/'),
-)
+# STATIC_ROOT = location('public/static')
+# STATICFILES_DIRS = (
+#     location('static/'),
+# )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
