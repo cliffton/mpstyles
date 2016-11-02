@@ -5,7 +5,7 @@ from custom_api import views
 urlpatterns = patterns(
 	'',
 	url(
-		regex=r'^prodcts/$', 
+		regex=r'^products/$', 
 		view=views.ProductList.as_view(),
 		name='product-list'),
 	url(
