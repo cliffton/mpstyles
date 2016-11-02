@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.utils.translation import get_language
 from oscarapi.views import basic
+from oscarapi.serializers.product import ProductSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http.response import JsonResponse
@@ -14,6 +15,8 @@ from rest_framework.authtoken.models import Token
 # Create your views here.
 
 class ProductList(basic.ProductList):
+    serializer_class = ProductSerializer
+
     def get_queryset(self):
         language = get_language()
 
