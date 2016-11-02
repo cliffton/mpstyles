@@ -2,14 +2,15 @@ angular.module('myApp.login', ['myApp.services.authentication'])
 
 .controller('loginCtrl', function($scope, $location, AuthenticationService) {
 
-    var defaultErrorMsg = 'Something went wrong at our end. Try again Later';
+    var defaultErrorMsg = 'Something went wrong at our end.';
 
     // all the note msgs to be displayed on login page
     $scope.note = {
         'notMember': "Not a Member ? Register with us",
         'forgotPassword': "Forgot Password",
         'newPasswordMsg': "Password will been sent to your mail",
-        'home': "HOME"
+        'home': "HOME",
+        'customerSupport': "Contact- customersupport@manpriyastyles.com"
     };
 
     $scope.mobileNo = "";
@@ -33,7 +34,7 @@ angular.module('myApp.login', ['myApp.services.authentication'])
                 AuthenticationService.setCredentials($scope.mobileNo);
                 $location.path('/home');
             } else {
-                $scope.errorMessage = response.errorMessage || defaultErrorMsg;
+                $scope.errorMessage = response.error || defaultErrorMsg;
                 $scope.errorAlertToggle = true;
             }
         });

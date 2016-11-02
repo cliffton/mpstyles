@@ -25,6 +25,7 @@
 					<a class="member" href="#/register">{{::note.notMember}}</a>
 					<div class="pass" ng-click="isForgotPassword = !isForgotPassword">{{::note.forgotPassword}}</div>
 				</div>
+				<div class="contact-admin">{{::note.customerSupport}}</div>
 			</div>
 			<div class="pull-left">
 				<button type="submit" class="loginBtn"><i class="fa fa-chevron-right fa-3x" aria-hidden="true"></i></button>
@@ -33,12 +34,12 @@
 				</div>
 			</div>
 		</form>
-		<form name="forgotPasswordForm" ng-submit="forgotPassword()" role="form" ng-show="isForgotPassword">
+		<form class="forgotPassword" name="forgotPasswordForm" ng-submit="forgotPassword()" role="form" ng-show="isForgotPassword">
 			<div class="pull-left">
 				<div class="form-group">
 					<input type="text" class="form-control input-lg" placeholder="Mobile Number" ng-model="mobileNo" pattern="^[2-9]{2}[0-9]{8}$" required>
 				</div>
-				<span><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> {{::note.newPasswordMsg}}</span>
+				<span class="passwordMsg"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> {{::note.newPasswordMsg}}</span>
 			</div>
 			<div class="pull-left">
 				<button type="submit" class="loginBtn"><i class="fa fa-chevron-right fa-3x" aria-hidden="true"></i></button>
@@ -46,6 +47,7 @@
 					<a href="#/home" class="pull-right homeText">{{::note.home}} <i class="fa fa-level-up fa-2x" aria-hidden="true"></i></a>
 				</div>
 			</div>
+			<div class="contact-admin">{{::note.customerSupport}}</div>
 		</form>
 	</div>
 </div>
