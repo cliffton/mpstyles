@@ -3,6 +3,26 @@ from rest_framework.validators import UniqueValidator
 from custom_user.models import User
 
 
+from rest_framework import serializers
+from oscarapi.serializers.product import *
+from oscarapi.utils import (
+    OscarModelSerializer,
+    overridable,
+    OscarHyperlinkedModelSerializer
+)
+from oscar.core.loading import get_model
+
+
+Product = get_model('catalogue', 'Product')
+ProductClass = get_model('catalogue', 'ProductClass')
+ProductCategory = get_model('catalogue', 'ProductCategory')
+ProductAttribute = get_model('catalogue', 'ProductAttribute')
+ProductAttributeValue = get_model('catalogue', 'ProductAttributeValue')
+ProductImage = get_model('catalogue', 'ProductImage')
+Option = get_model('catalogue', 'Option')
+Partner = get_model('partner', 'Partner')
+
+
 class RegistrationSerializer(serializers.Serializer):
     first_name = serializers.CharField(required=True)
     last_name = serializers.CharField(required=True)
@@ -16,3 +36,29 @@ class RegistrationSerializer(serializers.Serializer):
     )
     # dob  = serializers.CharField(required=True)
     password = serializers.CharField(required=True)
+
+
+class CustomProductSerializer(OscarModelSerializer):
+    url = serializers.HyperlinkedIdentityField(view_name='product-detail')
+    stockrecords = serializers.HyperlinkedIdentityField(
+        view_name='product-stockrecord-list')
+    attributes = ProductAttributeValueSerializer(
+        many=True, required=False, source="attribute_values")
+    categories = serializers.StringRelatedField(many=True, required=False)
+    product_class = serializers.StringRelatedField(required=False)
+    images = ProductImageSerializer(many=True, required=False)
+    price = serializers.HyperlinkedIdentityField(view_name='product-price')
+    availability = serializers.HyperlinkedIdentityField(
+        view_name='product-availability')
+    options = OptionSerializer(many=True, required=False)
+    # recommended_products = RecommmendedProductSerializer(
+    #     many=True, required=False)
+
+    class Meta:
+        model = Product
+        fields = overridable(
+            'OSCARAPI_PRODUCTDETAIL_FIELDS',
+            default=(
+                'url', 'id', 'title', 'description',
+                'attributes', 'categories', 'product_class',
+                'stockrecords', 'images', 'price', 'availability', 'options'))
