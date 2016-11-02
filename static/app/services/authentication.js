@@ -5,7 +5,7 @@ angular.module('myApp.services.authentication', [])
     var tokenId;
 
     service.login = function(number, password, callback) {
-        $http.post('http://cliffton.xyz/api/v1/login/', {
+        $http.post('http://cliffton.xyz/api/users/login/', {
                 username: number,
                 password: password
             })
@@ -23,7 +23,7 @@ angular.module('myApp.services.authentication', [])
     };
 
     service.signUp = function(register, callback) {
-        data = {
+        var data = {
             password: register.password,
             first_name: register.firstName,
             last_name: register.lastName,
@@ -31,7 +31,7 @@ angular.module('myApp.services.authentication', [])
             email: register.email
         }
 
-        $http.post('http://cliffton.xyz/api/v1/register/', data)
+        $http.post('http://cliffton.xyz/api/register/', data)
             .success(function(response) {
                 callback(response);
             })

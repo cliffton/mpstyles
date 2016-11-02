@@ -7,6 +7,8 @@ angular.module('myApp.register', ['myApp.services.authentication'])
     $scope.signup = "SIGN UP";
     // home text
     $scope.home = "HOME";
+
+    $scope.customerSupport = "Contact- customersupport@manpriyastyles.com";
     // dataloading icon
     $scope.dataLoading = false;
 

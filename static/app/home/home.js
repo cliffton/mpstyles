@@ -39,6 +39,7 @@ angular.module('myApp.home', [
             'logout': function() {
                 // logging out and clearing cookie
                 AuthenticationService.clearCredentials();
+                $scope.loggedIn.value = false;
                 alert('You have logout successfully!');
             },
             'message': "Kindly register or login to shop with us.",
