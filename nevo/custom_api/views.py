@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http.response import JsonResponse
 from custom_user.models import User
-from custom_api.serializers import RegistrationSerializer
+from custom_api.serializers import RegistrationSerializer, CustomProductSerializer
 from rest_framework import status
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
@@ -15,13 +15,13 @@ from rest_framework.authtoken.models import Token
 # Create your views here.
 
 class ProductList(basic.ProductList):
-    serializer_class = ProductSerializer
+    serializer_class = CustomProductSerializer
 
-    def get_queryset(self):
-        language = get_language()
+    # def get_queryset(self):
+    #     language = get_language()
 
-        return super(ProductList, self).get_queryset().filter(
-            locale=to_locale(language))
+    #     return super(ProductList, self).get_queryset().filter(
+    #         locale=to_locale(language))
 
 
 class RegistrationView(APIView):
