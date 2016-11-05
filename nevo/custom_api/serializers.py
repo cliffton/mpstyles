@@ -11,6 +11,7 @@ from oscarapi.utils import (
     OscarHyperlinkedModelSerializer
 )
 from oscar.core.loading import get_model
+from random import randint
 
 
 Product = get_model('catalogue', 'Product')
@@ -47,12 +48,28 @@ class CustomProductSerializer(OscarModelSerializer):
     categories = serializers.StringRelatedField(many=True, required=False)
     product_class = serializers.StringRelatedField(required=False)
     images = ProductImageSerializer(many=True, required=False)
-    price = serializers.HyperlinkedIdentityField(view_name='product-price')
-    availability = serializers.HyperlinkedIdentityField(
-        view_name='product-availability')
+    # price = serializers.HyperlinkedIdentityField(view_name='product-price')
+    # availability = serializers.HyperlinkedIdentityField(
+    #     view_name='product-availability')
     options = OptionSerializer(many=True, required=False)
     # recommended_products = RecommmendedProductSerializer(
     #     many=True, required=False)
+
+    # TODO: Remove after proper is fixed.
+    price = serializers.SerializerMethodField()
+    availability = serializers.SerializerMethodField()
+
+
+    def get_price(self, obj):
+        return randint(100,5000)
+
+    def get_availability(self, obj):
+        return_dict = {
+            0: "Sold Out",
+            1: "In Stock",
+            2: "Limited"
+        }
+        return return_dict[randint(0,2)]
 
     class Meta:
         model = Product
