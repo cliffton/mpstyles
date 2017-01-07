@@ -1,0 +1,35 @@
+<header class="container-fluid">
+    <div class="nav-header-top" ng-class="{'visibility':toggleMenuFlag}">
+        <div class="row top-row">
+            <div class="pull-left">
+                <i class="fa fa-phone fa-lg" aria-hidden="true"></i><span>+91- 9821946952 / 9920144866</span>
+            </div>
+            <div class="pull-right">
+                <span><i class="fa fa-credit-card" aria-hidden="true"></i>online payment</span>
+                <span><i class="fa fa-phone-square" aria-hidden="true"></i>24/7 support</span>
+                <span><i class="fa fa-truck" aria-hidden="true"></i></i>Shipping</span>
+                <!--<span><i class="fa fa-map-marker" aria-hidden="true"></i>track order</span>-->
+                <span><i class="fa fa-money" aria-hidden="true"></i>refund money</span>
+            </div>
+        </div>
+        <div class="visible-xs">
+            <h3>Menu <span class="pull-right" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-angle-double-left fa-lg"></i></span></h3>
+        </div>
+        <div class="row nav-list">
+            <ul class="effect">
+                <li ng-class="{active: $index == selected}" ng-click="select($index)" ng-repeat="tab in headerTabs"><a href="#/{{::tab.link}}">{{::tab.name}}</a></li>
+            </ul>
+            <div class="loginText">
+                <a href="#login" ng-if="!loggedIn.value">{{::loggedOff.label}} <i class="fa fa-lock" aria-hidden="true"></i></a>
+                <a href="#home" ng-if="loggedIn.value" ng-click="loggedOff.logout()"> Hello {{userInfo.first_name}} <i class="fa fa-unlock" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="row nav-header-bottom">
+        <a href="#home" class="nav-brand pull-left"> MANPRIYA <span>STYLES</span></a>
+        <a class="nav-icon-outline pull-right visible-xs" ng-click="toggleMenuFlag = !toggleMenuFlag"><i class="fa fa-list fa-2x"></i></a>
+        <a class="nav-icon-outline pull-right" href="#secure/cart"><i class="fa fa-shopping-basket fa-2x" aria-hidden="true"></i><span class="badge" ng-bind="userInfo.cartCount || 0"></span></a>
+        <span class="searchBox pull-right"><i class="fa fa-venus fa-2x" aria-hidden="true"></i></span>
+        <input type="text" class="search-box pull-right" ng-model="$ctrl.query" placeholder="WHATS YOUR STYLE">
+    </div>
+</header>

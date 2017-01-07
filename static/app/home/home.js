@@ -1,6 +1,9 @@
 'use strict';
 
 angular.module('myApp.home', [
+        'myApp.common.header',
+        'myApp.common.footer',
+        'myApp.common.products',
         'myApp.services.authentication',
         'myApp.services.userData',
         'myApp.services.tabsData',

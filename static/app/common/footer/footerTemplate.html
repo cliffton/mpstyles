@@ -1,0 +1,39 @@
+<footer class="footer">
+    <div class="row">
+        <div class="col-sm-2">
+            <h5>About Us</h5>
+            <ul class="link-list">
+                <li ng-repeat="about in footerTabs.aboutUs"><a href="#/{{::about.link}}">{{::about.name}}</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-2">
+            <h5>Our Services</h5>
+            <ul class="link-list">
+                <li ng-repeat="customerService in footerTabs.customerServices"><a href="#/{{::customerService.link}}">{{::customerService.name}}</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-2">
+            <h5>Our Policies</h5>
+            <ul class="link-list">
+                <li ng-repeat="policy in footerTabs.policies"><a href="#/{{::policy.link}}">{{::policy.name}}</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <div class="newsLetterSection">
+                <div class="newsLetterText"> NEWSLETTER SIGN UP</div><span class="dataLoading"><i ng-if="dataLoading" class="fa-li fa fa-spinner fa-spin fa-2x"></i></span>
+                <form class="row" name="subscribeForm" ng-submit="subscribe()" role="form" class="input-group">
+                    <input type="email" ng-model="subscribedEmailId" placeholder="Enter your email id" name="EMAIL" required>
+                    <button type="submit" class="subscribeBtn">Subscribe</button>
+                </form>
+            </div>
+            <div class="brand"><span><b>{{::pageText.brandName}}</b> © 2016. Developed by</span>
+                <a href="https://in.linkedin.com/in/neville-d-souza-92478773" target="_blank">"CLIFFTON & NEVILLE"</a>
+            </div>
+            <ul class="banking-options">
+                <li class="netbank"><span></span></li>
+                <!--<li class="visa"><span></span></li>-->
+                <li class="cod"><span></span></li>
+            </ul>
+        </div>
+    </div>
+</footer>
