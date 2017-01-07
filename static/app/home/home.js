@@ -4,6 +4,7 @@ angular.module('myApp.home', [
         'myApp.common.header',
         'myApp.common.footer',
         'myApp.common.products',
+        'myApp.common.modal',
         'myApp.services.authentication',
         'myApp.services.userData',
         'myApp.services.tabsData',
@@ -47,6 +48,13 @@ angular.module('myApp.home', [
             },
             'message': "Kindly register or login to shop with us.",
             'label': "Sign In or Create an account"
+        };
+
+        $scope.showModal = false;
+        $scope.buttonClicked = "";
+
+        $scope.ButtonClickMethod = function () {
+                alert("your logic goes here");
         };
 
         // getting logged in user info
@@ -100,7 +108,11 @@ angular.module('myApp.home', [
         };
 
         $scope.selected = 0;
-        $scope.select = function(index) {
+        $scope.select = function select(index) {
+            if(index > 0){
+                $scope.msg = "Coming Soon.. !! ";
+                $scope.showModal = !$scope.showModal;
+            }
             $scope.selected = index;
         };
 
