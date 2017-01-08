@@ -82,18 +82,19 @@ angular.module('myApp.home', [
         // sort data based on attributes
         $scope.sortBy =  FilterSortByData.attribute() || [];
 
-        ProductData.getList().then(function(data){
+        $scope.productList = [];
+
+        ProductData.getList().then(function(response){
             // creating data chunks as per UI
-            $scope.productList = ArrayUtils.getDataInChunks(data, 4);
+            $scope.productList = ArrayUtils.getDataInChunks(response.data, 4);
         });
+
+
 
         // page text and labels
         $scope.pageText = {
             brandName: "Manpriya Styles",
             shortlist: "shortlist",
-            limitedStock: "Limited",
-            sale: "Sale",
-            soldOut: "Sold Out",
             seeMore: "See More"
         };
 

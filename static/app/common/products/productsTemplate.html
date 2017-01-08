@@ -4,7 +4,7 @@
 					<div class="col-sm-3" ng-repeat="product in products | filter:$ctrl.query | selectedOptions:filterBy.selected">
 						<a href="#/product-description/{{product.id}}"><img ng-src="{{product.src}}" class="img-responsive" alt="Unable to load image"></a>
 						<div class="product-label">
-							<span ng-class="{'limited-stock-label': product.availability == 'Limited', 'sold-out-label': product.availability == 'Sold Out'}" ng-if="product.availability ">{{::pageText.availability}}</span>
+							<span ng-class="{'limited-stock-label': product.availability == 'Limited', 'sold-out-label': product.availability == 'Sold Out'}" ng-if="product.availability ">{{::product.availability}}</span>
 						</div>
 						<div class="product-detail">
 						<div class="product-name">

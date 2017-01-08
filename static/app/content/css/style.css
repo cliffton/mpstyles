@@ -1123,17 +1123,12 @@ color: #ee6a70
 	vertical-align: middle;
 }
 
-.sale-label, .sold-out-label, .limited-stock-label{
+.sold-out-label, .limited-stock-label{
     font-weight: 300;
     text-transform: uppercase;
     padding: 2px 4px;
     background-color: #FFF;
     opacity: 0.9;
-}
-
-.sale-label{
-    color: #83d3cf;
-    border: 1px solid #83d3cf;
 }
 
 .sold-out-label{
@@ -1142,8 +1137,8 @@ color: #ee6a70
 }
 
 .limited-stock-label{
-    color: #ee6a70;
-    border: 1px solid #ee6a70;
+    color: #83d3cf;
+    border: 1px solid #83d3cf;
 }
 
 .show-more {

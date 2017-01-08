@@ -6,7 +6,7 @@
     "type": "Necklace",
     "price": 1388,
     "availability": "Sold Out",
-    "shortlisted": false,
+    "shortlisted": true,
     "src": "/content/img/image1.png"
   }, {
     "id": 2,
@@ -14,7 +14,6 @@
     "title": "Stylish Choker",
     "type": "Choker",
     "price": 1100,
-    "availability": "In Stock",
     "shortlisted": false,
     "src": "content/img/image02.jpg"
   }, {
@@ -23,7 +22,7 @@
     "title": "Diamond Ring",
     "type": "Rings",
     "price": 75,
-    "availability": "In Stock",
+    "availability": "Limited",
     "shortlisted": false,
     "src": "content/img/image03.jpg"
   }, {
@@ -32,8 +31,7 @@
     "title": "Colorful Bangles",
     "type": "Bangles",
     "price": 95,
-    "availability": "In Stock",
-    "shortlisted": false,
+    "shortlisted": true,
     "src": "content/img/image4.jpg"
   }, {
     "id": 5,
@@ -50,7 +48,6 @@
     "title": "Pattern Chain",
     "type": "Necklace",
     "price": 175,
-    "availability": "In Stock",
     "shortlisted": false,
     "src": "content/img/image5.jpg"
   }, {
@@ -95,8 +92,8 @@
     "title": "Ring",
     "type": "Ring",
     "price": 50,
-    "availability": "In stock",
-    "shortlisted": false,
+    "availability": "Limited",
+    "shortlisted": true,
     "src": "content/img/image10.jpg"
   }, {
     "id": 12,
@@ -104,7 +101,6 @@
     "title": "Black lace Bohemian",
     "type": "Bohemian",
     "price": 500,
-    "availability": "Limited",
     "shortlisted": false,
     "src": "content/img/image12.jpg"
   }]
