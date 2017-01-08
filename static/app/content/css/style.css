@@ -85,6 +85,20 @@ blockquote span:first-child{
     clear: both
 }
 
+/* Modal Section*/
+
+.modal-content {
+    border-radius: 0px
+}
+
+.modal-header {
+    padding: 8px;
+}
+
+.modal-title {
+   color: #a94442
+}
+
 /* Header section */
 header .top-row{
     text-transform: uppercase;

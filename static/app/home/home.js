@@ -28,7 +28,7 @@ angular.module('myApp.home', [
             });
         };
     })
-    .controller('homeCtrl', function($rootScope, $scope, $anchorScroll, AuthenticationService, UserData, TabsData, FilterSortByData, ProductData, ArrayUtils) {
+    .controller('homeCtrl', function($rootScope, $scope, $anchorScroll, AuthenticationService, UserData, TabsData, FilterSortByData, ProductData, ArrayUtils, modalBeanFactory) {
         // show and hide login/logoff alert on page
         $scope.showAlert = true;
 
@@ -50,7 +50,9 @@ angular.module('myApp.home', [
             'label': "Sign In or Create an account"
         };
 
-        $scope.showModal = false;
+        $scope.modalContent = modalBeanFactory;
+        $scope.modalContent.setId("header-modal").setHeaderContent("Coming Soon..!!").setBodyContent("You can checkout our accessories collection and some of our latest deals.");
+
         $scope.buttonClicked = "";
 
         $scope.ButtonClickMethod = function () {
@@ -80,11 +82,10 @@ angular.module('myApp.home', [
         // sort data based on attributes
         $scope.sortBy =  FilterSortByData.attribute() || [];
 
-        // get list of products
-        var data = ProductData.getList();
-
-        // creating data chunks as per UI
-        $scope.productList = ArrayUtils.getDataInChunks(data, 4);
+        ProductData.getList().then(function(data){
+            // creating data chunks as per UI
+            $scope.productList = ArrayUtils.getDataInChunks(data, 4);
+        });
 
         // page text and labels
         $scope.pageText = {
@@ -110,8 +111,7 @@ angular.module('myApp.home', [
         $scope.selected = 0;
         $scope.select = function select(index) {
             if(index > 0){
-                $scope.msg = "Coming Soon.. !! ";
-                $scope.showModal = !$scope.showModal;
+                $scope.modalContent.setShown(true);
             }
             $scope.selected = index;
         };

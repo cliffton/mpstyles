@@ -1,0 +1,111 @@
+{
+  "data": [{
+    "id": 1,
+    "url": "http://cliffton.xyz/api/products/1/",
+    "title": "Beeded chain",
+    "type": "Necklace",
+    "price": 1388,
+    "availability": "Sold Out",
+    "shortlisted": false,
+    "src": "/content/img/image1.png"
+  }, {
+    "id": 2,
+    "url": "http://cliffton.xyz/api/products/2/",
+    "title": "Stylish Choker",
+    "type": "Choker",
+    "price": 1100,
+    "availability": "In Stock",
+    "shortlisted": false,
+    "src": "content/img/image02.jpg"
+  }, {
+    "id": 3,
+    "url": "http://cliffton.xyz/api/products/3/",
+    "title": "Diamond Ring",
+    "type": "Rings",
+    "price": 75,
+    "availability": "In Stock",
+    "shortlisted": false,
+    "src": "content/img/image03.jpg"
+  }, {
+    "id": 4,
+    "url": "http://cliffton.xyz/api/products/4/",
+    "title": "Colorful Bangles",
+    "type": "Bangles",
+    "price": 95,
+    "availability": "In Stock",
+    "shortlisted": false,
+    "src": "content/img/image4.jpg"
+  }, {
+    "id": 5,
+    "url": "http://cliffton.xyz/api/products/5/",
+    "title": "Pattern Chain",
+    "type": "Necklace",
+    "price": 95,
+    "availability": "Limited",
+    "shortlisted": false,
+    "src": "content/img/image24.jpg"
+  }, {
+    "id": 6,
+    "url": "http://cliffton.xyz/api/products/6/",
+    "title": "Pattern Chain",
+    "type": "Necklace",
+    "price": 175,
+    "availability": "In Stock",
+    "shortlisted": false,
+    "src": "content/img/image5.jpg"
+  }, {
+    "id": 7,
+    "url": "http://cliffton.xyz/api/products/7/",
+    "title": "Silver plated Choker",
+    "type": "Choker",
+    "price": 350,
+    "availability": "Limited",
+    "shortlisted": false,
+    "src": "content/img/image6.jpg"
+  }, {
+    "id": 8,
+    "url": "http://cliffton.xyz/api/products/8/",
+    "title": "Black lace Bohemian",
+    "type": "Bohemian",
+    "price": 500,
+    "availability": "Sold Out",
+    "shortlisted": false,
+    "src": "content/img/image7.jpg"
+  }, {
+    "id": 9,
+    "url": "http://cliffton.xyz/api/products/9/",
+    "title": "Black lace Bohemian",
+    "type": "Bohemian",
+    "price": 500,
+    "availability": "Sold Out",
+    "shortlisted": false,
+    "src": "content/img/image8.jpg"
+  }, {
+    "id": 10,
+    "url": "http://cliffton.xyz/api/products/10/",
+    "title": "Black lace Bohemian",
+    "type": "Bohemian",
+    "price": 500,
+    "availability": "Sold Out",
+    "shortlisted": false,
+    "src": "content/img/image9.jpg"
+  }, {
+    "id": 11,
+    "url": "http://cliffton.xyz/api/products/11/",
+    "title": "Ring",
+    "type": "Ring",
+    "price": 50,
+    "availability": "In stock",
+    "shortlisted": false,
+    "src": "content/img/image10.jpg"
+  }, {
+    "id": 12,
+    "url": "http://cliffton.xyz/api/products/12/",
+    "title": "Black lace Bohemian",
+    "type": "Bohemian",
+    "price": 500,
+    "availability": "Limited",
+    "shortlisted": false,
+    "src": "content/img/image12.jpg"
+  }]
+}
