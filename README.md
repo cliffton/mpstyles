@@ -1,3 +1,4 @@
+# Project was scrapped.
 # ManPriya Styles !
 Open CMD and go the path in which the downloaded/cloned repository exist.
 
